@@ -1,0 +1,40 @@
+<div id="register-form" class="dialog-box">
+    <h1>User Registration</h1>
+
+    <p>
+        <label for="username">Username:</label>
+        <input type="text" id="username" placeholder="Username" ng-model="user.username" required="required/>
+    </p>
+
+    <p>
+     <label for=" password">Password:</label>
+        <input type="password" id="password" placeholder="Password" ng-model="user.password" required="required"/>
+    </p>
+
+    <p>
+        <label for="confirmation">Confirm Password:</label>
+        <input id="confirmation" type="confirmation" placeholder="Confirm password" ng-model="user.confirmPassword"
+               required="required"/>
+    </p>
+
+    <p>
+        <label for="fullName">Full Name:</label>
+        <input type="text" id="fullName" placeholder="Full name" ng-model="user.name" required="required"/>
+    </p>
+
+    <p>
+        <label for="email">E-mail:</label>
+        <input id="email" type="email" placeholder="E-mail" ng-pattern="emailPattern" ng-model="user.email"
+               required="required"/>
+    </p>
+
+    <p>
+        <label for="town">Full Name:</label>
+        <input type="text" id="town" placeholder="Town" ng-model="user.town"/>
+    </p>
+
+    <p class="buttons">
+        <a href="#/do-register" class="button">Register</a>
+        <a href="#/login" class="link">Login</a>
+    </p>
+</div>

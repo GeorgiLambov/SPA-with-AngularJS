@@ -1,0 +1,27 @@
+<div ng-controller="LoginCtrl" ng-hide="identity.isAuthenticated()" class="dialog-box">
+    <h1>Login</h1>
+
+    <p>
+        <label for="username">Username:</label>
+        <input ng-model="user.username" type="text" id="username" placeholder="Name" required="required"/>
+    </p>
+
+    <p>
+        <label for="password">Password:</label>
+        <input ng-model="user.password" type="password" id="password" placeholder="Password" required="required"/>
+    </p>
+
+    <p class="buttons">
+        <a href="" ng-click="login(user, loginForm)" class="button">Login</a>
+        <a href="#/register" class="link">Register</a>
+
+    <p>
+</div>
+<ul ng-show="identity.isAuthenticated()" class="header-right">
+    <li>
+        <a href="">{{ identity.getCurrentUser().userName }}</a>
+    </li>
+    <li>
+        <a href="#" ng-click="logout()">Sign Out</a>
+    </li>
+</ul>
