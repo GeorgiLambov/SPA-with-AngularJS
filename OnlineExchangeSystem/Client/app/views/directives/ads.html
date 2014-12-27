@@ -1,0 +1,27 @@
+<div ng-repeat="ad in ads" class="dialog-box">
+    <h1>{{ad.title}}</h1>
+
+    <p class="img">
+        <span>IMG</span>
+
+    <p>
+
+    <p>
+        <input type="text" value="{{ad.text}}" disabled="disabled"/>
+    </p>
+
+    <p>
+        <label for="personName">Name:</label>
+        <input type="text" od='personName' value="{{ad.ownerName}}" disabled="disabled"/>
+    </p>
+
+    <p>
+        <label for="email">Email:</label>
+        <input type="text" id="email" value="{{ad.ownerEmail}}" disabled="disabled"/>
+    </p>
+
+    <p>
+        <label for="phoneNumber">Tel:</label>
+        <input type="text" id="phoneNumber" value="{{ad.ownerPhone}}" disabled="disabled"/>
+    </p>
+</div>
