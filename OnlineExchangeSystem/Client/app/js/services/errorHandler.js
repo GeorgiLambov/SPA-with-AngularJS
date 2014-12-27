@@ -1,6 +1,6 @@
 'use strict';
 
-tripExchange.factory('errorHandler', ['notifier', function(notifier) {
+onlineExchange.factory('errorHandler', ['notifier', function(notifier) {
     return {
         processError: function(serverError) {
             if (serverError['error_description']) {

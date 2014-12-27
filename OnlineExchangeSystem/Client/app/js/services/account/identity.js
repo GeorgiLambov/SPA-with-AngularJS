@@ -1,6 +1,6 @@
 'use strict';
 
-tripExchange.factory('identity', ['$cookieStore', function($cookieStore) {
+onlineExchange.factory('identity', ['$cookieStore', function($cookieStore) {
     var cookieStorageUserKey = 'currentApplicationUser';
 
     var currentUser;

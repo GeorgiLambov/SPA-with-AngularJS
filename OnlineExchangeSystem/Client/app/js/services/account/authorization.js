@@ -1,6 +1,6 @@
 'use strict';
 
-tripExchange.factory('authorization', ['identity', function(identity) {
+onlineExchange.factory('authorization', ['identity', function(identity) {
     var headers = {};
 
     return {

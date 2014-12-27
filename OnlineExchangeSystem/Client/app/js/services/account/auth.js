@@ -1,6 +1,7 @@
 'use strict';
 
-tripExchange.factory('auth', ['$http', '$q', 'identity', 'authorization', 'errorHandler', 'baseServiceUrl', function($http, $q, identity, authorization, errorHandler, baseServiceUrl) {
+onlineExchange.factory('auth', ['$http', '$q', 'identity', 'authorization', 'errorHandler', 'baseServiceUrl',
+    function($http, $q, identity, authorization, errorHandler, baseServiceUrl) {
     var usersApi = baseServiceUrl + '/api/users'
 
     return {
