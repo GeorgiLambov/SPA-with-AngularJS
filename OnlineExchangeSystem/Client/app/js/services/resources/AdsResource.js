@@ -6,7 +6,13 @@ onlineExchange.factory('AdsResource', ['$resource', 'authorization', 'baseServic
         var headers = authorization.getAuthorizationHeader();
 
         var AdsResource = $resource(baseServiceUrl + '/api/:user/' + 'ads' + ':activate/:id', null, {
-            'getAll': {method: 'GET', isArray: false},
+            'getAll': {
+                method: 'GET',
+                isArray: true,
+                transformResponse: function (data, headers) {
+                    return JSON.parse(data).ads;
+                }
+            },
             'create': {method: 'POST', params: {user: '@user'}, isArray: false, headers: headers},
             'getUserAds': {method: 'GET', params: {user: '@user'}, isArray: false, headers: headers},
             'deactivateUserAd': {
@@ -30,8 +36,7 @@ onlineExchange.factory('AdsResource', ['$resource', 'authorization', 'baseServic
 
         return {
             getAll: function () {
-                return AdsResource.getAll().ads;
-
+                return AdsResource.getAll();
             },
             create: function (ads) {
                 return AdsResource.create(ads).$promise;
@@ -53,6 +58,10 @@ onlineExchange.factory('AdsResource', ['$resource', 'authorization', 'baseServic
             },
             deleteUserAd: function (id) {
                 return AdsResource.deleteUserAd({id: id}).$promise;
+            },
+            getAllWithPaging: function (pagesize, startpage) {
+                return AdsResource.getAllWithPaging();
+                //todo
             }
         }
     }]);

@@ -18,8 +18,12 @@ var onlineExchange = angular.module('onlineExchange', ['ngRoute', 'ngResource', 
                 controller: 'HomeCtrl'
             })
             .when('/register', {
-                templateUrl: 'views/partials/register.html',
+                templateUrl: 'views/partials/user-register.html',
                 controller: 'SignUpCtrl'
+            })
+            .when('/login', {
+                templateUrl: 'views/partials/user-login.html',
+                controller: 'LoginCtrl'
             })
             .otherwise({redirectTo: '/'});
     }])
