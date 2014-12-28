@@ -9,8 +9,8 @@
 <header id="header">Ads<span></span></header>
 
 <body ng-app="onlineExchange" ng-cloak>
-<div ng-include="'views/partials/menu-unauthorized-user.html'"></div>
-<div ng-view></div>
+<div id='left-side-menu' ng-include="'views/partials/menu-unauthorized-user.html'"></div>
+<div ng-view id="wrapper"></div>
 
 <footer id="footer">&copy; 2014 by Software University Foundation, No Rights Reserved</footer>
 
@@ -29,11 +29,14 @@
 <script src="js/services/account/identity.js"></script>
 <script src="js/services/account/authorization.js"></script>
 <script src="js/services/interceptors/errorHandlerHttpInterceptor.js"></script>
-<script src="js/services/resources/AdsResource.js"></script>
+<script src="js/services/resources/PublicAdsResource.js"></script>
+<script src="js/services/resources/UserAdsResource.js"></script>
 
 <script src="js/services/notifier.js"></script>
 <script src="js/services/errorHandler.js"></script>
 
 <script src="js/directives/ads.js"></script>
+<script src="js/directives/pager.js"></script>
+
 </body>
 </html>

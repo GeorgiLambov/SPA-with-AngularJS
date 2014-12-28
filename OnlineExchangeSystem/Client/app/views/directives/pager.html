@@ -1,0 +1,10 @@
+<div id="pager">
+    <button ng-click="firstPage()" ng-disabled="request.page == 1">First</button>
+    <button ng-click="previousPage()" ng-disabled="request.page == 1">Previous</button>
+    <button ng-click="currentPage()">1</button>
+    <button ng-click="nextPage()">Next</button>
+    <button ng-click="lastPage()">Last</button>
+    <label for="pageSizer">Products:</label>
+    <input id='pageSizer' type="number" class="form-control" ng-model="request.pageSize"/>
+    <button ng-click="getPageSize()">OK</button>
+</div>

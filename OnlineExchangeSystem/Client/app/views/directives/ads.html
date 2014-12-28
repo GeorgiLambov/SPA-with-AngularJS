@@ -1,14 +1,7 @@
-<div ng-repeat="ad in ads" class="dialog-box">
+<div ng-repeat="ad in result.ads" class="dialog-box">
     <h1>{{ad.title}}</h1>
-
-    <p class="img">
-        <span>IMG</span>
-
-    <p>
-
-    <p>
-        <input type="text" value="{{ad.text}}" disabled="disabled"/>
-    </p>
+    <span>IMG</span>
+    <input type="text" value="{{ad.text}}" disabled="disabled"/>
 
     <p>
         <label for="personName">Name:</label>

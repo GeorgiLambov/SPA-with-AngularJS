@@ -37,4 +37,4 @@ var onlineExchange = angular.module('onlineExchange', ['ngRoute', 'ngResource', 
     .value('toastr', toastr)
     .constant('baseServiceUrl', 'http://softuni-ads.azurewebsites.net');
 
-//nstant('baseServiceUrl', 'http://localhost:.....');
+//nstant('baseServiceUrl', 'http://localhost:1337');

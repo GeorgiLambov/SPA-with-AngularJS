@@ -11,21 +11,25 @@ body {
     text-align: center;
 }
 
-#menu {
+#left-side-menu {
+    width: 150px;
     float: left;
-    list-style-type: none;
     background: #A9D18E;
-    padding: 5px 10px;
-    margin: 10px;
+    padding: 10px 10px;
+    margin: 5px;
+    border-radius: 10px;
+    border: 1px solid #507E32;
+    box-shadow: 1px 1px 3px #507E32;
 }
 
-#menu li {
-    margin: 8px 0;
+#menu-unauthorized > .button {
+    width: 60%;
+    margin: 10px 10px;
 }
 
 #wrapper {
-    margin-left: 111px;
-    /*text-align: center;*/
+    width: 1000px;
+    margin: 0 auto;
 }
 
 .button {
@@ -48,9 +52,9 @@ body {
 
 .dialog-box {
     display: inline-block;
-    margin: 10px 0;
+    margin: 5px 5px;
     background: #A9D18E;
-    padding: 20px;
+    padding: 10px;
     border-radius: 10px;
     border: 1px solid #507E32;
     box-shadow: 1px 1px 3px #507E32;
@@ -62,8 +66,7 @@ body {
     font-size: 18pt;
 }
 
-.dialog-box h1:after
-{
+.dialog-box h1:after {
     content: ' ';
     display: block;
     border: 1px solid #507E32;
@@ -98,8 +101,12 @@ body {
     border: 1px solid #3a6c35;
 }
 
-#phones {
-    margin: 10px;
+#pager {
+    display: inline-block;
+    padding: 10px;
+    border-radius: 5px;
+    color: #aaa;
+    font-size: .875em;
 }
 
 table tr {

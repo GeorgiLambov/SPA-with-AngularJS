@@ -1,6 +1,9 @@
-<div ng-if='ads.length'>
-    <div ads/>
-</div>
-<div ng-if="!ads.length">
-    <h2>No results!</h2>
+<div>
+    <div ng-if="result.ads.length">
+        <div ads></div>
+    </div>
+    <div ng-if="!result.ads.length">
+        <h2>No results!</h2>
+    </div>
+    <div pager/>
 </div>
