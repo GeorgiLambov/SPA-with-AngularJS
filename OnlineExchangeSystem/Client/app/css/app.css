@@ -2,6 +2,11 @@ body {
     font-family: Arial, serif;
 }
 
+#wrapper {
+    width: 1000px;
+    margin: 0 auto;
+}
+
 #header {
     display: block;
     padding: 5px;
@@ -27,9 +32,16 @@ body {
     margin: 10px 10px;
 }
 
-#wrapper {
-    width: 1000px;
-    margin: 0 auto;
+#menu-filter-category {
+    float: right;
+    list-style-type: none;
+    background: #A9D18E;
+    padding: 5px 10px;
+    margin: 10px;
+}
+
+#menu li {
+    margin: 8px 0;
 }
 
 .button {
@@ -107,6 +119,10 @@ body {
     border-radius: 5px;
     color: #aaa;
     font-size: .875em;
+}
+
+#pager > #selected {
+    border: 1px solid #0000ff;
 }
 
 table tr {

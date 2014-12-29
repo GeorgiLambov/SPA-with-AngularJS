@@ -1,10 +1,7 @@
 'use strict';
 
 onlineExchange.filter('filterByCategory', [function () {
-    return function (ads, driverId) {
-        if (!driverId) {
-            return ads;
-        }
+    return function (ads) {
 
         ads = ads || [];
         var result = [];
