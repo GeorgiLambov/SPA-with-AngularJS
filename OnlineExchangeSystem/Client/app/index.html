@@ -9,12 +9,16 @@
 <header id="header">Ads<span></span></header>
 
 <body ng-app="onlineExchange" ng-cloak>
-<div id='left-side-menu' ng-include="'views/partials/menu-unauthorized-user.html'"></div>
+<div class='left-side-menu' ng-include="'views/partials/menu-unauthorized-user.html'"></div>
 <div ng-view id="wrapper"></div>
 
 <footer id="footer">&copy; 2014 by Software University Foundation, No Rights Reserved</footer>
 
+<script src="libs/jquery/jquery.min.js"></script>
+<script src="libs/jquery-ui/jquery-ui.min.js"></script>
+<script src="libs/jquery-ui/jquery-ui-timepicker-addon.min.js"></script>
 <script src="libs/toastr/toastr.min.js"></script>
+
 <script src="libs/angular/angular.js"></script>
 <script src="libs/angular/angular-resource.min.js"></script>
 <script src="libs/angular/angular-route.min.js"></script>
@@ -25,7 +29,7 @@
 <script src="js/controllers/SignUpCtrl.js"></script>
 <script src="js/controllers/LoginCtrl.js"></script>
 
-<script src="js/services/account/auth.js"></script>
+<script src="js/services/account/userAccountService.js"></script>
 <script src="js/services/account/identity.js"></script>
 <script src="js/services/account/authorization.js"></script>
 <script src="js/services/interceptors/errorHandlerHttpInterceptor.js"></script>
@@ -38,6 +42,7 @@
 <script src="js/directives/ads.js"></script>
 <script src="js/directives/pager.js"></script>
 <script src="js/directives/categories.js"></script>
+<script src="js/directives/towns.js"></script>
 
 </body>
 </html>

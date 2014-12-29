@@ -1,10 +1,21 @@
 <div>
     <div ng-if="result.ads.length">
         <div ads></div>
-        <div pager/>
+        <div pager></div>
     </div>
     <div ng-if="!result.ads.length">
         <h2>No results!</h2>
     </div>
+</div>
+<div class="menu-filter">
+    <div>
+        <h3>Categories</h3>
+        <select categories ng-model="filterRequest.category"></select>
+    </div>
+    <div>
+        <h3>Towns</h3>
+        <select towns ng-model="filterRequest.town"></select>
+    </div>
+    <a href="" ng-click="filterByCategoryAndTown(filterRequest)" class="button">Filter</a>
 </div>
 

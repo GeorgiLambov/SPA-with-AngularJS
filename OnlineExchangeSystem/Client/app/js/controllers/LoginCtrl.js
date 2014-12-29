@@ -1,14 +1,15 @@
 'use strict';
 
-onlineExchange.controller('LoginCtrl', ['$scope', '$location', 'notifier', 'identity', 'auth',
-    function ($scope, $location, notifier, identity, auth) {
+onlineExchange.controller('LoginCtrl', ['$scope', '$location', 'notifier', 'identity', 'userAccountService',
+    function ($scope, $location, notifier, identity, userAccountService) {
         $scope.identity = identity;
 
         $scope.login = function (user, loginForm) {
             if (loginForm.$valid) {
-                auth.login(user).then(function (success) {
+                userAccountService.login(user).then(function (success) {
                     if (success) {
                         notifier.success('Successful login!');
+                        $location.path('/');
                     }
                     else {
                         notifier.error('Username/Password combination is not valid!');

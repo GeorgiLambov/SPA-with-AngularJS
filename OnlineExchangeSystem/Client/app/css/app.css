@@ -16,7 +16,7 @@ body {
     text-align: center;
 }
 
-#left-side-menu {
+.left-side-menu {
     width: 150px;
     float: left;
     background: #A9D18E;
@@ -32,16 +32,25 @@ body {
     margin: 10px 10px;
 }
 
-#menu-filter-category {
+.menu-filter {
+    width: 150px;
     float: right;
-    list-style-type: none;
     background: #A9D18E;
-    padding: 5px 10px;
-    margin: 10px;
+    list-style-type: none;
+    padding: 10px 10px;
+    margin: 5px;
+    border-radius: 10px;
+    border: 1px solid #507E32;
+    box-shadow: 1px 1px 3px #507E32;
 }
 
-#menu li {
-    margin: 8px 0;
+.menu-filter > .button {
+    width: 60%;
+    margin: 10px 10px;
+}
+
+.menu-filter select {
+    margin: 10px 20px;
 }
 
 .button {
