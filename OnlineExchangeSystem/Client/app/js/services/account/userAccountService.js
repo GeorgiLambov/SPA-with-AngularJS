@@ -1,6 +1,6 @@
 'use strict';
 
-onlineExchange.factory('auth', ['$http', '$q', 'identity', 'authorization', 'errorHandler', 'baseServiceUrl',
+onlineExchange.factory('userAccountService', ['$http', '$q', 'identity', 'authorization', 'errorHandler', 'baseServiceUrl',
     function ($http, $q, identity, authorization, errorHandler, baseServiceUrl) {
         var usersApi = baseServiceUrl + '/api/user'
 
@@ -20,9 +20,9 @@ onlineExchange.factory('auth', ['$http', '$q', 'identity', 'authorization', 'err
             },
             login: function (user) {
                 var deferred = $q.defer();
-                user['grant_type'] = 'password';
+
                 $http.post(usersApi + '/login', 'username=' + user.username + '&password=' +
-                    user.password + '&grant_type=password',
+                    user.password,
                     {headers: {'Content-Type': 'application/x-www-form-urlencoded'}})
                     .success(function (response) {
                         if (response['access_token']) {
