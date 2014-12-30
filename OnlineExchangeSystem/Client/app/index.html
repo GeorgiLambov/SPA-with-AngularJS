@@ -7,13 +7,14 @@
     <link rel="stylesheet" href="../css/app.css"/>
 </head>
 <header id="header">Ads</header>
-<hr/>
 <div ng-include="'views/partials/user-logout.html'"></div>
-
+<hr/>
 
 <body>
 
 <div class="left-side-menu">
+    <a href=" #/" class="button">Home</a>
+    <br/>
     <div ng-include="'views/partials/user-menu-unauthorized.html'"></div>
     <div ng-include="'views/partials/user-menu.html'"></div>
 </div>
@@ -36,8 +37,8 @@
 <script src="js/app.js"></script>
 <script src="js/controllers/HomeCtrl.js"></script>
 <script src="js/controllers/SignUpCtrl.js"></script>
-<script src="js/controllers/LoginCtrl.js"></script>
-<script src="js/controllers/UserHomeCtrl.js"></script>
+<script src="js/controllers/LoginLogoutCtrl.js"></script>
+
 
 <script src="js/services/account/userAccountService.js"></script>
 <script src="js/services/account/identity.js"></script>

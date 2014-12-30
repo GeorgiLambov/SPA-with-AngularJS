@@ -1,6 +1,6 @@
 'use strict';
 
-onlineExchange.controller('LoginCtrl', ['$scope', '$location', 'notifier', 'identity', 'userAccountService',
+onlineExchange.controller('LoginLogoutCtrl', ['$scope', '$location', 'notifier', 'identity', 'userAccountService',
     function ($scope, $location, notifier, identity, userAccountService) {
         $scope.identity = identity;
 

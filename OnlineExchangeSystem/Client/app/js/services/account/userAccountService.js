@@ -2,7 +2,7 @@
 
 onlineExchange.factory('userAccountService', ['$http', '$q', 'identity', 'authorization', 'errorHandler', 'baseServiceUrl',
     function ($http, $q, identity, authorization, errorHandler, baseServiceUrl) {
-        var usersApi = baseServiceUrl + '/api/user'
+        var usersApi = baseServiceUrl + '/api/user';
 
         return {
             signup: function (user) {
@@ -41,7 +41,7 @@ onlineExchange.factory('userAccountService', ['$http', '$q', 'identity', 'author
                 var deferred = $q.defer();
 
                 var headers = authorization.getAuthorizationHeader();
-                $http.post(usersApi + '/logout', {headers: headers})
+                $http.post(usersApi + '/logout', {}, {headers: headers})
                     .success(function () {
                         identity.setCurrentUser(undefined);
                         authorization.removeAuthorizationHeader();

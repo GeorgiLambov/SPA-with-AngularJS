@@ -23,32 +23,11 @@ var onlineExchange = angular.module('onlineExchange', ['ngRoute', 'ngResource', 
             })
             .when('/login', {
                 templateUrl: 'views/partials/user-login.html',
-                controller: 'LoginCtrl'
+                controller: 'LoginLogoutCtrl'
             })
             .when('#/user/home', {
                 templateUrl: 'views/partials/home.html',
-                controller: 'HomeCtrl',
-                resolve: routeUserChecks.authenticated
-            })
-            .when('#/user/ads', {
-                templateUrl: 'views/partials/user-all-ads.html',
-                controller: 'HomeCtrl',
-                resolve: routeUserChecks.authenticated
-            })
-            .when('#/user/ads/edit/:id', {
-                templateUrl: ' ',
-                controller: ' ',
-                resolve: routeUserChecks.authenticated
-            })
-            .when('#/user/ads/delete/:id', {
-                templateUrl: ' ',
-                controller: ' ',
-                resolve: routeUserChecks.authenticated
-            })
-            .when('#/user/profile', {
-                templateUrl: ' ',
-                controller: ' ',
-                resolve: routeUserChecks.authenticated
+                controller: 'HomeCtrl'
             })
             .otherwise({redirectTo: '/'});
     }])

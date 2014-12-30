@@ -1,7 +1,6 @@
-<div id="menu-unauthorized">
+<div id="menu-unauthorized" ng-controller="LoginLogoutCtrl"
+     ng-show="!identity.isAuthenticated()">
     <h3>To publish a new ad, please login.</h3>
-    <a href="#/" class="button">Home</a>
-    <br/>
     <a href="#/login" class="button">Login</a>
     <br/>
     <a href="#/register" class="button">Register</a>
