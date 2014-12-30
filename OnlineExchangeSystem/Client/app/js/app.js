@@ -1,6 +1,6 @@
 'use strict';
 
-var onlineExchange = angular.module('onlineExchange', ['ngRoute', 'ngResource', 'ngCookies']).
+var onlineExchange = angular.module('onlineExchange', ['ngRoute', 'ngResource', 'ngCookies', 'angularFileUpload']).
     config(['$routeProvider', '$httpProvider', function ($routeProvider, $httpProvider) {
         $httpProvider.interceptors.push('errorHandlerHttpInterceptor');
 
@@ -25,9 +25,10 @@ var onlineExchange = angular.module('onlineExchange', ['ngRoute', 'ngResource', 
                 templateUrl: 'views/partials/user-login.html',
                 controller: 'LoginLogoutCtrl'
             })
-            .when('#/user/home', {
-                templateUrl: 'views/partials/home.html',
-                controller: 'HomeCtrl'
+            .when('#/user/ads/publish', {
+                templateUrl: 'views/partials/user-publish-add.html',
+                controller: 'UserCtrl',
+                resolve: routeUserChecks.authenticated
             })
             .otherwise({redirectTo: '/'});
     }])

@@ -1,16 +1,15 @@
 'use strict';
 
 onlineExchange.controller('UserCtrl', ['$scope', 'PublicAdsResource', 'UserAdsResource', 'identity', 'notifier',
-    function HomeCtrl($scope, PublicAdsResource, UserAdsResource, identity) {
-        $scope.pageRequest = {pageSize: 3, startPage: 1};
-        $scope.identity = identity;  //todo
-        $scope.filterRequest = {};
+    'FileUploader', function HomeCtrl($scope, PublicAdsResource, UserAdsResource, identity, notifier, FileUploader) {
+        // $scope.pageRequest = {pageSize: 3, startPage: 1};
+        // $scope.filterRequest = {};     HomeCTRl
+        $scope.imgPattern = /^data:image///.*$/;
+        $scope.identity = identity;
+        $scope.uploader = new FileUploader();
 
-        $scope.result = PublicAdsResource.getAllAds($scope.pageRequest);
-        $scope.allCategory = PublicAdsResource.getAllCategories();
-        $scope.alltowns = PublicAdsResource.getAllTowns();
 
-        $scope.pageFilter = function (pageRequest) {
+        $scope.userAds = function () {
             PublicAdsResource.getAllAds(pageRequest)
                 .$promise
                 .then(function (result) {
@@ -18,7 +17,7 @@ onlineExchange.controller('UserCtrl', ['$scope', 'PublicAdsResource', 'UserAdsRe
                 });
         };
 
-        $scope.filterByCategoryAndTown = function (filterRequest) {
+        $scope.userPublishAd = function (filterRequest) {
             var prom = filterRequest;
             PublicAdsResource.getFilteredAds(filterRequest)
                 .$promise

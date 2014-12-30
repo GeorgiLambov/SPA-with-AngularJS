@@ -1,7 +1,7 @@
-<div ng-repeat="ad in result.ads" class="dialog-box">
+<div ng-repeat="ad in allAds.ads" class="dialog-box">
     <h1>{{ad.title}}<span>Date</span></h1>
 
-    <img ng-src="{{ad.imageDataUrl}}"></img>
+    <img ng-src="{{ad.imageDataUrl}}" alt="No Image"></img>
 
     <p>
         <input type="text" value="{{ad.text}}" disabled="disabled"/>

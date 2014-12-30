@@ -1,9 +1,8 @@
-<div id="nav" ng-controller="LoginLogoutCtrl" ng-show="identity.isAuthenticated()">
+<div id="nav" ng-controller="UserCtrl" ng-show="identity.isAuthenticated()">
     <h3>Navigation</h3>
-
     <a href="" ng-click="" class="link">My Ads</a>
     <br/>
-    <a href="" class="link">Publish New Ad</a>
+    <a href="#/user/ads/publish" class="link">Publish New Ad</a>
     <br/>
     <a href="" class="link">Edit Profile</a>
 </div>

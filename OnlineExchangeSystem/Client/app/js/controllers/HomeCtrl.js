@@ -1,12 +1,11 @@
 'use strict';
 
-onlineExchange.controller('HomeCtrl', ['$scope', 'PublicAdsResource', 'UserAdsResource', 'identity', 'notifier',
-    function HomeCtrl($scope, PublicAdsResource, UserAdsResource, identity) {
+onlineExchange.controller('HomeCtrl', ['$scope', 'PublicAdsResource', 'notifier',
+    function HomeCtrl($scope, PublicAdsResource, notifier) {
         $scope.pageRequest = {pageSize: 3, startPage: 1};
-        $scope.identity = identity;  //todo
         $scope.filterRequest = {};
 
-        $scope.result = PublicAdsResource.getAllAds($scope.pageRequest);
+        $scope.allAds = PublicAdsResource.getAllAds($scope.pageRequest);
         $scope.allCategory = PublicAdsResource.getAllCategories();
         $scope.alltowns = PublicAdsResource.getAllTowns();
 
@@ -14,7 +13,7 @@ onlineExchange.controller('HomeCtrl', ['$scope', 'PublicAdsResource', 'UserAdsRe
             PublicAdsResource.getAllAds(pageRequest)
                 .$promise
                 .then(function (result) {
-                    $scope.result = result;
+                    $scope.allAds = result;
                 });
         };
 
@@ -23,7 +22,7 @@ onlineExchange.controller('HomeCtrl', ['$scope', 'PublicAdsResource', 'UserAdsRe
             PublicAdsResource.getFilteredAds(filterRequest)
                 .$promise
                 .then(function (result) {
-                    $scope.result = result;
+                    $scope.allAds = result;
                     notifier.success('Filtered successful!');
                 });
         };
