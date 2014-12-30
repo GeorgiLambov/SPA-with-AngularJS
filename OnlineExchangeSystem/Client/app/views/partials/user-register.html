@@ -1,55 +1,48 @@
-<form name="signUpForm" class="dialog-box">
+<form name="signUpForm" class="form-box">
     <h1>User Registration</h1>
 
-    <div>
-        <p>
-            <label for="username">Username:</label>
-            <input type="text" id="username" placeholder="Username" ng-model="user.username" required="required/>
+    <p>
+        <label for="username">Username:</label>
+        <input type="text" id="username" placeholder="Username" ng-model="user.username" required/>
     </p>
-     </div>
-    <div>
-   <p>
-        <label for=" pass">Password:</label>
-            <input type="password" id="pass" placeholder="Password" ng-model="user.password" required="required"/>
-        </p>
-    </div>
-    <div>
-        <p>
-            <label for="confirmation">Confirm Password:</label>
-            <input id="confirmation" type="password" placeholder="Confirm password" ng-model="user.confirmPassword"
-                   required="required"/>
-        </p>
-    </div>
-    <div>
-        <p>
-            <label for="fullName">Full Name:</label>
-            <input type="text" id="fullName" placeholder="Full name" ng-model="user.name" required="required"/>
-        </p>
-    </div>
-    <div>
-        <p>
-            <label for="email">E-mail:</label>
-            <input id="email" type="email" placeholder="E-mail" ng-pattern="emailPattern" ng-model="user.email"
-                   required="required"/>
-        </p>
-    </div>
-    <div>
-        <p>
-            <label for="phone">Phone:</label>
-            <input type="text" id="phone" placeholder="Phone" ng-model="user.phone"/>
-        </p>
-    </div>
-    <div>
-        <p>
-            <label for="town">Town:</label>
-            <input type="text" id="town" placeholder="Town" ng-model="user.town"/>
-        </p>
-    </div>
 
-    <div>
-        <p class="buttons">
-            <a href="" ng-click="register(user)" class="button">Register</a>
-            <a href="#/login" class="link">Login</a>
-        </p>
-    </div>
+    <p>
+        <label for="pass">Password:</label>
+        <input type="password" id="pass" placeholder="Password" ng-model="user.password" ng-minlength="2" required/>
+    </p>
+
+    <p>
+        <label for="confirmation">Confirm Password:</label>
+        <input id="confirmation" type="password" placeholder="Confirm password" ng-model="user.confirmPassword"
+               required/>
+    </p>
+
+    <p>
+        <label for="fullName">Full Name:</label>
+        <input type="text" id="fullName" placeholder="Full name" ng-model="user.name" required/>
+    </p>
+
+    <p>
+        <label for="email">E-mail:</label>
+        <input id="email" type="email" placeholder="E-mail" ng-pattern="emailPattern" ng-model="user.email"
+               required/>
+    </p>
+
+    <p>
+        <label for="phone">Phone:</label>
+        <input type="text" id="phone" placeholder="Phone" ng-model="user.phone"/>
+    </p>
+
+    <p>
+        <label for="town">Town:</label>
+        <input type="text" id="town" placeholder="Town" ng-model="user.town"/>
+    </p>
+
+    <p class="buttons">
+        <button ng-click="register(user, signUpForm)"
+                ng-disabled="user.password != user.confirmPassword"
+                class="button">Register
+        </button>
+        <a href="#/login" class="link">Login</a>
+    </p>
 </form>

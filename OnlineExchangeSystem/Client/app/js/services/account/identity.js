@@ -1,11 +1,11 @@
 'use strict';
 
-onlineExchange.factory('identity', ['$cookieStore', function($cookieStore) {
+onlineExchange.factory('identity', ['$cookieStore', function ($cookieStore) {
     var cookieStorageUserKey = 'currentApplicationUser';
 
     var currentUser;
     return {
-        getCurrentUser: function() {
+        getCurrentUser: function () {
             var savedUser = $cookieStore.get(cookieStorageUserKey);
             if (savedUser) {
                 return savedUser;
@@ -13,7 +13,7 @@ onlineExchange.factory('identity', ['$cookieStore', function($cookieStore) {
 
             return currentUser;
         },
-        setCurrentUser: function(user) {
+        setCurrentUser: function (user) {
             if (user) {
                 $cookieStore.put(cookieStorageUserKey, user);
             }
@@ -23,7 +23,7 @@ onlineExchange.factory('identity', ['$cookieStore', function($cookieStore) {
 
             currentUser = user;
         },
-        isAuthenticated: function() {
+        isAuthenticated: function () {
             return !!this.getCurrentUser();
         }
     }

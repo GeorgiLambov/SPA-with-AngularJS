@@ -1,18 +1,27 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" ng-app="onlineExchange" ng-cloak>
 <head>
     <meta charset="utf-8">
     <title>Online Ads System</title>
     <link rel="stylesheet" href="../css/toastr.min.css"/>
     <link rel="stylesheet" href="../css/app.css"/>
 </head>
-<header id="header">Ads<span></span></header>
+<header id="header">Ads</header>
+<hr/>
+<div ng-include="'views/partials/user-logout.html'"></div>
 
-<body ng-app="onlineExchange" ng-cloak>
-<div class='left-side-menu' ng-include="'views/partials/menu-unauthorized-user.html'"></div>
+
+<body>
+
+<div class="left-side-menu">
+    <div ng-include="'views/partials/user-menu-unauthorized.html'"></div>
+    <div ng-include="'views/partials/user-menu.html'"></div>
+</div>
 <div ng-view id="wrapper"></div>
 
-<footer id="footer">&copy; 2014 by Software University Foundation, No Rights Reserved</footer>
+<footer id="footer">
+    <hr/> &copy; 2014 by Software University Foundation, No Rights Reserved
+</footer>
 
 <script src="libs/jquery/jquery.min.js"></script>
 <script src="libs/jquery-ui/jquery-ui.min.js"></script>
@@ -28,6 +37,7 @@
 <script src="js/controllers/HomeCtrl.js"></script>
 <script src="js/controllers/SignUpCtrl.js"></script>
 <script src="js/controllers/LoginCtrl.js"></script>
+<script src="js/controllers/UserHomeCtrl.js"></script>
 
 <script src="js/services/account/userAccountService.js"></script>
 <script src="js/services/account/identity.js"></script>

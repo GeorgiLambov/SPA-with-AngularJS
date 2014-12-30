@@ -41,7 +41,7 @@ onlineExchange.factory('userAccountService', ['$http', '$q', 'identity', 'author
                 var deferred = $q.defer();
 
                 var headers = authorization.getAuthorizationHeader();
-                $http.post(usersApi + '/logout', {}, {headers: headers})
+                $http.post(usersApi + '/logout', {headers: headers})
                     .success(function () {
                         identity.setCurrentUser(undefined);
                         authorization.removeAuthorizationHeader();
@@ -59,7 +59,7 @@ onlineExchange.factory('userAccountService', ['$http', '$q', 'identity', 'author
                 }
                 else {
                     var headers = authorization.getAuthorizationHeader();
-                    $http.get(usersApi + '/userInfo', {headers: headers})
+                    $http.get(usersApi + '/profile', {headers: headers})
                         .success(function (response) {
                             var currentUser = identity.getCurrentUser();
                             angular.extend(currentUser, {userInfo: response});

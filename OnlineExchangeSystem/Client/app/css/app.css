@@ -1,56 +1,89 @@
-body {
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
     font-family: Arial, serif;
 }
 
-#wrapper {
-    width: 1000px;
-    margin: 0 auto;
+html, body {
+    height: 100%;
+}
+
+body {
+    color: #111;
+    background-color: #FFF;
+    font: 1.1em 'Nunito', Arial, sans-serif;
+    text-align: center;
+    text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-size: 100%;
+}
+
+h1 {
+    font-size: 150%;
+    margin-bottom: 1em;
+}
+
+p {
+    margin: 1em 0;
 }
 
 #header {
     display: block;
-    padding: 5px;
+    padding: 0.3em;
     background: #A9D18E;
-    font-size: 16pt;
+    height: 1em;
+    font-size: 2em;
     font-weight: bold;
     text-align: center;
 }
 
+#wrapper {
+    width: 80%;
+    margin: .5em auto;
+    float: left;
+}
+
 .left-side-menu {
-    width: 150px;
+    width: 10%;
     float: left;
     background: #A9D18E;
-    padding: 10px 10px;
-    margin: 5px;
-    border-radius: 10px;
+    padding: 0.5em 0.5em;
+    margin: 0.5em;
+    border-radius: 1em;
     border: 1px solid #507E32;
     box-shadow: 1px 1px 3px #507E32;
+    display: table;
+
 }
 
 #menu-unauthorized > .button {
-    width: 60%;
-    margin: 10px 10px;
+    width: 40%;
+    margin: 0.5em 0.5em;
+
 }
 
 .menu-filter {
-    width: 150px;
-    float: right;
+    width: 10%;
+    float: left;
     background: #A9D18E;
     list-style-type: none;
-    padding: 10px 10px;
-    margin: 5px;
-    border-radius: 10px;
+    padding: 0.5em 0.5em;
+    margin: 0.5em auto;
+    border-radius: 1em;
     border: 1px solid #507E32;
     box-shadow: 1px 1px 3px #507E32;
 }
 
 .menu-filter > .button {
-    width: 60%;
-    margin: 10px 10px;
+    width: 50%;
+    margin: 0.5em 0.5em;
 }
 
 .menu-filter select {
-    margin: 10px 20px;
+    margin: 1em 1em;
 }
 
 .button {
@@ -59,60 +92,73 @@ body {
     border-radius: 5px;
     color: white;
     text-decoration: none;
-    padding: 10px 20px;
+    padding: 0.5em 0.5em;
     display: inline-block;
-    margin: 0 10px;
+    margin: 0 1.5em;
 }
 
 .link {
     color: #2E75B6;
     text-decoration: none;
-    padding: 2px 0;
+    margin: 0 auto;
     border-bottom: 1px dotted #2E75B6;
+
+}
+
+.main-list {
+    margin: 0 auto;
+    display: table;
+    float: left;
+    width: 80%;
 }
 
 .dialog-box {
-    display: inline-block;
-    margin: 5px 5px;
+    display: table-cell;
+    margin: 0.5em 0.5em;
     background: #A9D18E;
-    padding: 10px;
-    border-radius: 10px;
+    padding: 1em;
+    border-radius: 1em;
     border: 1px solid #507E32;
     box-shadow: 1px 1px 3px #507E32;
 }
 
+img {
+    width: 6em;
+    float: left;
+}
+
 .dialog-box h1 {
-    margin: 0 0 10px 0;
+    margin: 0 0 1.2em 0;
     text-align: center;
-    font-size: 18pt;
+    font-size: 1em;
 }
 
 .dialog-box h1:after {
     content: ' ';
     display: block;
     border: 1px solid #507E32;
-    margin: 10px 0 20px 0;
+    margin: 1em 0 2em 0;
     box-shadow: 1px 1px 3px #507E32;
 }
 
 .dialog-box p {
-    margin: 5px 0;
+    margin: 0.1em 0;
 }
 
 .dialog-box p.buttons {
-    margin: 20px 0 0 0;
+    margin: 2em 0 0 0;
     text-align: center;
 }
 
 .dialog-box label {
     display: inline-block;
-    min-width: 90px;
+    min-width: 3em;
 }
 
-.dialog-box input {
-    font-size: 12pt;
+.dialog-box input, textarea {
+    font-size: 1em;
     font-weight: bold;
-    padding: 5px;
+    padding: 0.2em;
     border: 1px solid #70AD47;
     border-radius: 2px;
 }
@@ -123,15 +169,25 @@ body {
 }
 
 #pager {
-    display: inline-block;
-    padding: 10px;
-    border-radius: 5px;
-    color: #aaa;
-    font-size: .875em;
+    padding: 1em;
+    font-size: 1em;
+
 }
 
 #pager > #selected {
-    border: 1px solid #0000ff;
+    border: 1px solid #507E32;
+}
+
+#pager > button {
+    margin: 0.5em auto;
+    padding: .5em;
+    box-shadow: 1px 1px 3px #507E32;
+    background-color: #A9D18E;
+    border: #A9D18E;
+}
+
+#pager > input {
+    width: 3em;
 }
 
 table tr {
@@ -148,11 +204,70 @@ table th, table td {
 }
 
 #footer {
-    display: block;
-    padding: 5px;
+
+    padding: 0.3em;
     background: #A9D18E;
-    font-size: 10pt;
+    height: 1em;
+    font-size: 1.2em;
     text-align: center;
     clear: both;
 }
 
+hr {
+    border-color: #444;
+}
+
+.form-box {
+    display: inline-block;
+    margin: 0.5em auto;
+    background: #A9D18E;
+    padding: 1em;
+    border-radius: 1em;
+    border: 1px solid #507E32;
+    box-shadow: 1px 1px 3px #507E32;
+}
+
+.form-box h1 {
+    margin: 0 0 1.2em 0;
+    text-align: center;
+    font-size: 1em;
+}
+
+.form-box h1:after {
+    content: ' ';
+    display: block;
+    border: 1px solid #507E32;
+    margin: 1em 0 2em 0;
+    box-shadow: 1px 1px 3px #507E32;
+}
+
+.form-box p {
+    margin: 5px 0;
+}
+
+.form-box p.buttons {
+    margin: 2em 0 0 0;
+    text-align: center;
+}
+
+.form-box label {
+    display: inline-block;
+    min-width: 9em;
+}
+
+.form-box input {
+    font-size: 1em;
+    font-weight: bold;
+    padding: 5px;
+    border: 1px solid #70AD47;
+    border-radius: 2px;
+}
+
+.form-box input:focus {
+    outline: 0;
+    border: 1px solid #3a6c35;
+}
+
+.form-box button {
+    padding: 1.5em 1.5em;
+}

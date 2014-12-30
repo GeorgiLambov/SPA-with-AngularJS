@@ -1,21 +1,12 @@
-<div>
+<div class="main-list">
     <div ng-if="result.ads.length">
         <div ads></div>
-        <div pager></div>
     </div>
     <div ng-if="!result.ads.length">
-        <h2>No results!</h2>
+        <h2>No Ads!</h2>
     </div>
+    <div pager id="pager"></div>
 </div>
-<div class="menu-filter">
-    <div>
-        <h3>Categories</h3>
-        <select categories ng-model="filterRequest.category"></select>
-    </div>
-    <div>
-        <h3>Towns</h3>
-        <select towns ng-model="filterRequest.town"></select>
-    </div>
-    <a href="" ng-click="filterByCategoryAndTown(filterRequest)" class="button">Filter</a>
-</div>
+<div class="menu-filter" ng-include="'views/partials/menu-filter.html'"></div>
+
 

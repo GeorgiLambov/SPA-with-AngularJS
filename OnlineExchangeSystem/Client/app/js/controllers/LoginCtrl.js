@@ -8,8 +8,10 @@ onlineExchange.controller('LoginCtrl', ['$scope', '$location', 'notifier', 'iden
             if (loginForm.$valid) {
                 userAccountService.login(user).then(function (success) {
                     if (success) {
-                        notifier.success('Successful login!');
-                        $location.path('/');
+                        userAccountService.userInfo().then(function () {
+                            notifier.success('Successful login!');
+                            $location.path('/');
+                        });
                     }
                     else {
                         notifier.error('Username/Password combination is not valid!');
@@ -22,12 +24,10 @@ onlineExchange.controller('LoginCtrl', ['$scope', '$location', 'notifier', 'iden
         }
 
         $scope.logout = function () {
-            auth.logout().then(function () {
+            userAccountService.logout().then(function () {
                 notifier.success('Successful logout!');
                 if ($scope.user) {
-                    $scope.user.email = '';
-                    $scope.user.username = '';
-                    $scope.user.password = '';
+                    $scope.user = {};
                 }
 
                 $scope.loginForm.$setPristine();
