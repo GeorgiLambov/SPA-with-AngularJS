@@ -6,8 +6,8 @@ var onlineExchange = angular.module('onlineExchange', ['ngRoute', 'ngResource', 
 
         var routeUserChecks = {
             authenticated: {
-                authenticate: function (auth) {
-                    return auth.isAuthenticated();
+                authenticate: function (userAccountService) {
+                    return userAccountService.isAuthenticated();
                 }
             }
         };
@@ -25,7 +25,7 @@ var onlineExchange = angular.module('onlineExchange', ['ngRoute', 'ngResource', 
                 templateUrl: 'views/partials/user-login.html',
                 controller: 'LoginLogoutCtrl'
             })
-            .when('#/user/ads/publish', {
+            .when('/user/ads/publish', {
                 templateUrl: 'views/partials/user-publish-add.html',
                 controller: 'UserPublishCtrl',
                 resolve: routeUserChecks.authenticated
