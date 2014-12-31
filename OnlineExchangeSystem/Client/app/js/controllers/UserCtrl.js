@@ -1,13 +1,15 @@
 'use strict';
 
 onlineExchange.controller('UserCtrl', ['$scope', 'PublicAdsResource', 'UserAdsResource', 'identity', 'notifier',
-    'FileUploader', function HomeCtrl($scope, PublicAdsResource, UserAdsResource, identity, notifier, FileUploader) {
+    , function HomeCtrl($scope, PublicAdsResource, UserAdsResource, identity, notifier) {
         // $scope.pageRequest = {pageSize: 3, startPage: 1};
         // $scope.filterRequest = {};     HomeCTRl
         $scope.imgPattern = /^data:image///.*$/;
         $scope.identity = identity;
-        $scope.uploader = new FileUploader();
 
+
+        $scope.allCategory = PublicAdsResource.getAllCategories();
+        $scope.alltowns = PublicAdsResource.getAllTowns();
 
         $scope.userAds = function () {
             PublicAdsResource.getAllAds(pageRequest)

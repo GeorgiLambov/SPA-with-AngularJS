@@ -1,9 +1,19 @@
-<div>
-    <h3>Categories</h3>
-    <select categories ng-model="filterRequest.category"></select>
-</div>
-<div>
-    <h3>Towns</h3>
-    <select towns ng-model="filterRequest.town"></select>
-</div>
-<a href="" ng-click="filterByCategoryAndTown(filterRequest)" class="button">Filter</a>
+<p>
+    <label for="category">Category:</label>
+    <select id="category" ng-model="filterRequest.categoryId">
+        <option value="" selected="selected">All</option>
+        <option ng-repeat="category in allCategory" value="{{category.id}}">
+            {{category.name}}
+        </option>
+    </select>
+</p>
+<p>
+    <label for="town">Town:</label>
+    <select id="town" ng-model="filterRequest.townId">
+        <option value="" selected="selected">All</option>
+        <option ng-repeat="town in alltowns" value="{{town.id}}">
+            {{town.name}}
+        </option>
+    </select>
+</p>
+<a ng-click="filterByCategoryAndTown(filterRequest)" class="button">Filter</a>

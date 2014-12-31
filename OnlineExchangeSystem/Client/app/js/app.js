@@ -1,6 +1,6 @@
 'use strict';
 
-var onlineExchange = angular.module('onlineExchange', ['ngRoute', 'ngResource', 'ngCookies', 'angularFileUpload']).
+var onlineExchange = angular.module('onlineExchange', ['ngRoute', 'ngResource', 'ngCookies']).
     config(['$routeProvider', '$httpProvider', function ($routeProvider, $httpProvider) {
         $httpProvider.interceptors.push('errorHandlerHttpInterceptor');
 
@@ -27,7 +27,7 @@ var onlineExchange = angular.module('onlineExchange', ['ngRoute', 'ngResource', 
             })
             .when('#/user/ads/publish', {
                 templateUrl: 'views/partials/user-publish-add.html',
-                controller: 'UserCtrl',
+                controller: 'UserPublishCtrl',
                 resolve: routeUserChecks.authenticated
             })
             .otherwise({redirectTo: '/'});
@@ -43,3 +43,4 @@ var onlineExchange = angular.module('onlineExchange', ['ngRoute', 'ngResource', 
     .constant('baseServiceUrl', 'http://softuni-ads.azurewebsites.net');
 
 //nstant('baseServiceUrl', 'http://localhost:1337');
+//.value('pageRequest', {pageSize: 3, startPage: 1})

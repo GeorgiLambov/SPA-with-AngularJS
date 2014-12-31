@@ -1,34 +1,41 @@
 <form name="publishAdd" class="form-box">
-    <h1>Publish New Ad</h1>
+    <h2>Publish New Ad</h2>
 
     <p>
         <label for="title">Title:</label>
-        <input type="text" id="title" placeholder="Title" ng-model="ad.title" required/>
+        <input type="text" id="title" ng-model="adData.title" required/>
     </p>
 
     <p>
         <label for="text">Text:</label>
-        <textarea id="text" placeholder="Text" ng-model="ad.text" ng-minlength="2" required/>
+        <textarea id="text" ng-model="adData.text" required></textarea>
     </p>
 
     <p>
-        <label for="img">Image:</label>
-        <input id="img" type="file" nv-file-select uploader="uploader" ng-pattern="imgPattern"/>
-        <button ng-click="item.upload()" class="button">Browse...</button>
-    </p>
+        <label for="image">Image:</label>
+        <input type="file" id="image"
+               onchange="angular.element(this).scope().fileSelected(this)"/>
 
+    <div class="image-box">
+        <p>Image Preview</p>
+    </div>
+    </p>
     <p>
-        <label>Category:</label>
-        <select categories ng-model="ad.category"></select>
+        <label for="category">Category:</label>
+        <select id="category" ng-model="adData.categoryId">
+            <option value="null">(None)</option>
+            <option ng-repeat="c in categories" value="{{c.id}}">{{c.name}}</option>
+        </select>
     </p>
-
     <p>
-        <label>Town:</label>
-        <select towns ng-model="ad.town"></select>
+        <label for="town">Town:</label>
+        <select id="town" ng-model="adData.townId">
+            <option value="null">(None)</option>
+            <option ng-repeat="town in towns" value="{{town.id}}">{{town.name}}</option>
+        </select>
     </p>
-
-    <p class="buttons">
-        <button ng-click="register(userPublishAdd, publishAdd)" class="button">Publish</button>
-        <button class="button">Cancel</button>
-    </p>
+    <p>
+        <a ng-click="publishAd(adData)" class="button">Publish</a>
+        <a href="#/user/ads" class="button">Cancel</a>
+    <p>
 </form>

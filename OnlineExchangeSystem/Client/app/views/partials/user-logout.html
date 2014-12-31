@@ -1,6 +1,6 @@
 <ul ng-controller="LoginLogoutCtrl" ng-show="identity.isAuthenticated()" class="loginDisplay">
     <li>
-        <a href="">{{ identity.getCurrentUser().userInfo.name}}</a>
+        {{ identity.getCurrentUser().username}}
     </li>
     <li>
         <a href="#" ng-click="logout()">Logout</a>
