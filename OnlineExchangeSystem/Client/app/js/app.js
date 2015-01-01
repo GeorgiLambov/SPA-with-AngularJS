@@ -30,6 +30,11 @@ var onlineExchange = angular.module('onlineExchange', ['ngRoute', 'ngResource', 
                 controller: 'UserPublishCtrl',
                 resolve: routeUserChecks.authenticated
             })
+            .when('/user/ads', {
+                templateUrl: 'views/partials/list-user-ads.html',
+                controller: 'UserAdsCtrl',
+                resolve: routeUserChecks.authenticated
+            })
             .otherwise({redirectTo: '/'});
     }])
     .run(function ($rootScope, $location) {
@@ -43,4 +48,3 @@ var onlineExchange = angular.module('onlineExchange', ['ngRoute', 'ngResource', 
     .constant('baseServiceUrl', 'http://softuni-ads.azurewebsites.net');
 
 //nstant('baseServiceUrl', 'http://localhost:1337');
-//.value('pageRequest', {pageSize: 3, startPage: 1})

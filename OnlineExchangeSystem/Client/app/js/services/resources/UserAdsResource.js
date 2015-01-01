@@ -33,7 +33,7 @@ onlineExchange.factory('UserAdsResource', ['$resource', 'authorization', 'baseSe
                 return UserAdsResource.getUserAds(request);
             },
             create: function (adData) {
-                return UserAdsResource.create(adData).$promise;
+                return UserAdsResource.create(adData);
             },
             deactivateUserAd: function (id) {
                 return UserAdsResource.deactivateUserAd({id: id}).$promise;

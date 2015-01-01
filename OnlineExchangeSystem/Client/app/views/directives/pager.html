@@ -1,13 +1,13 @@
-<button ng-click="firstPage()" ng-hide="pageRequest.startPage == 1">First</button>
-<button ng-click="previousPage()" ng-hide="pageRequest.startPage == 1">Previous</button>
-<button ng-bind="pageRequest.startPage" ng-click="currentPage(pageRequest.startPage)" id='selected'></button>
-<button ng-if="allAds.numPages>1 && pageRequest.startPage< allAds.numPages" ng-bind="pageRequest.startPage + 1"
-        ng-click="currentPage(pageRequest.startPage + 1)">
+<button ng-click="firstPage()" ng-hide="request.startPage == 1">First</button>
+<button ng-click="previousPage()" ng-hide="request.startPage == 1">Previous</button>
+<button ng-bind="request.startPage" ng-click="currentPage(request.startPage)" id='selected'></button>
+<button ng-if="allAds.numPages>1 && request.startPage< allAds.numPages" ng-bind="request.startPage + 1"
+        ng-click="currentPage(request.startPage + 1)">
 </button>
-<button ng-if="allAds.numPages>2 && pageRequest.startPage< allAds.numPages -1" ng-bind="pageRequest.startPage + 2"
-        ng-click="currentPage(pageRequest.startPage + 2)"></button>
-<button ng-click="nextPage()" ng-hide="pageRequest.startPage == allAds.numPages">Next</button>
-<button ng-click="lastPage(allAds.numPages)" ng-hide="pageRequest.startPage == allAds.numPages">Last</button>
+<button ng-if="allAds.numPages>2 && request.startPage< allAds.numPages -1" ng-bind="request.startPage + 2"
+        ng-click="currentPage(request.startPage + 2)"></button>
+<button ng-click="nextPage()" ng-hide="request.startPage == allAds.numPages">Next</button>
+<button ng-click="lastPage(allAds.numPages)" ng-hide="request.startPage == allAds.numPages">Last</button>
 <label for="pageSizer">Ads on page:</label>
-<input id='pageSizer' type="number" ng-model="pageRequest.pageSize"/>
+<input id='pageSizer' type="number" ng-model="request.pageSize" min="1" max="5"/>
 <button ng-click="getPageSize()">OK</button>

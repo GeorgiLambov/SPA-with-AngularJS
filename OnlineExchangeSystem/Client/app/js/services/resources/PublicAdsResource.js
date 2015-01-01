@@ -3,8 +3,7 @@
 onlineExchange.factory('PublicAdsResource', ['$resource', 'baseServiceUrl',
     function ($resource, baseServiceUrl) {
 
-        var pageUrl = '?pagesize=:pageSize&startpage=:startPage';
-        var filterUrl = 'ads?townid=:townId&categoryid=:categoryId';
+        var pageUrl = '?pagesize=:pageSize&startpage=:startPage&townid=:townId&categoryid=:categoryId';
 
         var PublicAdsResource = $resource(baseServiceUrl + '/api/:id' + pageUrl
             , null, {
@@ -16,11 +15,16 @@ onlineExchange.factory('PublicAdsResource', ['$resource', 'baseServiceUrl',
                 'getAllTowns': {method: 'GET', params: {id: 'towns'}, isArray: true}
             });
 
-        var FilterResource = $resource(baseServiceUrl + '/api/' + filterUrl
+        var FilterResource = $resource(baseServiceUrl + '/api/ads' + pageUrl
             , null, {
                 'getFilteredAds': {
                     method: 'GET',
-                    params: {townId: '@townId', categoryId: '@categoryId'}, isArray: false
+                    params: {
+                        pageSize: '@pageSize',
+                        startPage: '@startPage',
+                        townId: '@townId',
+                        categoryId: '@categoryId'
+                    }, isArray: false
                 }
             });
 
@@ -34,8 +38,8 @@ onlineExchange.factory('PublicAdsResource', ['$resource', 'baseServiceUrl',
             getAllTowns: function () {
                 return PublicAdsResource.getAllTowns();
             },
-            getFilteredAds: function (filterRequest) {
-                return FilterResource.getFilteredAds(filterRequest);
+            getFilteredAds: function (request) {
+                return FilterResource.getFilteredAds(request);
             }
         }
     }]);

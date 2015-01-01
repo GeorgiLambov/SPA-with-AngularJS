@@ -1,6 +1,6 @@
 <p>
     <label for="category">Category:</label>
-    <select id="category" ng-model="filterRequest.categoryId">
+    <select id="category" ng-model="request.categoryId">
         <option value="" selected="selected">All</option>
         <option ng-repeat="category in allCategory" value="{{category.id}}">
             {{category.name}}
@@ -9,11 +9,11 @@
 </p>
 <p>
     <label for="town">Town:</label>
-    <select id="town" ng-model="filterRequest.townId">
+    <select id="town" ng-model="request.townId">
         <option value="" selected="selected">All</option>
         <option ng-repeat="town in alltowns" value="{{town.id}}">
             {{town.name}}
         </option>
     </select>
 </p>
-<a ng-click="filterByCategoryAndTown(filterRequest)" class="button">Filter</a>
+<a href="" ng-click="filterByCategoryAndTown(request)" class="button">Filter</a>

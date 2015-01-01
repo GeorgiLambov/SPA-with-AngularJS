@@ -11,15 +11,8 @@
         <textarea id="text" ng-model="adData.text" required></textarea>
     </p>
 
-    <p>
-        <label for="image">Image:</label>
-        <input type="file" id="image"
-               onchange="angular.element(this).scope().fileSelected(this)"/>
+    <p browse></p>
 
-    <div class="image-box">
-        <p>Image Preview</p>
-    </div>
-    </p>
     <p>
         <label for="category">Category:</label>
         <select id="category" ng-model="adData.categoryId">
@@ -35,7 +28,7 @@
         </select>
     </p>
     <p>
-        <a ng-click="publishAd(adData)" class="button">Publish</a>
-        <a href="#/user/ads" class="button">Cancel</a>
+        <a href="" ng-click="publishAd(adData, publishAdd)" class="button">Publish</a>
+        <a href="#/" class="button">Cancel</a>
     <p>
 </form>
