@@ -17,7 +17,7 @@ onlineExchange.controller('UserPublishCtrl', ['$scope', '$location', 'PublicAdsR
                         $location.path("/user/ads");
                     });
             } else {
-                notifier.error("Publish ad failed");
+                notifier.error("Publish ad failed advertisement title and text are required!");
             }
         };
     }

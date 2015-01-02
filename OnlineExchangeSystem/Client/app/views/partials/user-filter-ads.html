@@ -1,0 +1,12 @@
+<form ng-show="identity.isAuthenticated()" ng-model="selectedStatus">
+    <h3>My Ads</h3>
+    <a href ng-click="value = all" class="link">All</a>
+    <br/>
+    <a href ng-click="value = 'published'" class="link">Published</a>
+    <br/>
+    <a href ng-click="value ='WaitingApproval'" class="link">Waiting Approval</a>
+    <br/>
+    <a href ng-click="value = 'inactive'" class="link">Inactive</a>
+    <br/>
+    <a href ng-click="value = 'rejected'" class="link">Rejected</a>
+</form>

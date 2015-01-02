@@ -1,0 +1,50 @@
+<div class="left-side-menu">
+    <div ng-include="'views/partials/user-navigation.html'"></div>
+</div>
+<div class="main-list">
+    <div ng-if="userAds.ads.length">
+        <div ng-repeat="ad in userAds.ads" class="dialog-box">
+            <h1>{{ad.title}}</h1>
+
+            <img ng-src="{{ad.imageDataUrl}}" alt="No Image"></img>
+            <span>{{ad.date | date: 'dd-MM-yyyy'}}</span>
+
+            <p>
+                <label for="text">Text:</label>
+                <textarea id=text placeholder="{{ad.text}}" disabled="disabled"/>
+            </p>
+
+            <p>
+                <label for="category">Category:</label>
+                <input type="text" id='category' value="{{ad.categoryName}}" disabled="disabled"/>
+            </p>
+
+            <p>
+                <label for="town">Town:</label>
+                <input type="text" id="town" value="{{ad.townName}}" disabled="disabled"/>
+            </p>
+
+            <p>
+                <label for="Status">Status:</label>
+                <input type="text" id="status" value="{{ad.status}}" disabled="disabled"/>
+            </p>
+
+            <p class="buttons" ng-if="ad.status=='Inactive'">
+                <button ng-click="edit(ad.id)" class="button">Edit</button>
+                <button ng-click="publishAgain(ad.id)" class="button">Publish Again</button>
+                <button ng-click="deleteAd(ad.id)" class="button">Delete</button>
+            <p>
+
+            <p class="buttons" ng-if="ad.status=='WaitingApproval'||ad.status=='Published'">
+                <button ng-click="deactivateAd(ad.id)" class="button">Deactivate</button>
+            </p>
+            <p class="buttons" ng-if="ad.status=='Published'">
+                <button ng-click="deactivateAd(ad.id)" class="button">Deactivate</button>
+            </p>
+        </div>
+    </div>
+    <div ng-if="!userAds.ads.length">
+        <h2>No Ads!</h2>
+    </div>
+    <div ng-if="userAds.ads.length" pager id="pager"></div>
+</div>

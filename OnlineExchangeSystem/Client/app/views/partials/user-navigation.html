@@ -1,0 +1,21 @@
+<div id="nav">
+    <h3>Navigation</h3>
+    <a href="/" class="link">Home</a>
+    <br/>
+
+    <div ng-show="!identity.isAuthenticated()">
+        <h3>To publish a new ad, please login.</h3>
+        <a href="#/login" class="button">Login</a>
+        <br/>
+        <a href="#/register" class="button">Register</a>
+    </div>
+    <div ng-show="identity.isAuthenticated()">
+        <a href="#/user/ads" ng-click="" class="link">My Ads</a>
+        <br/>
+        <a href="#/user/ads/publish" class="link">Publish New Ad</a>
+        <br/>
+        <a href="#/user/profile" class="link">Edit Profile</a>
+    </div>
+</div>
+
+

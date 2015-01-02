@@ -15,6 +15,7 @@ body {
     font: 1.1em 'Nunito', Arial, sans-serif;
     text-align: center;
     text-rendering: optimizeLegibility;
+    min-height: 100%;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -55,16 +56,16 @@ p {
 }
 
 #wrapper {
-    width: 80%;
+    width: 100%;
     margin: .5em auto;
-    float: left;
+
 }
 
 .left-side-menu {
     width: 10%;
     float: left;
     background: #A9D18E;
-    padding: 0.5em 0.5em;
+    padding: 2.5em 0.5em;
     margin: 0.5em;
     border-radius: 1em;
     border: 1px solid #507E32;
@@ -73,31 +74,16 @@ p {
 
 }
 
-#menu-unauthorized > .button {
-    width: 40%;
-    margin: 0.5em 0.5em;
-
-}
-
 .menu-filter {
-    width: 10%;
-    float: left;
     background: #A9D18E;
-    list-style-type: none;
-    padding: 0.5em 0.5em;
-    margin: 0.5em auto;
+    margin: 1.5em auto;
     border-radius: 1em;
     border: 1px solid #507E32;
     box-shadow: 1px 1px 3px #507E32;
 }
 
-.menu-filter > .button {
-    width: 50%;
-    margin: 0.5em 0.5em;
-}
-
 .menu-filter select {
-    margin: 1em 1em;
+    margin: 1.1em 1.1em;
 }
 
 .button {
@@ -106,9 +92,9 @@ p {
     border-radius: 5px;
     color: white;
     text-decoration: none;
-    padding: 0.5em 0.5em;
+    padding: 10px 20px;
     display: inline-block;
-    margin: 0 1.5em;
+    margin: 0 10px;
 }
 
 .link {
@@ -119,11 +105,10 @@ p {
 
 }
 
-.main-list {
+.main-list, {
     margin: 0 auto;
     display: table;
-    float: left;
-    width: 80%;
+    width: 100%;
 }
 
 .dialog-box {
@@ -137,21 +122,22 @@ p {
 }
 
 img {
-    width: 6em;
+    width: 11em;
+    height: 8em;
     float: left;
 }
 
 .dialog-box h1 {
     margin: 0 0 1.2em 0;
     text-align: center;
-    font-size: 1em;
+    font-size: 1.3em;
 }
 
 .dialog-box h1:after {
     content: ' ';
     display: block;
     border: 1px solid #507E32;
-    margin: 1em 0 2em 0;
+    margin: 0.5em 0 0.5em 0;
     box-shadow: 1px 1px 3px #507E32;
 }
 
@@ -166,7 +152,7 @@ img {
 
 .dialog-box label {
     display: inline-block;
-    min-width: 3em;
+    min-width: 3.3em;
 }
 
 .dialog-box input, textarea {
@@ -185,6 +171,7 @@ img {
 #pager {
     padding: 1em;
     font-size: 1em;
+    margin: 0 auto;
 
 }
 
@@ -217,16 +204,6 @@ table th, table td {
     max-width: 300px;
 }
 
-#footer {
-
-    padding: 0.3em;
-    background: #A9D18E;
-    height: 1em;
-    font-size: 1.2em;
-    text-align: center;
-    clear: both;
-}
-
 hr {
     border-color: #444;
 }
@@ -235,7 +212,7 @@ hr {
     display: inline-block;
     margin: 0.5em auto;
     background: #A9D18E;
-    padding: 1em;
+    padding: 1.2em;
     border-radius: 1em;
     border: 1px solid #507E32;
     box-shadow: 1px 1px 3px #507E32;
@@ -244,7 +221,7 @@ hr {
 .form-box h1 {
     margin: 0 0 1.2em 0;
     text-align: center;
-    font-size: 1em;
+    font-size: 1.3em;
 }
 
 .form-box h1:after {
@@ -257,11 +234,6 @@ hr {
 
 .form-box p {
     margin: 5px 0;
-}
-
-.form-box p.buttons {
-    margin: 2em 0 0 0;
-    text-align: center;
 }
 
 .form-box label {
@@ -282,6 +254,13 @@ hr {
     border: 1px solid #3a6c35;
 }
 
-.form-box button {
-    padding: 1.5em 1.5em;
+#footer {
+    width: 100%; /*new*/
+    bottom: 0; /*new*/
+    position: relative;
+    height: 5em;
+    margin-bottom: 0em;
+    background: #A9D18E;
+    text-align: center;
+    clear: both;
 }

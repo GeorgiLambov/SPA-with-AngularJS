@@ -1,8 +1,9 @@
 'use strict';
 
-onlineExchange.controller('HomeCtrl', ['$scope', 'PublicAdsResource', 'notifier',
-    function HomeCtrl($scope, PublicAdsResource, notifier) {
+onlineExchange.controller('HomeCtrl', ['$scope', 'PublicAdsResource', 'notifier', 'identity',
+    function HomeCtrl($scope, PublicAdsResource, notifier, identity) {
         $scope.request = {pageSize: 3, startPage: 1, townId: '', categoryId: ''};
+        $scope.identity = identity;
 
         $scope.allAds = PublicAdsResource.getAllAds($scope.request);
         $scope.allCategory = PublicAdsResource.getAllCategories();

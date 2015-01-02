@@ -25,14 +25,19 @@ var onlineExchange = angular.module('onlineExchange', ['ngRoute', 'ngResource', 
                 templateUrl: 'views/partials/user-login.html',
                 controller: 'LoginLogoutCtrl'
             })
+            .when('/user/ads', {
+                templateUrl: 'views/partials/list-user-ads.html',
+                controller: 'UserAdsCtrl',
+                resolve: routeUserChecks.authenticated
+            })
             .when('/user/ads/publish', {
                 templateUrl: 'views/partials/user-publish-add.html',
                 controller: 'UserPublishCtrl',
                 resolve: routeUserChecks.authenticated
             })
-            .when('/user/ads', {
-                templateUrl: 'views/partials/list-user-ads.html',
-                controller: 'UserAdsCtrl',
+            .when('/user/profile', {
+                templateUrl: 'views/partials/user-edit-profile.html',
+                controller: 'EditUserProfileCtrl',
                 resolve: routeUserChecks.authenticated
             })
             .otherwise({redirectTo: '/'});

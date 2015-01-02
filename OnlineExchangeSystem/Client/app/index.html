@@ -12,14 +12,15 @@
 
 <body>
 
-<div class="left-side-menu">
-    <div ng-include="'views/partials/user-menu-unauthorized.html'"></div>
-    <div ng-include="'views/partials/user-menu.html'"></div>
-</div>
 <div ng-view id="wrapper"></div>
 
 <footer id="footer">
-    <hr/> &copy; 2014 by Software University Foundation, No Rights Reserved
+    <hr/>
+    Copyright: <a href="https://softuni.bg/" target="_blank"><strong>&copy; 2014 by Software University </strong></a>
+    <br/>
+    Author: <strong>Georgi Lambov</strong>
+    <br/>
+    Powered by:</strong> <a href="http://angularjs.org/" target="_blank">AngularJS</a>
 </footer>
 
 <script src="libs/jquery/jquery.min.js"></script>
@@ -38,7 +39,9 @@
 <script src="js/controllers/LoginLogoutCtrl.js"></script>
 <script src="js/controllers/UserPublishCtrl.js"></script>
 <script src="js/controllers/UserAdsCtrl.js"></script>
+<script src="js/controllers/EditUserProfileCtrl.js"></script>
 
+<script src="js/filters/filterByStatus.js"></script>
 
 <script src="js/services/account/userAccountService.js"></script>
 <script src="js/services/account/identity.js"></script>

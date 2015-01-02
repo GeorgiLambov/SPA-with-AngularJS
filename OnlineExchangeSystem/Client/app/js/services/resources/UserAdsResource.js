@@ -4,11 +4,15 @@ onlineExchange.factory('UserAdsResource', ['$resource', 'authorization', 'baseSe
     function ($resource, authorization, baseServiceUrl) {
 
         var headers = authorization.getAuthorizationHeader();
+        var pageUrl = '?pagesize=:pageSize&startpage=:startPage';
 
-        var UserAdsResource = $resource(baseServiceUrl + '/api/user/ads' + ':activate' + '/:id', null, {
+        var UserAdsResource = $resource(baseServiceUrl + '/api/user/ads' + ':activate/:id' + 'pageUrl', null, {
 
-            'getUserAds': {method: 'GET', isArray: false, headers: headers},
-            'create': {method: 'POST', params: {id: '@id'}, isArray: false, headers: headers},
+            'getUserAds': {
+                method: 'GET', isArray: false, headers: headers,
+                params: {pageSize: '@pageSize', startPage: '@startPage'}
+            },
+            'create': {method: 'POST', isArray: false, headers: headers},
             'deactivateUserAd': {
                 method: 'PUT', params: {activate: '/deactivate', id: '@id'},
                 isArray: false, headers: headers
@@ -28,6 +32,18 @@ onlineExchange.factory('UserAdsResource', ['$resource', 'authorization', 'baseSe
             }
         });
 
+        //var UserAdsActivateResource = $resource(baseServiceUrl + '/api/user/ads' + ':activate', null, {
+        //    'deactivateUserAd': {
+        //        method: 'PUT', params: {activate: '/deactivate', id: '@id'},
+        //        isArray: false, headers: headers
+        //    },
+        //    'publishAgainUserAd': {
+        //        method: 'PUT', params: {activate: '/publishagain', id: '@id'},
+        //        isArray: false, headers: headers
+        //    }
+        //
+        //});
+
         return {
             getUserAds: function (request) {
                 return UserAdsResource.getUserAds(request);
@@ -36,10 +52,10 @@ onlineExchange.factory('UserAdsResource', ['$resource', 'authorization', 'baseSe
                 return UserAdsResource.create(adData);
             },
             deactivateUserAd: function (id) {
-                return UserAdsResource.deactivateUserAd({id: id}).$promise;
+                return UserAdsResource.deactivateUserAd({id: id});
             },
             publishAgainUserAd: function (id) {
-                return UserAdsResource.publishAgainUserAd({id: id}.$promise);
+                return UserAdsResource.publishAgainUserAd({id: id});
             },
             getUserAd: function (id) {
                 return UserAdsResource.getUserAd({id: id}).$promise;

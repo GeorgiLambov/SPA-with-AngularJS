@@ -1,5 +1,8 @@
-<form name="publishAdd" class="form-box">
-    <h2>Publish New Ad</h2>
+<div class="left-side-menu">
+    <div ng-include="'views/partials/user-navigation.html'"></div>
+</div>
+<form name="publishAdd" ng-show="identity.isAuthenticated()" class="form-box">
+    <h1>Publish New Ad</h1>
 
     <p>
         <label for="title">Title:</label>
@@ -30,5 +33,6 @@
     <p>
         <a href="" ng-click="publishAd(adData, publishAdd)" class="button">Publish</a>
         <a href="#/" class="button">Cancel</a>
+
     <p>
 </form>

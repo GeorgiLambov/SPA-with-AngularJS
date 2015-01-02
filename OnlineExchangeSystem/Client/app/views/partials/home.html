@@ -1,12 +1,16 @@
 <div class="main-list">
-    <div ng-if="allAds.ads.length">
+    <div class="left-side-menu">
+        <div ng-include="'views/partials/user-navigation.html'"></div>
+        <div ng-include="'views/partials/filter-category-town.html'" class="menu-filter"></div>
+    </div>
+    <div ng-if="allAds.ads.length" class="ads-wrapper">
         <div ads></div>
+        <div ng-if="allAds.ads.length" pager id="pager"></div>
     </div>
     <div ng-if="!allAds.ads.length">
         <h2>No Ads!</h2>
     </div>
-    <div pager id="pager"></div>
 </div>
-<div class="menu-filter" ng-include="'views/partials/menu-filter.html'"></div>
+
 
 
