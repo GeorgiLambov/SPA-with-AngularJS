@@ -7,12 +7,16 @@ onlineExchange.factory('userAccountService', ['$http', '$q', 'identity', 'author
         return {
             signup: function (user) {
                 var deferred = $q.defer();
-
                 $http.post(usersApi + '/register', user)
-                    .success(function () {
-                        deferred.resolve();
-                    }, function (response) {
-                        deferred.reject(response);
+                    .success(function (response) {
+                        if (response['access_token']) {
+                            identity.setCurrentUser(response);
+                            authorization.setAuthorizationHeader(response['access_token']);
+                            deferred.resolve(true);
+                        }
+                        else {
+                            deferred.resolve(false);
+                        }
                     })
                     .error(errorHandler.processError);
 
@@ -20,7 +24,6 @@ onlineExchange.factory('userAccountService', ['$http', '$q', 'identity', 'author
             },
             login: function (user) {
                 var deferred = $q.defer();
-
                 $http.post(usersApi + '/login', 'username=' + user.username + '&password=' +
                     user.password,
                     {headers: {'Content-Type': 'application/x-www-form-urlencoded'}})
@@ -65,7 +68,8 @@ onlineExchange.factory('userAccountService', ['$http', '$q', 'identity', 'author
                             angular.extend(currentUser, {userInfo: response});
                             identity.setCurrentUser(currentUser);
                             deferred.resolve(response);
-                        });
+                        })
+                        .error(errorHandler.processError);
                 }
 
                 return deferred.promise;

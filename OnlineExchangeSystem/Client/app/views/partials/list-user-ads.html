@@ -13,47 +13,45 @@
         <a href ng-click="selectedStatus = 'rejected'" class="link">Rejected</a>
     </form>
 </div>
-<div class="main-list">
-    <div ng-if="allAds.ads.length">
-        <div ng-repeat="ad in allAds.ads | filter:selectedStatus" class="dialog-box">
-            <h1>{{ad.title}}</h1>
+<div ng-if="allAds.ads.length">
+    <div ng-repeat="ad in allAds.ads | filter:selectedStatus" class="dialog-box">
+        <h1>{{ad.title}}</h1>
 
-            <img ng-src="{{ad.imageDataUrl}}" alt="No Image"></img>
-            <span>{{ad.date | date: 'dd-MM-yyyy'}}</span>
+        <img ng-src="{{ad.imageDataUrl}}" alt="No Image"></img>
+        <span>{{ad.date | date: 'dd-MM-yyyy'}}</span>
 
-            <p>
-                <label for="text">Text:</label>
-                <textarea id=text placeholder="{{ad.text}}" disabled="disabled"/>
-            </p>
+        <p>
+            <label for="text">Text:</label>
+            <textarea id=text placeholder="{{ad.text}}" disabled="disabled"/>
+        </p>
 
-            <p>
-                <label for="category">Category:</label>
-                <input type="text" id='category' value="{{ad.categoryName}}" disabled="disabled"/>
-            </p>
+        <p>
+            <label for="category">Category:</label>
+            <input type="text" id='category' value="{{ad.categoryName}}" disabled="disabled"/>
+        </p>
 
-            <p>
-                <label for="town">Town:</label>
-                <input type="text" id="town" value="{{ad.townName}}" disabled="disabled"/>
-            </p>
+        <p>
+            <label for="town">Town:</label>
+            <input type="text" id="town" value="{{ad.townName}}" disabled="disabled"/>
+        </p>
 
-            <p>
-                <label for="Status">Status:</label>
-                <input type="text" id="status" value="{{ad.status}}" disabled="disabled"/>
-            </p>
+        <p>
+            <label for="Status">Status:</label>
+            <input type="text" id="status" value="{{ad.status}}" disabled="disabled"/>
+        </p>
 
-            <p class="buttons" ng-if="ad.status=='Inactive'">
-                <button ng-click="edit(ad.id)" class="button">Edit</button>
-                <button ng-click="publishAgain(ad.id)" class="button">Publish Again</button>
-                <button ng-click="delete(ad.id)" class="button">Delete</button>
-            <p>
+        <p class="buttons" ng-if="ad.status=='Inactive'">
+            <button ng-click="edit(ad.id)" class="button">Edit</button>
+            <button ng-click="publishAgain(ad.id)" class="button">Publish Again</button>
+            <button ng-click="delete(ad.id)" class="button">Delete</button>
+        <p>
 
-            <p class="buttons" ng-if="ad.status=='WaitingApproval'||ad.status=='Published'">
-                <button ng-click="deactivate(ad.id)" class="button">Deactivate</button>
-            </p>
-        </div>
+        <p class="buttons" ng-if="ad.status=='WaitingApproval'||ad.status=='Published'">
+            <button ng-click="deactivate(ad.id)" class="button">Deactivate</button>
+        </p>
     </div>
-    <div ng-if="!allAds.ads.length">
-        <h2>No Ads!</h2>
-    </div>
-    <div ng-if="allAds.ads.length" pager id="pager"></div>
 </div>
+<div ng-if="!allAds.ads.length">
+    <h2>No Ads!</h2>
+</div>
+<div ng-if="allAds.ads.length" pager id="pager"></div>

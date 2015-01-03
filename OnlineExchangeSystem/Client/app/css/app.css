@@ -115,14 +115,8 @@ p {
 
 }
 
-.main-list, {
-    margin: 0 auto;
-    display: table;
-    width: 100%;
-}
-
 .dialog-box {
-    display: table-cell;
+    display: inline-block;
     margin: 0.5em 0.5em;
     background: #A9D18E;
     padding: 1em;
