@@ -40,6 +40,11 @@ var onlineExchange = angular.module('onlineExchange', ['ngRoute', 'ngResource', 
                 controller: 'EditUserProfileCtrl',
                 resolve: routeUserChecks.authenticated
             })
+            .when('/user/ads/edit', {
+                templateUrl: 'views/partials/edit-ad.html',
+                controller: 'EditAdsCtrl',
+                resolve: routeUserChecks.authenticated
+            })
             .otherwise({redirectTo: '/'});
     }])
     .run(function ($rootScope, $location) {

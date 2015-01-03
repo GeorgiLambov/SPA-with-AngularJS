@@ -1,7 +1,7 @@
 'use strict';
 
-onlineExchange.controller('UserAdsCtrl', ['$scope', '$location', 'PublicAdsResource', 'UserAdsResource', 'identity', 'notifier',
-    function UserAdsCtrl($scope, $location, PublicAdsResource, UserAdsResource, identity, notifier) {
+onlineExchange.controller('UserAdsCtrl', ['$scope', '$rootScope', '$location', 'PublicAdsResource', 'UserAdsResource', 'identity', 'notifier',
+    function UserAdsCtrl($scope, $rootScope, $location, PublicAdsResource, UserAdsResource, identity, notifier) {
         $scope.request = {pageSize: 3, startPage: 1};
         $scope.identity = identity;
 
@@ -45,8 +45,8 @@ onlineExchange.controller('UserAdsCtrl', ['$scope', '$location', 'PublicAdsResou
         };
 
         $scope.edit = function (adDataId) {
-            $location.path("#/user/ads/edit"); //to do
-
+            $rootScope.$broadcast("adDataID", {id: adDataId});
+            $location.path("/user/ads/edit");
         };
     }
 ])

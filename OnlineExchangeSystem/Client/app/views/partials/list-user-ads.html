@@ -40,7 +40,7 @@
             <input type="text" id="status" value="{{ad.status}}" disabled="disabled"/>
         </p>
 
-        <p class="buttons" ng-if="ad.status=='Inactive'">
+        <p class="buttons" ng-show="ad.status=='Inactive'">
             <button ng-click="edit(ad.id)" class="button">Edit</button>
             <button ng-click="publishAgain(ad.id)" class="button">Publish Again</button>
             <button ng-click="delete(ad.id)" class="button">Delete</button>
