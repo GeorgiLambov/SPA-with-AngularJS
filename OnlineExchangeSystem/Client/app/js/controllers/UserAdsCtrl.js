@@ -1,7 +1,7 @@
 'use strict';
 
-onlineExchange.controller('UserAdsCtrl', ['$scope', 'PublicAdsResource', 'UserAdsResource', 'identity', 'notifier',
-    function UserAdsCtrl($scope, PublicAdsResource, UserAdsResource, identity, notifier) {
+onlineExchange.controller('UserAdsCtrl', ['$scope', '$location', 'PublicAdsResource', 'UserAdsResource', 'identity', 'notifier',
+    function UserAdsCtrl($scope, $location, PublicAdsResource, UserAdsResource, identity, notifier) {
         $scope.request = {pageSize: 3, startPage: 1};
         $scope.identity = identity;
 
@@ -18,12 +18,12 @@ onlineExchange.controller('UserAdsCtrl', ['$scope', 'PublicAdsResource', 'UserAd
                 });
         };
 
-        $scope.deactivateAd = function (adDataId) {
+        $scope.deactivate = function (adDataId) {
             UserAdsResource.deactivateUserAd(adDataId)
                 .$promise
                 .then(function (result) {
-                    notifier.success('Advertisement deactivate.');
-                    $location.path("/user/ads");
+                    notifier.success('Advertisement is now deactivate.');
+                    $location.path("/");
                 });
         };
         $scope.publishAgain = function (adDataId) {
@@ -31,16 +31,16 @@ onlineExchange.controller('UserAdsCtrl', ['$scope', 'PublicAdsResource', 'UserAd
                 .$promise
                 .then(function (result) {
                     notifier.success('Advertisement submitted for publish again. Once approved, it will be published.');
-                    $location.path("/user/ads");
+                    $location.path("/");
                 });
         };
 
-        $scope.deleteAd = function (adDataId) {
+        $scope.delete = function (adDataId) {
             UserAdsResource.deleteUserAd(adDataId)
                 .$promise
                 .then(function (result) {
                     notifier.success('Advertisement deleted stressful.');
-                    $location.path("/user/ads");
+                    $location.path("/");
                 });
         };
 
@@ -48,6 +48,5 @@ onlineExchange.controller('UserAdsCtrl', ['$scope', 'PublicAdsResource', 'UserAd
             $location.path("#/user/ads/edit"); //to do
 
         };
-
     }
 ])

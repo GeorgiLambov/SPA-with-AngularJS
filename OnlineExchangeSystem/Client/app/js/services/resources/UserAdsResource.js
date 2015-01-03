@@ -4,9 +4,9 @@ onlineExchange.factory('UserAdsResource', ['$resource', 'authorization', 'baseSe
     function ($resource, authorization, baseServiceUrl) {
 
         var headers = authorization.getAuthorizationHeader();
-        var pageUrl = '?pagesize=:pageSize&startpage=:startPage';
+        //  var pageUrl = '?pagesize=:pageSize&startpage=:startPage' + 'pageUrl';
 
-        var UserAdsResource = $resource(baseServiceUrl + '/api/user/ads' + ':activate/:id' + 'pageUrl', null, {
+        var UserAdsResource = $resource(baseServiceUrl + '/api/user/ads' + ':activate/:id', null, {
 
             'getUserAds': {
                 method: 'GET', isArray: false, headers: headers,
@@ -14,11 +14,11 @@ onlineExchange.factory('UserAdsResource', ['$resource', 'authorization', 'baseSe
             },
             'create': {method: 'POST', isArray: false, headers: headers},
             'deactivateUserAd': {
-                method: 'PUT', params: {activate: '/deactivate', id: '@id'},
+                method: 'PUT', params: {activate: '/deactivate/', id: '@id'},
                 isArray: false, headers: headers
             },
             'publishAgainUserAd': {
-                method: 'PUT', params: {activate: '/publishagain', id: '@id'},
+                method: 'PUT', params: {activate: '/publishagain/', id: '@id'},
                 isArray: false, headers: headers
             },
             'getUserAd': {
@@ -31,18 +31,6 @@ onlineExchange.factory('UserAdsResource', ['$resource', 'authorization', 'baseSe
                 method: 'DELETE', params: {id: '@id'}, isArray: false, headers: headers
             }
         });
-
-        //var UserAdsActivateResource = $resource(baseServiceUrl + '/api/user/ads' + ':activate', null, {
-        //    'deactivateUserAd': {
-        //        method: 'PUT', params: {activate: '/deactivate', id: '@id'},
-        //        isArray: false, headers: headers
-        //    },
-        //    'publishAgainUserAd': {
-        //        method: 'PUT', params: {activate: '/publishagain', id: '@id'},
-        //        isArray: false, headers: headers
-        //    }
-        //
-        //});
 
         return {
             getUserAds: function (request) {
@@ -58,13 +46,13 @@ onlineExchange.factory('UserAdsResource', ['$resource', 'authorization', 'baseSe
                 return UserAdsResource.publishAgainUserAd({id: id});
             },
             getUserAd: function (id) {
-                return UserAdsResource.getUserAd({id: id}).$promise;
+                return UserAdsResource.getUserAd({id: id});
             },
             editUserAd: function (id) {
-                return UserAdsResource.editUserAd({id: id}).$promise;
+                return UserAdsResource.editUserAd({id: id});
             },
             deleteUserAd: function (id) {
-                return UserAdsResource.deleteUserAd({id: id}).$promise;
+                return UserAdsResource.deleteUserAd({id: id});
             }
         }
     }]);

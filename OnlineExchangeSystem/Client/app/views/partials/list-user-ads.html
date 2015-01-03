@@ -1,10 +1,21 @@
 <div class="left-side-menu">
     <div ng-include="'views/partials/user-navigation.html'"></div>
-    <div ng-include="'views/partials/user-filter-ads.html'"></div>
+    <form ng-model="selectedStatus" class="nav" ng-show="identity.isAuthenticated()">
+        <h3>My Ads</h3>
+        <a href ng-click="selectedStatus = ''" class="link">All</a>
+        <br/>
+        <a href ng-click="selectedStatus = 'published'" class="link">Published</a>
+        <br/>
+        <a href ng-click="selectedStatus = 'WaitingApproval'" class="link">Waiting Approval</a>
+        <br/>
+        <a href ng-click="selectedStatus = 'inactive'" class="link">Inactive</a>
+        <br/>
+        <a href ng-click="selectedStatus = 'rejected'" class="link">Rejected</a>
+    </form>
 </div>
 <div class="main-list">
     <div ng-if="allAds.ads.length">
-        <div ng-repeat="ad in allAds.ads" class="dialog-box">
+        <div ng-repeat="ad in allAds.ads | filter:selectedStatus" class="dialog-box">
             <h1>{{ad.title}}</h1>
 
             <img ng-src="{{ad.imageDataUrl}}" alt="No Image"></img>
@@ -33,14 +44,11 @@
             <p class="buttons" ng-if="ad.status=='Inactive'">
                 <button ng-click="edit(ad.id)" class="button">Edit</button>
                 <button ng-click="publishAgain(ad.id)" class="button">Publish Again</button>
-                <button ng-click="deleteAd(ad.id)" class="button">Delete</button>
+                <button ng-click="delete(ad.id)" class="button">Delete</button>
             <p>
 
             <p class="buttons" ng-if="ad.status=='WaitingApproval'||ad.status=='Published'">
-                <button ng-click="deactivateAd(ad.id)" class="button">Deactivate</button>
-            </p>
-            <p class="buttons" ng-if="ad.status=='Published'">
-                <button ng-click="deactivateAd(ad.id)" class="button">Deactivate</button>
+                <button ng-click="deactivate(ad.id)" class="button">Deactivate</button>
             </p>
         </div>
     </div>
