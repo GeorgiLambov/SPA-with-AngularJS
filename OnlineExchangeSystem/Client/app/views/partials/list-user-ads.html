@@ -1,9 +1,10 @@
 <div class="left-side-menu">
     <div ng-include="'views/partials/user-navigation.html'"></div>
+    <div ng-include="'views/partials/user-filter-ads.html'"></div>
 </div>
 <div class="main-list">
-    <div ng-if="userAds.ads.length">
-        <div ng-repeat="ad in userAds.ads" class="dialog-box">
+    <div ng-if="allAds.ads.length">
+        <div ng-repeat="ad in allAds.ads" class="dialog-box">
             <h1>{{ad.title}}</h1>
 
             <img ng-src="{{ad.imageDataUrl}}" alt="No Image"></img>
@@ -43,8 +44,8 @@
             </p>
         </div>
     </div>
-    <div ng-if="!userAds.ads.length">
+    <div ng-if="!allAds.ads.length">
         <h2>No Ads!</h2>
     </div>
-    <div ng-if="userAds.ads.length" pager id="pager"></div>
+    <div ng-if="allAds.ads.length" pager id="pager"></div>
 </div>

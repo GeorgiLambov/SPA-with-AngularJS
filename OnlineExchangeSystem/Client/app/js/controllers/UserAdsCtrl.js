@@ -2,17 +2,16 @@
 
 onlineExchange.controller('UserAdsCtrl', ['$scope', 'PublicAdsResource', 'UserAdsResource', 'identity', 'notifier',
     function UserAdsCtrl($scope, PublicAdsResource, UserAdsResource, identity, notifier) {
-        $scope.request = {pageSize: 3, startPage: 2};
+        $scope.request = {pageSize: 3, startPage: 1};
         $scope.identity = identity;
 
         //$scope.allCategory = PublicAdsResource.getAllCategories();
         // $scope.alltowns = PublicAdsResource.getAllTowns();
 
-        $scope.userAds = UserAdsResource.getUserAds($scope.request);
+        $scope.allAds = UserAdsResource.getUserAds($scope.request);
 
-
-        $scope.pageFilter = function (request) {  //to do
-            PublicAdsResource.getAllAds(request)
+        $scope.pageFilter = function (request) {
+            UserAdsResource.getUserAds($scope.request)
                 .$promise
                 .then(function (result) {
                     $scope.allAds = result;

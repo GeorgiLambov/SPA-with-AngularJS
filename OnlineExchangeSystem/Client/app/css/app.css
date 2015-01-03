@@ -65,8 +65,8 @@ p {
     width: 10%;
     float: left;
     background: #A9D18E;
-    padding: 2.5em 0.5em;
-    margin: 0.5em;
+    padding: 0.5em;
+    margin: 0em 0.5em 0.5em;
     border-radius: 1em;
     border: 1px solid #507E32;
     box-shadow: 1px 1px 3px #507E32;
@@ -74,16 +74,26 @@ p {
 
 }
 
-.menu-filter {
+.menu-filter, .nav {
     background: #A9D18E;
     margin: 1.5em auto;
     border-radius: 1em;
     border: 1px solid #507E32;
     box-shadow: 1px 1px 3px #507E32;
+    padding: .5em;
 }
 
 .menu-filter select {
-    margin: 1.1em 1.1em;
+    margin: .5em 1em;
+    padding: .2em;
+}
+
+.nav h3:after {
+    content: ' ';
+    display: block;
+    border: 1px solid #507E32;
+    margin: 0.5em 0 0.5em 0;
+    box-shadow: 1px 1px 3px #507E32;
 }
 
 .button {
