@@ -1,19 +1,21 @@
 <div class="left-side-menu">
     <div ng-include="'views/partials/user-navigation.html'" class="nav"></div>
 </div>
-<form id="publishForm" name="publishAdd" ng-show="identity.isAuthenticated()" class="form-box">
-    <h1>Publish New Ad</h1>
+<form name="editAdForm" ng-show="identity.isAuthenticated()" class="form-box">
+    <h1>Edit Ad</h1>
 
     <p browse></p>
 
+    <button ng-click="" class="button">Delete Image</button>
+    <button ng-click="" class="button">Change Image</button>
     <p>
         <label for="title">Title:</label>
-        <input type="text" id="title" ng-model="adData.title" placeholder="Title" required/>
+        <input type="text" id="title" ng-model="adData.title" required/>{{adData.title}}
     </p>
 
     <p>
         <label for="text">Text:</label>
-        <textarea class="text-area" id="text" ng-model="adData.text" placeholder="Text" required></textarea>
+        <textarea class="text-area" id="text" ng-model="adData.text" required></textarea>
     </p>
 
     <p>
@@ -31,7 +33,8 @@
         </select>
     </p>
     <p>
-        <button ng-click="publishAd(adData, publishAdd)" class="button">Publish</button>
-        <a href="#/" class="link">Cancel</a>
+        <button ng-click="editAd(adData, editAdForm)" class="button">Edit</button>
+        <a href="#/" class="button">Cancel</a>
+
     <p>
 </form>

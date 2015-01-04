@@ -28,7 +28,7 @@ onlineExchange.controller('LoginLogoutCtrl', ['$scope', '$location', 'notifier',
                     $scope.user = {};
                 }
 
-                $scope.loginForm.$setPristine();
+                //$scope.loginForm.$setPristine();
                 $location.path('/');
             })
         }

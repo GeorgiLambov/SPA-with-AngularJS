@@ -114,7 +114,7 @@ p {
 
 .dialog-box {
     display: inline-block;
-    margin: 0 0 0.5em;
+    margin: 0 0.5em 0.5em;
     background: #A9D18E;
     padding: 1em;
     border-radius: 1em;
@@ -125,11 +125,10 @@ p {
 img {
     width: 11em;
     height: 8em;
-    float: left;
 }
 
 .dialog-box h1 {
-    margin: 0 0 1.2em 0;
+    margin: 0 0 .9em 0;
     text-align: center;
     font-size: 1.3em;
 }
@@ -140,6 +139,13 @@ img {
     border: 1px solid #507E32;
     margin: 0.5em 0 0.5em 0;
     box-shadow: 1px 1px 3px #507E32;
+}
+
+.text-area {
+    font-size: 1em;
+    padding: 0.2em 0.8em 2em;
+    border: 1px solid #70AD47;
+    border-radius: 2px;
 }
 
 .dialog-box p {
@@ -153,12 +159,11 @@ img {
 
 .dialog-box label {
     display: inline-block;
-    min-width: 3.3em;
+    min-width: 4em;
 }
 
-.dialog-box input, textarea {
+.dialog-box input {
     font-size: 1em;
-    font-weight: bold;
     padding: 0.2em;
     border: 1px solid #70AD47;
     border-radius: 2px;
@@ -210,7 +215,7 @@ hr {
 
 .form-box {
     display: inline-block;
-    margin: 0.5em auto;
+    margin: 0 auto;
     background: #A9D18E;
     padding: 1.2em;
     border-radius: 1em;
@@ -228,12 +233,12 @@ hr {
     content: ' ';
     display: block;
     border: 1px solid #507E32;
-    margin: 1em 0 2em 0;
+    margin: 1em 0 1em 0;
     box-shadow: 1px 1px 3px #507E32;
 }
 
 .form-box p {
-    margin: 5px 0;
+    margin: 10px 0;
 }
 
 .form-box label {
@@ -243,7 +248,14 @@ hr {
 
 .form-box input {
     font-size: 1em;
-    font-weight: bold;
+    padding: 5px;
+    border: 1px solid #70AD47;
+    border-radius: 2px;
+}
+
+.form-box select {
+    min-width: 14.5em;
+    font-size: .9em;
     padding: 5px;
     border: 1px solid #70AD47;
     border-radius: 2px;
@@ -252,6 +264,10 @@ hr {
 .form-box input:focus {
     outline: 0;
     border: 1px solid #3a6c35;
+}
+
+#publishForm {
+
 }
 
 #footer {

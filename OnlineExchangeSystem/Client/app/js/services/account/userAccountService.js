@@ -56,29 +56,36 @@ onlineExchange.factory('userAccountService', ['$http', '$q', 'identity', 'author
             userInfo: function () {
                 var deferred = $q.defer();
 
-                var userInfo = identity.getCurrentUser().userInfo;
-                if (userInfo) {
-                    deferred.resolve(userInfo);
-                }
-                else {
-                    var headers = authorization.getAuthorizationHeader();
-                    $http.get(usersApi + '/profile', {headers: headers})
-                        .success(function (response) {
-                            var currentUser = identity.getCurrentUser();
-                            angular.extend(currentUser, {userInfo: response});
-                            identity.setCurrentUser(currentUser);
-                            deferred.resolve(response);
-                        })
-                        .error(errorHandler.processError);
-                }
+                var headers = authorization.getAuthorizationHeader();
+                $http.get(usersApi + '/profile', {headers: headers})
+                    .success(function (response) {
+                        var currentUser = identity.getCurrentUser();
+                        angular.extend(currentUser, {userInfo: response});
+                        identity.setCurrentUser(currentUser);
+                        deferred.resolve(response);
+                    })
+                    .error(errorHandler.processError);
+
 
                 return deferred.promise;
             },
-            editUserProfile: function (user) {
+            editProfile: function (user) {
                 var deferred = $q.defer();
 
                 var headers = authorization.getAuthorizationHeader();
                 $http.put(usersApi + '/profile', user, {headers: headers})
+                    .success(function (response) {
+                        deferred.resolve(response);
+                    })
+                    .error(errorHandler.processError);
+
+                return deferred.promise;
+            },
+            changePassword: function (pass) {
+                var deferred = $q.defer();
+
+                var headers = authorization.getAuthorizationHeader();
+                $http.put(usersApi + '/ChangePassword', pass, {headers: headers})
                     .success(function (response) {
                         deferred.resolve(response);
                     })

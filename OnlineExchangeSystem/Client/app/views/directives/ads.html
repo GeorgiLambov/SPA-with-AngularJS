@@ -1,12 +1,12 @@
 <div ng-repeat="ad in allAds.ads" class="dialog-box">
     <h1>{{ad.title}}</h1>
 
-    <img ng-src="{{ad.imageDataUrl}}" alt="No Image"></img>
-    <span>{{ad.date | date: 'dd-MM-yyyy'}}</span>
+    <img ng-src="{{ad.imageDataUrl}}" alt="No Image"/>
 
     <p>
-        <label for="tek">Text:</label>
-        <textarea id="tek" placeholder="{{ad.text}}" disabled="disabled"/>
+    <div>Price: Date:{{ad.date | date: 'dd-MM-yyyy'}}</div>
+    <label for="text">Text:</label>
+    <textarea class="text-area" id="text" placeholder="{{ad.text}}" disabled="disabled"/>
     </p>
 
     <p>

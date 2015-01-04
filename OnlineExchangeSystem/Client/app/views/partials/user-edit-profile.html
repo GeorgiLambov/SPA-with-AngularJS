@@ -1,7 +1,7 @@
 <div class="left-side-menu">
     <div ng-include="'views/partials/user-navigation.html'" class="nav"></div>
 </div>
-<form name="editProfile" class="form-box">
+<form name="editProfileForm" class="form-box">
     <h1>Edit Profile</h1>
 
     <p>
@@ -18,12 +18,12 @@
 
     <p>
         <label for="phone">Phone:</label>
-        <input type="text" id="phone" placeholder="{{currentUser.phoneNumber}}" ng-model="user.phonenumber" required/>
+        <input type="text" id="phone" placeholder="{{currentUser.phoneNumber}}" ng-model="user.phoneNumber" required/>
     </p>
 
     <p>
         <label for="town">Town:</label>
-        <select id="town" ng-model="user.townid">
+        <select id="town" ng-model="user.townId">
             <option value="" selected="selected">(None)</option>
             <option ng-repeat="town in alltowns" value="{{town.id}}">
                 {{town.name}}
@@ -32,32 +32,33 @@
     </p>
 
     <p class="buttons">
-        <button ng-click="editUserProfile(user, editProfile)" class="button">Update</button>
+        <button ng-click="editUserProfile(user, editProfileForm)" class="button">Update</button>
         <a href="#/user/ads" class="link">Cancel</a>
     </p>
 </form>
-<form name="editPass" class="form-box">
+<form name="changePasswordForm" class="form-box">
     <h1>Change Password</h1>
 
     <p>
         <label for="old-pass">Old Password:</label>
-        <input type="text" id="old-pass" placeholder="Old password" ng-model="user.oldPassword" required/>
+        <input type="password" id="old-pass" placeholder="Old password" ng-model="pass.oldPassword" required/>
     </p>
 
     <p>
-        <label for="pass">New Password:</label>
-        <input type="password" id="pass" placeholder="Password" ng-model="user.password" ng-minlength="2" required/>
+        <label for="new-pass">New Password:</label>
+        <input type="password" id="new-pass" placeholder="Password" ng-model="pass.newPassword" ng-minlength="3"
+               required/>
     </p>
 
     <p>
         <label for="confirmation">Confirm new pass:</label>
-        <input id="confirmation" type="password" placeholder="Confirm password" ng-model="user.confirmPassword"
-               required/>
+        <input id="confirmation" type="password" placeholder="Confirm password" ng-model="pass.confirmPassword"
+               ng-minlength="3" required/>
     </p>
 
     <p class="buttons">
-        <button ng-click="editUserProfile(user, editPass)"
-                ng-disabled="user.password!=user.confirmPassword"
+        <button ng-click="changeUserPasswords(pass, changePasswordForm)"
+                ng-disabled="pass.newPassword!=pass.confirmPassword"
                 class="button">Change Password
         </button>
         <a href="#/user/ads" class="link">Cancel</a>
