@@ -8,10 +8,8 @@ onlineExchange.controller('LoginLogoutCtrl', ['$scope', '$location', 'notifier',
             if (loginForm.$valid) {
                 userAccountService.login(user).then(function (success) {
                     if (success) {
-                        userAccountService.userInfo().then(function () {   // todo remove
-                            notifier.success('Successful login!');
-                            $location.path('/');
-                        });
+                        notifier.success('Successful login!');
+                        $location.path('/');
                     }
                     else {
                         notifier.error('Username/Password combination is not valid!');

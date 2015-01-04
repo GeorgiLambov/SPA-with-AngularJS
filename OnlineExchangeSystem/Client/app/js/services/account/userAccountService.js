@@ -74,6 +74,18 @@ onlineExchange.factory('userAccountService', ['$http', '$q', 'identity', 'author
 
                 return deferred.promise;
             },
+            editUserProfile: function (user) {
+                var deferred = $q.defer();
+
+                var headers = authorization.getAuthorizationHeader();
+                $http.put(usersApi + '/profile', user, {headers: headers})
+                    .success(function (response) {
+                        deferred.resolve(response);
+                    })
+                    .error(errorHandler.processError);
+
+                return deferred.promise;
+            },
             isAuthenticated: function () {
                 if (identity.isAuthenticated()) {
                     return true;

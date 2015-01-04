@@ -45,6 +45,11 @@ var onlineExchange = angular.module('onlineExchange', ['ngRoute', 'ngResource', 
                 controller: 'EditAdsCtrl',
                 resolve: routeUserChecks.authenticated
             })
+            .when('/user/ads/delete', {
+                templateUrl: 'views/partials/delete-ad.html',
+                controller: 'DeleteAdsCtrl',
+                resolve: routeUserChecks.authenticated
+            })
             .otherwise({redirectTo: '/'});
     }])
     .run(function ($rootScope, $location) {

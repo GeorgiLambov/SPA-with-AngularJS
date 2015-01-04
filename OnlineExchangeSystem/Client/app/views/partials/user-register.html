@@ -1,5 +1,5 @@
 <div class="left-side-menu">
-    <div ng-include="'views/partials/user-navigation.html'"></div>
+    <div ng-include="'views/partials/user-navigation.html'" class="nav"></div>
 </div>
 <form name="signUpForm" class="form-box">
     <h1>User Registration</h1>
@@ -38,7 +38,12 @@
 
     <p>
         <label for="town">Town:</label>
-        <input type="text" id="town" placeholder="Town" ng-model="user.town"/>
+        <select id="town" ng-model="user.townId">
+            <option value="" selected="selected">(None)</option>
+            <option ng-repeat="town in alltowns" value="{{town.id}}">
+                {{town.name}}
+            </option>
+        </select>
     </p>
 
     <p class="buttons">

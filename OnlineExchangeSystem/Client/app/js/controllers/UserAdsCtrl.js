@@ -35,17 +35,15 @@ onlineExchange.controller('UserAdsCtrl', ['$scope', '$rootScope', '$location', '
                 });
         };
 
-        $scope.delete = function (adDataId) {
-            UserAdsResource.deleteUserAd(adDataId)
-                .$promise
-                .then(function (result) {
-                    notifier.success('Advertisement deleted stressful.');
-                    $location.path("/");
-                });
+        $scope.delete = function (selectedId) {
+            $location.path("/user/ads/delete");
+            $rootScope.$broadcast('deleteSelectedAdDataId', selectedId);
+
+
         };
 
-        $scope.edit = function (adDataId) {
-            $rootScope.$broadcast("adDataID", {id: adDataId});
+        $scope.edit = function (selectedId) {
+            $rootScope.$broadcast('editSelectedAdDataId', selectedId);
             $location.path("/user/ads/edit");
         };
     }

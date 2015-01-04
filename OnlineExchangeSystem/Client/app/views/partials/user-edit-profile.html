@@ -1,32 +1,38 @@
 <div class="left-side-menu">
-    <div ng-include="'views/partials/user-navigation.html'"></div>
+    <div ng-include="'views/partials/user-navigation.html'" class="nav"></div>
 </div>
 <form name="editProfile" class="form-box">
     <h1>Edit Profile</h1>
 
     <p>
         <label for="fullName">Full Name:</label>
-        <input type="text" id="fullName" placeholder="Full name" ng-model="user.name" required/>
+        <input type="text" id="fullName" placeholder="{{currentUser.name}}" ng-model="user.name" required/>
     </p>
 
     <p>
         <label for="email">E-mail:</label>
-        <input id="email" type="email" placeholder="E-mail" ng-pattern="emailPattern" ng-model="user.email"
+        <input id="email" type="email" placeholder="{{currentUser.email}}" ng-pattern="emailPattern"
+               ng-model="user.email"
                required/>
     </p>
 
     <p>
         <label for="phone">Phone:</label>
-        <input type="text" id="phone" placeholder="Phone" ng-model="user.phone"/>
+        <input type="text" id="phone" placeholder="{{currentUser.phoneNumber}}" ng-model="user.phonenumber" required/>
     </p>
 
     <p>
         <label for="town">Town:</label>
-        <input type="text" id="town" placeholder="Town" ng-model="user.town"/>
+        <select id="town" ng-model="user.townid">
+            <option value="" selected="selected">(None)</option>
+            <option ng-repeat="town in alltowns" value="{{town.id}}">
+                {{town.name}}
+            </option>
+        </select>
     </p>
 
     <p class="buttons">
-        <button ng-click="register(user, editProfile)" class="button">Update</button>
+        <button ng-click="editUserProfile(user, editProfile)" class="button">Update</button>
         <a href="#/user/ads" class="link">Cancel</a>
     </p>
 </form>
@@ -35,12 +41,12 @@
 
     <p>
         <label for="old-pass">Old Password:</label>
-        <input type="text" id="old-pass" placeholder="Name" ng-model="user.oldpaassssssss" required/>
+        <input type="text" id="old-pass" placeholder="Old password" ng-model="user.oldPassword" required/>
     </p>
 
     <p>
         <label for="pass">New Password:</label>
-        <input type="password" id="pass" placeholder="password" ng-model="user.password" ng-minlength="2" required/>
+        <input type="password" id="pass" placeholder="Password" ng-model="user.password" ng-minlength="2" required/>
     </p>
 
     <p>
@@ -50,8 +56,8 @@
     </p>
 
     <p class="buttons">
-        <button ng-click="register(user, editPass)"
-                ng-disabled="user.password != user.confirmPassword"
+        <button ng-click="editUserProfile(user, editPass)"
+                ng-disabled="user.password!=user.confirmPassword"
                 class="button">Change Password
         </button>
         <a href="#/user/ads" class="link">Cancel</a>
