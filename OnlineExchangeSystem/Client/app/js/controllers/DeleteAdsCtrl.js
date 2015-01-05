@@ -1,28 +1,19 @@
 'use strict';
 
-onlineExchange.controller('DeleteAdsCtrl', ['$scope', '$rootScope', '$location', 'PublicAdsResource', 'UserAdsResource',
+onlineExchange.controller('DeleteAdsCtrl', ['$scope', '$routeParams', '$location', 'PublicAdsResource', 'UserAdsResource',
     'notifier', 'identity',
-    function EditAdsCtrl($scope, $rootScope, $location, PublicAdsResource, UserAdsResource, notifier, identity) {
+    function EditAdsCtrl($scope, $routeParams, $location, PublicAdsResource, UserAdsResource, notifier, identity) {
         $scope.adData = {};
-        $scope.categories = PublicAdsResource.getAllCategories();
-        $scope.towns = PublicAdsResource.getAllTowns();
         $scope.identity = identity;
+        var selectedId = $routeParams.id;
+        $scope.adData = UserAdsResource.getUserAd(selectedId);
 
-
-        $scope.$on('deleteSelectedAdDataId', function (event, selectedId) {
-            UserAdsResource.getUserAd(selectedId)
-                .$promise
-                .then(function (result) {
-                    $scope.adData = result;
-                });
-        });
-
-        $scope.delete = function (id) {
+        $scope.delete = function (adDataId) {
             UserAdsResource.deleteUserAd(adDataId)
                 .$promise
                 .then(function (result) {
                     notifier.success('Advertisement deleted stressful.');
-                    $location.path("/");
+                    $location.path("/user/ads");
                 });
         };
     }

@@ -1,12 +1,9 @@
 'use strict';
 
-onlineExchange.controller('UserAdsCtrl', ['$scope', '$rootScope', '$location', 'PublicAdsResource', 'UserAdsResource', 'identity', 'notifier',
-    function UserAdsCtrl($scope, $rootScope, $location, PublicAdsResource, UserAdsResource, identity, notifier) {
+onlineExchange.controller('UserAdsCtrl', ['$scope', '$location', 'PublicAdsResource', 'UserAdsResource', 'identity', 'notifier',
+    function UserAdsCtrl($scope, $location, PublicAdsResource, UserAdsResource, identity, notifier) {
         $scope.request = {pageSize: 3, startPage: 1};
         $scope.identity = identity;
-
-        //$scope.allCategory = PublicAdsResource.getAllCategories();
-        // $scope.alltowns = PublicAdsResource.getAllTowns();
 
         $scope.allAds = UserAdsResource.getUserAds($scope.request);
 
@@ -36,15 +33,11 @@ onlineExchange.controller('UserAdsCtrl', ['$scope', '$rootScope', '$location', '
         };
 
         $scope.delete = function (selectedId) {
-            $location.path("/user/ads/delete");
-            $rootScope.$broadcast('deleteSelectedAdDataId', selectedId);
-
-
+            $location.path("/user/ads/delete/" + selectedId);
         };
 
         $scope.edit = function (selectedId) {
-            $rootScope.$broadcast('editSelectedAdDataId', selectedId);
-            $location.path("/user/ads/edit");
+            $location.path("/user/ads/edit/" + selectedId);
         };
     }
 ])

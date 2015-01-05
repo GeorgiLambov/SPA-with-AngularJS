@@ -10,19 +10,19 @@
     <button ng-click="" class="button">Change Image</button>
     <p>
         <label for="title">Title:</label>
-        <input type="text" id="title" ng-model="adData.title" required/>{{adData.title}}
+        <input type="text" id="title" ng-model="adData.title" placeholder="{{adData.title}}" required/>
     </p>
 
     <p>
         <label for="text">Text:</label>
-        <textarea class="text-area" id="text" ng-model="adData.text" required></textarea>
+        <textarea class="text-area" id="text" ng-model="adData.text" placeholder="{{adData.text}}" required></textarea>
     </p>
 
     <p>
         <label for="category">Category:</label>
         <select id="category" ng-model="adData.categoryId">
             <option value="null">(None)</option>
-            <option ng-repeat="c in categories" value="{{c.id}}">{{c.name}}</option>
+            <option ng-repeat="category in categories" value="{{category.id}}">{{category.name}}</option>
         </select>
     </p>
     <p>
@@ -34,7 +34,6 @@
     </p>
     <p>
         <button ng-click="editAd(adData, editAdForm)" class="button">Edit</button>
-        <a href="#/" class="button">Cancel</a>
-
+        <a href="#/user/ads" class="link">Cancel</a>
     <p>
 </form>

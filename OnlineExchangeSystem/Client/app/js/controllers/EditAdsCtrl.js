@@ -1,33 +1,26 @@
 'use strict';
 
-onlineExchange.controller('EditAdsCtrl', ['$scope', '$rootScope', '$location', 'PublicAdsResource', 'UserAdsResource',
+onlineExchange.controller('EditAdsCtrl', ['$scope', '$routeParams', '$location', 'PublicAdsResource', 'UserAdsResource',
     'notifier', 'identity',
-    function EditAdsCtrl($scope, $rootScope, $location, PublicAdsResource, UserAdsResource, notifier, identity) {
+    function EditAdsCtrl($scope, $routeParams, $location, PublicAdsResource, UserAdsResource, notifier, identity) {
         $scope.adData = {};
+        $scope.identity = identity;
         $scope.categories = PublicAdsResource.getAllCategories();
         $scope.towns = PublicAdsResource.getAllTowns();
-        $scope.identity = identity;
 
-
-        $rootScope.$on('editSelectedAdDataId', function (event, selectedId) {
-            UserAdsResource.getUserAd(selectedId)
-                .$promise
-                .then(function (result) {
-                    $scope.adData = result;
-
-                });
-        });
+        var selectedId = $routeParams.id;
+        $scope.adData = UserAdsResource.getUserAd(selectedId);
 
         $scope.editAd = function (adData, editAdForm) {
             if (editAdForm.$valid) {
-                UserAdsResource.editUserAd(adData)
+                UserAdsResource.editUserAd(adData, selectedId)
                     .$promise
                     .then(function (result) {
-                        notifier.success('Advertisement submitted for approval. Once approved, it will be published.');
+                        notifier.success('Advertisement edited successfully.');
                         $location.path("/user/ads");
                     });
             } else {
-                notifier.error("Publish ad failed advertisement title and text are required!");
+                notifier.error("Advertisement title and text are required!");
             }
         };
     }

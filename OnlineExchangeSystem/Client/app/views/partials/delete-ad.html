@@ -8,26 +8,26 @@
 
     <p>
         <label for="title">Title:</label>
-        <input type="text" id="title" placeholder="{{currentUser.name}}" ng-model="user.name" disabled/>{{adData.title}}
+        <input type="text" id="title" placeholder="{{adData.title}}" disabled/>
     </p>
 
     <p>
         <label for="text">Text:</label>
-        <textarea class="text-area" id="text" value="adData.text" required></textarea>
+        <textarea class="text-area" id="text" placeholder="{{adData.text}}"></textarea>
     </p>
 
     <p>
         <label for="category">Category:</label>
-        <input type="category" disabled>
+        <input type="category" placeholder="{{adData.categoryName}}" disabled>
     </p>
 
     <p>
         <label for="town">Town:</label>
-        <input type="town" disabled>
+        <input type="town" placeholder="{{adData.townName}}" disabled>
     </p>
 
     <p>
-        <button ng-click="delete(adData.id)" class="button">Edit</button>
-        <a href="#/" class="button">Cancel</a>
+        <button ng-click="delete(adData.id)" class="button">Delete</button>
+        <a href="#/user/ads" class="link">Cancel</a>
     <p>
 </form>

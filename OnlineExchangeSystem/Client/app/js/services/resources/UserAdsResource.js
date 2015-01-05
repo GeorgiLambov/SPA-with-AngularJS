@@ -48,8 +48,8 @@ onlineExchange.factory('UserAdsResource', ['$resource', 'authorization', 'baseSe
             getUserAd: function (id) {
                 return UserAdsResource.getUserAd({id: id});
             },
-            editUserAd: function (id) {
-                return UserAdsResource.editUserAd({id: id});
+            editUserAd: function (adData, selectedId) {
+                return UserAdsResource.editUserAd(adData);
             },
             deleteUserAd: function (id) {
                 return UserAdsResource.deleteUserAd({id: id});

@@ -40,12 +40,12 @@ var onlineExchange = angular.module('onlineExchange', ['ngRoute', 'ngResource', 
                 controller: 'EditUserProfileCtrl',
                 resolve: routeUserChecks.authenticated
             })
-            .when('/user/ads/edit', {
+            .when('/user/ads/edit/:id', {
                 templateUrl: 'views/partials/edit-ad.html',
                 controller: 'EditAdsCtrl',
                 resolve: routeUserChecks.authenticated
             })
-            .when('/user/ads/delete', {
+            .when('/user/ads/delete/:id', {
                 templateUrl: 'views/partials/delete-ad.html',
                 controller: 'DeleteAdsCtrl',
                 resolve: routeUserChecks.authenticated

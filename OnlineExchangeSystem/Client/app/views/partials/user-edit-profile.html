@@ -24,10 +24,8 @@
     <p>
         <label for="town">Town:</label>
         <select id="town" ng-model="user.townId">
-            <option value="" selected="selected">(None)</option>
-            <option ng-repeat="town in alltowns" value="{{town.id}}">
-                {{town.name}}
-            </option>
+            <option value="null">(None)</option>
+            <option ng-repeat="town in alltowns" value="{{town.id}}">{{town.name}}</option>
         </select>
     </p>
 
