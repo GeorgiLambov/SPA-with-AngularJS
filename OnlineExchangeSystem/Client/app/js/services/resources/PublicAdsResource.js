@@ -3,29 +3,24 @@
 onlineExchange.factory('PublicAdsResource', ['$resource', 'baseServiceUrl',
     function ($resource, baseServiceUrl) {
 
-        var pageUrl = '?pagesize=:pageSize&startpage=:startPage&townid=:townId&categoryid=:categoryId';
-
-        var PublicAdsResource = $resource(baseServiceUrl + '/api/:id' + pageUrl
+        var PublicAdsResource = $resource(baseServiceUrl + '/api/:id'
             , null, {
                 'getAllAds': {
                     method: 'GET', isArray: false,
-                    params: {id: 'ads', pageSize: '@pageSize', startPage: '@startPage'}
+                    params: {id: 'ads?', pageSize: '@pageSize', startPage: '@startPage'}
                 },
-                'getAllCategories': {method: 'GET', params: {id: 'categories'}, isArray: true},
-                'getAllTowns': {method: 'GET', params: {id: 'towns'}, isArray: true}
-            });
-
-        var FilterResource = $resource(baseServiceUrl + '/api/ads' + pageUrl
-            , null, {
                 'getFilteredAds': {
-                    method: 'GET',
+                    method: 'GET', isArray: false,
                     params: {
+                        id: 'ads?',
                         pageSize: '@pageSize',
                         startPage: '@startPage',
                         townId: '@townId',
                         categoryId: '@categoryId'
-                    }, isArray: false
-                }
+                    }
+                },
+                'getAllCategories': {method: 'GET', params: {id: 'categories'}, isArray: true},
+                'getAllTowns': {method: 'GET', params: {id: 'towns'}, isArray: true}
             });
 
         return {
@@ -39,7 +34,7 @@ onlineExchange.factory('PublicAdsResource', ['$resource', 'baseServiceUrl',
                 return PublicAdsResource.getAllTowns();
             },
             getFilteredAds: function (request) {
-                return FilterResource.getFilteredAds(request);
+                return PublicAdsResource.getFilteredAds(request);
             }
         }
     }]);

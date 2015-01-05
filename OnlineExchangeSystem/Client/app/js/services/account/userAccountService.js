@@ -7,6 +7,7 @@ onlineExchange.factory('userAccountService', ['$http', '$q', 'identity', 'author
         return {
             signup: function (user) {
                 var deferred = $q.defer();
+
                 $http.post(usersApi + '/register', user)
                     .success(function (response) {
                         if (response['access_token']) {
@@ -24,6 +25,7 @@ onlineExchange.factory('userAccountService', ['$http', '$q', 'identity', 'author
             },
             login: function (user) {
                 var deferred = $q.defer();
+
                 $http.post(usersApi + '/login', 'username=' + user.username + '&password=' +
                     user.password,
                     {headers: {'Content-Type': 'application/x-www-form-urlencoded'}})

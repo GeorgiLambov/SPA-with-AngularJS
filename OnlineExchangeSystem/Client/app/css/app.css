@@ -128,6 +128,8 @@ img {
 }
 
 .dialog-box h1 {
+    max-width: 13em;
+    max-height: 5em;
     margin: 0 0 .9em 0;
     text-align: center;
     font-size: 1.3em;
