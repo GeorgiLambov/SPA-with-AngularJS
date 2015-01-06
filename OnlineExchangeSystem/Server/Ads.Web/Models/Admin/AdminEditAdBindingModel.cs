@@ -4,7 +4,7 @@
     using System.ComponentModel.DataAnnotations;
     using global::Ads.Models;
 
-    public class AdminUpdateAdBindingModel
+    public class AdminEditAdBindingModel
     {
         [Required]
         public string Title { get; set; }
@@ -23,8 +23,10 @@
 
         public int? TownId { get; set; }
 
+        [Required]
         public DateTime Date { get; set; }
 
+        [Required]
         public AdvertisementStatus Status { get; set; }
     }
 }
