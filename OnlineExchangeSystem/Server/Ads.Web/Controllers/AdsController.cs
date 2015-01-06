@@ -44,13 +44,14 @@
             ads = ads.Where(ad => ad.Status == AdvertisementStatus.Published);
             ads = ads.OrderByDescending(ad => ad.Date).ThenBy(ad => ad.Id);
 
-            // Find the requested page (by given start page and page size)
+            // Apply paging: find the requested page (by given start page and page size)
             int pageSize = Settings.Default.DefaultPageSize;
             if (model.PageSize.HasValue)
             {
                 pageSize = model.PageSize.Value;
             }
-            var numPages = (ads.Count() + pageSize - 1) / pageSize;
+            var numItems = ads.Count();
+            var numPages = (numItems + pageSize - 1) / pageSize;
             if (model.StartPage.HasValue)
             {
                 ads = ads.Skip(pageSize * (model.StartPage.Value - 1));
@@ -75,6 +76,7 @@
             return this.Ok(
                 new
                 {
+                    numItems,
                     numPages,
                     ads = adsToReturn
                 }

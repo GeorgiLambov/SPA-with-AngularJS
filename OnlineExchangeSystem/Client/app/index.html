@@ -10,7 +10,7 @@
 <div ng-include="'views/partials/user-logout.html'"></div>
 <hr/>
 
-<body>
+<body ng-cloak>
 <div ng-view id="wrapper"></div>
 <footer id="footer">
     <hr/>
@@ -57,7 +57,5 @@
 <script src="js/directives/ads.js"></script>
 <script src="js/directives/pager.js"></script>
 <script src="js/directives/browse.js"></script>
-
-
 </body>
 </html>

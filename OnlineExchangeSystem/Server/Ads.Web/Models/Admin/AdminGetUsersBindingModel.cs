@@ -1,8 +1,7 @@
 ﻿namespace Ads.Web.Models.Admin
 {
+    using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
-    using System.Web.Helpers;
-    using global::Ads.Models;
 
     public class AdminGetUsersBindingModel
     {
@@ -10,8 +9,11 @@
         {
             this.StartPage = 1;
         }
-
-        public string OrderByColumn { get; set; }
+        
+        /// <summary>
+        /// Sorting expression, e.g. 'UserName', '-UserName' (descending), 'Town.Name'.
+        /// </summary>
+        public string SortBy { get; set; }
 
         [Range(1, 100000, ErrorMessage = "Page number should be in range [1...100000].")]
         public int? StartPage { get; set; }

@@ -12,11 +12,8 @@ onlineExchange.factory('PublicAdsResource', ['$resource', 'baseServiceUrl',
                 'getFilteredAds': {
                     method: 'GET', isArray: false,
                     params: {
-                        id: 'ads?',
-                        pageSize: '@pageSize',
-                        startPage: '@startPage',
-                        townId: '@townId',
-                        categoryId: '@categoryId'
+                        id: 'ads?', pageSize: '@pageSize', startPage: '@startPage',
+                        townId: '@townId', categoryId: '@categoryId'
                     }
                 },
                 'getAllCategories': {method: 'GET', params: {id: 'categories'}, isArray: true},
