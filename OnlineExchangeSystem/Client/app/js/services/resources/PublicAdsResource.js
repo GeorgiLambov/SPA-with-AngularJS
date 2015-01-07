@@ -5,17 +5,7 @@ onlineExchange.factory('PublicAdsResource', ['$resource', 'baseServiceUrl',
 
         var PublicAdsResource = $resource(baseServiceUrl + '/api/:id'
             , null, {
-                'getAllAds': {
-                    method: 'GET', isArray: false,
-                    params: {id: 'ads?', pageSize: '@pageSize', startPage: '@startPage'}
-                },
-                'getFilteredAds': {
-                    method: 'GET', isArray: false,
-                    params: {
-                        id: 'ads?', pageSize: '@pageSize', startPage: '@startPage',
-                        townId: '@townId', categoryId: '@categoryId'
-                    }
-                },
+                'getAllAds': {method: 'GET', isArray: false, params: {id: 'ads?'}},
                 'getAllCategories': {method: 'GET', params: {id: 'categories'}, isArray: true},
                 'getAllTowns': {method: 'GET', params: {id: 'towns'}, isArray: true}
             });
@@ -29,9 +19,6 @@ onlineExchange.factory('PublicAdsResource', ['$resource', 'baseServiceUrl',
             },
             getAllTowns: function () {
                 return PublicAdsResource.getAllTowns();
-            },
-            getFilteredAds: function (request) {
-                return PublicAdsResource.getFilteredAds(request);
             }
         }
     }]);

@@ -1,18 +1,12 @@
 <form ng-model="selectedStatus" class="nav" ng-show="identity.isAuthenticated()">
     <h3>My Ads</h3>
-    <a href ng-click="selectedStatus = ''" class="link">All</a>
+    <a href ng-click="filterByStatus('')" class="link">All</a>
     <br/>
-    <a href ng-click="selectedStatus = 'published'" class="link">Published</a>
+    <a href ng-click="filterByStatus('Published')" class="link">Published</a>
     <br/>
-    <a href ng-click="selectedStatus = 'WaitingApproval'" class="link">Waiting Approval</a>
+    <a href ng-click="filterByStatus('WaitingApproval')" class="link">Waiting Approval</a>
     <br/>
-    <a href ng-click="selectedStatus = 'inactive'" class="link">Inactive</a>
+    <a href ng-click="filterByStatus('Inactive')" class="link">Inactive</a>
     <br/>
-    <a href ng-click="selectedStatus = 'rejected'" class="link">Rejected</a>
+    <a href ng-click="filterByStatus('Rejected')" class="link">Rejected</a>
 </form>
-
-
-<div ng-include="'views/partials/user-filter-ads.html'"></div>
-
-
-//todo remove

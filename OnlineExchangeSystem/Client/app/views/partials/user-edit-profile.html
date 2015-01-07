@@ -6,25 +6,25 @@
 
     <p>
         <label for="fullName">Full Name:</label>
-        <input type="text" id="fullName" placeholder="{{currentUser.name}}" ng-model="user.name" required/>
+        <input type="text" id="fullName" placeholder="{{user.name}}" ng-model="user.name" required/>
     </p>
 
     <p>
         <label for="email">E-mail:</label>
-        <input id="email" type="email" placeholder="{{currentUser.email}}" ng-pattern="emailPattern"
+        <input id="email" type="email" placeholder="{{user.email}}" ng-pattern="emailPattern"
                ng-model="user.email"
                required/>
     </p>
 
     <p>
         <label for="phone">Phone:</label>
-        <input type="text" id="phone" placeholder="{{currentUser.phoneNumber}}" ng-model="user.phoneNumber" required/>
+        <input type="text" id="phone" placeholder="{{user.phoneNumber}}" ng-model="user.phoneNumber" required/>
     </p>
 
     <p>
         <label for="town">Town:</label>
         <select id="town" ng-model="user.townId">
-            <option value="null">(None)</option>
+            <option value="">(None)</option>
             <option ng-repeat="town in alltowns" value="{{town.id}}">{{town.name}}</option>
         </select>
     </p>

@@ -83,6 +83,12 @@ p {
 .menu-filter select {
     margin: .5em 1em;
     padding: .2em;
+    max-width: 8em;
+}
+
+.nav {
+    min-width: 8em;
+    max-width: 10em;
 }
 
 .nav h3:after {
@@ -99,7 +105,7 @@ p {
     border-radius: 5px;
     color: white;
     text-decoration: none;
-    padding: 10px 20px;
+    padding: 10px 15px;
     display: inline-block;
     margin: 0 10px;
 }
@@ -155,7 +161,7 @@ img {
 }
 
 .dialog-box p.buttons {
-    margin: 2em 0 0 0;
+    margin: 1em 0;
     text-align: center;
 }
 
@@ -266,10 +272,6 @@ hr {
 .form-box input:focus {
     outline: 0;
     border: 1px solid #3a6c35;
-}
-
-#publishForm {
-
 }
 
 #footer {

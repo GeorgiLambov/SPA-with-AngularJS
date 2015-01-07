@@ -8,6 +8,4 @@
         ng-click="currentPage(request.startPage + 2)"></button>
 <button ng-click="nextPage()" ng-hide="request.startPage == allAds.numPages">Next</button>
 <button ng-click="lastPage(allAds.numPages)" ng-hide="request.startPage == allAds.numPages">Last</button>
-<label for="pageSizer">Total Page: {{allAds.numPages}}. Ads on page:</label>
-<input id='pageSizer' type="number" ng-model="request.pageSize" min="1" max="6"/>
-<button ng-click="getPageSize()">OK</button>
+

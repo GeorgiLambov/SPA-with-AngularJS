@@ -60,6 +60,7 @@ var onlineExchange = angular.module('onlineExchange', ['ngRoute', 'ngResource', 
         })
     })
     .value('toastr', toastr)
-    .constant('baseServiceUrl', 'http://softuni-ads.azurewebsites.net');
+    .constant('baseServiceUrl', 'http://softuni-ads.azurewebsites.net')
+    .constant('pageSize', 3);
 
 //nstant('baseServiceUrl', 'http://localhost:1337');

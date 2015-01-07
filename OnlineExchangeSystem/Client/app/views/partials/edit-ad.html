@@ -4,10 +4,18 @@
 <form name="editAdForm" ng-show="identity.isAuthenticated()" class="form-box">
     <h1>Edit Ad</h1>
 
-    <p browse></p>
+    <p ng-show="adData.imageDataUrl">
+        <img ng-src="{{adData.imageDataUrl}}" alt="No Image"/>
+    </p>
 
-    <button ng-click="" class="button">Delete Image</button>
-    <button ng-click="" class="button">Change Image</button>
+    <p browse ng-show="!adData.imageDataUrl"></p>
+
+    <p ng-show="adData.imageDataUrl">
+        <button ng-really-message="Are you sure?" ng-really-click="deleteImage()" class="button">Delete Image
+        </button>
+        <button ng-click="changeImage()" class="button">Change Image</button>
+    </p>
+
     <p>
         <label for="title">Title:</label>
         <input type="text" id="title" ng-model="adData.title" placeholder="{{adData.title}}" required/>
@@ -21,14 +29,14 @@
     <p>
         <label for="category">Category:</label>
         <select id="category" ng-model="adData.categoryId">
-            <option value="null">(None)</option>
+            <option value="">(None)</option>
             <option ng-repeat="category in categories" value="{{category.id}}">{{category.name}}</option>
         </select>
     </p>
     <p>
         <label for="town">Town:</label>
         <select id="town" ng-model="adData.townId">
-            <option value="null">(None)</option>
+            <option value="">(None)</option>
             <option ng-repeat="town in towns" value="{{town.id}}">{{town.name}}</option>
         </select>
     </p>

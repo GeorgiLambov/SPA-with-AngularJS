@@ -1,28 +1,18 @@
 <div class="left-side-menu">
-    <div ng-include="'views/partials/user-navigation.html'" class="nav"></div>
-    <form ng-model="selectedStatus" class="nav" ng-show="identity.isAuthenticated()">
-        <h3>My Ads</h3>
-        <a href ng-click="selectedStatus = ''" class="link">All</a>
-        <br/>
-        <a href ng-click="selectedStatus = 'published'" class="link">Published</a>
-        <br/>
-        <a href ng-click="selectedStatus = 'WaitingApproval'" class="link">Waiting Approval</a>
-        <br/>
-        <a href ng-click="selectedStatus = 'inactive'" class="link">Inactive</a>
-        <br/>
-        <a href ng-click="selectedStatus = 'rejected'" class="link">Rejected</a>
-    </form>
+    <div ng-include="'views/partials/user-navigation.html'" class="nav" ng-cloak></div>
+    <div ng-include="'views/partials/user-filter-ads.html'" ng-cloak></div>
 </div>
 <div ng-if="allAds.ads.length">
-    <div ng-repeat="ad in allAds.ads | filter:selectedStatus" class="dialog-box">
+    <div ng-repeat="ad in allAds.ads" class="dialog-box">
         <h1>{{ad.title}}</h1>
 
         <img ng-src="{{ad.imageDataUrl}}" alt="No Image"/>
 
         <p>
-            <div>Price:  Date:{{ad.date | date: 'dd-MM-yyyy'}}</div>
-            <label for="text">Text:</label>
-            <textarea id="text" class="text-area" placeholder="{{ad.text}}" disabled="disabled"/>
+
+        <div>Price: Date:{{ad.date | date: 'dd-MM-yyyy'}}</div>
+        <label for="text">Text:</label>
+        <textarea id="text" class="text-area" placeholder="{{ad.text}}" disabled="disabled"/>
         </p>
 
         <p>

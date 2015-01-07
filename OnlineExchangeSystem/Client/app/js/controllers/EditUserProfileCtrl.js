@@ -6,12 +6,11 @@ onlineExchange.controller('EditUserProfileCtrl', ['$scope', 'userAccountService'
         $scope.emailPattern = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         $scope.alltowns = PublicAdsResource.getAllTowns();
         $scope.identity = identity;
-        $scope.user = {};
 
         $scope.userData = (function () {
             userAccountService.userInfo()
                 .then(function (response) {
-                    $scope.currentUser = response;
+                    $scope.user = response;
                 });
         }());
 

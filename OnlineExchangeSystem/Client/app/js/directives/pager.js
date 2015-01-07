@@ -27,9 +27,6 @@ onlineExchange.directive('pager', [function () {
                 scope.request.startPage = lastPage;
                 scope.pageFilter(scope.request);
             }
-            scope.getPageSize = function () {
-                scope.pageFilter(scope.request);
-            }
         }
     }
 }]);

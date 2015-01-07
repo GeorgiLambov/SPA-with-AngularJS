@@ -1,8 +1,8 @@
 'use strict';
 
-onlineExchange.controller('HomeCtrl', ['$scope', 'PublicAdsResource', 'notifier', 'identity',
-    function HomeCtrl($scope, PublicAdsResource, notifier, identity) {
-        $scope.request = {pageSize: 3, startPage: 1, townId: '', categoryId: ''};
+onlineExchange.controller('HomeCtrl', ['$scope', 'PublicAdsResource', 'notifier', 'identity', 'pageSize',
+    function HomeCtrl($scope, PublicAdsResource, notifier, identity, pageSize) {
+        $scope.request = {pageSize: pageSize, startPage: 1, townId: '', categoryId: ''};
         $scope.identity = identity;
 
         $scope.allAds = PublicAdsResource.getAllAds($scope.request);
@@ -18,7 +18,8 @@ onlineExchange.controller('HomeCtrl', ['$scope', 'PublicAdsResource', 'notifier'
         };
 
         $scope.filterByCategoryAndTown = function (request) {
-            PublicAdsResource.getFilteredAds(request)
+            request.startPage = 1;
+            PublicAdsResource.getAllAds(request)
                 .$promise
                 .then(function (result) {
                     $scope.allAds = result;

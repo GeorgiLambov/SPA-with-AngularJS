@@ -91,7 +91,6 @@ onlineExchange.factory('userAccountService', ['$http', '$q', 'identity', 'author
                     .success(function (response) {
                         deferred.resolve(response);
                     })
-                    .error(errorHandler.processError);
 
                 return deferred.promise;
             },

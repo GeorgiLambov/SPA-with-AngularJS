@@ -11,6 +11,9 @@ onlineExchange.directive('browse', [function () {
                     reader.onload = function () {
                         scope.adData.imageDataUrl = reader.result;
                         $(".image-box").html("<img src='" + reader.result + "'>");
+                        if (!scope.adData.changeImage) {
+                            scope.adData.changeImage = true;
+                        }
                     };
                     reader.readAsDataURL(file);
                 } else {

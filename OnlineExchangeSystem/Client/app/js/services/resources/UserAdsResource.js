@@ -4,14 +4,10 @@ onlineExchange.factory('UserAdsResource', ['$resource', 'authorization', 'baseSe
     function ($resource, authorization, baseServiceUrl) {
 
         var headers = authorization.getAuthorizationHeader();
-        //  var pageUrl = '?pagesize=:pageSize&startpage=:startPage' + 'pageUrl';
 
-        var UserAdsResource = $resource(baseServiceUrl + '/api/user/ads' + ':activate:status/:id',
+        var UserAdsResource = $resource(baseServiceUrl + '/api/user/ads' + ':activate/:id',
             null, {
-                'getUserAds': {
-                    method: 'GET', isArray: false, headers: headers,
-                    params: {pageSize: '@pageSize', startPage: '@startPage'}
-                },
+                'getUserAds': {method: 'GET', isArray: false, headers: headers},
                 'create': {method: 'POST', isArray: false, headers: headers},
                 'deactivateUserAd': {
                     method: 'PUT', params: {activate: '/deactivate/', id: '@id'},
