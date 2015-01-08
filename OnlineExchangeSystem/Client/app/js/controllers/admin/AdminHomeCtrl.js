@@ -1,7 +1,8 @@
 'use strict';
 
-onlineExchange.controller('AdminHomeCtrl', ['$scope', '$location', 'AdminAdsResource', 'PublicAdsResource', 'notifier', 'identity', 'pageSize',
-    function AdminHomeCtrl($scope, $location, AdminAdsResource, PublicAdsResource, notifier, identity, pageSize) {
+onlineExchange.controller('AdminHomeCtrl', ['$scope', '$route', '$location', 'AdminAdsResource', 'PublicAdsResource',
+    'notifier', 'identity', 'pageSize',
+    function AdminHomeCtrl($scope, $route, $location, AdminAdsResource, PublicAdsResource, notifier, identity, pageSize) {
         $scope.request = {pageSize: 2, startPage: 1, townId: '', categoryId: ''};
         $scope.identity = identity;
 
@@ -10,7 +11,7 @@ onlineExchange.controller('AdminHomeCtrl', ['$scope', '$location', 'AdminAdsReso
         $scope.alltowns = PublicAdsResource.getAllTowns();
 
         $scope.pageFilter = function (request) {
-            PublicAdsResource.getAllAds(request)
+            AdminAdsResource.getAllAds(request)
                 .$promise
                 .then(function (result) {
                     $scope.allAds = result;
@@ -19,7 +20,7 @@ onlineExchange.controller('AdminHomeCtrl', ['$scope', '$location', 'AdminAdsReso
 
         $scope.filterByCategoryAndTown = function (request) {
             request.startPage = 1;
-            PublicAdsResource.getAllAds(request)
+            AdminAdsResource.getAllAds(request)
                 .$promise
                 .then(function (result) {
                     $scope.allAds = result;
@@ -42,7 +43,7 @@ onlineExchange.controller('AdminHomeCtrl', ['$scope', '$location', 'AdminAdsReso
             AdminAdsResource.approve(selectedId)
                 .$promise
                 .then(function () {
-                    $location.reload();
+                    $route.reload();
                     notifier.success('Approve successful!');
                 });
         };
@@ -51,7 +52,7 @@ onlineExchange.controller('AdminHomeCtrl', ['$scope', '$location', 'AdminAdsReso
             AdminAdsResource.reject(selectedId)
                 .$promise
                 .then(function () {
-                    $location.reload();
+                    $route.reload();
                     notifier.success('Reject successful!');
                 });
         };

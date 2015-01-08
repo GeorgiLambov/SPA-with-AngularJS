@@ -1,7 +1,7 @@
 'use strict';
 
-onlineExchange.controller('UserAdsCtrl', ['$scope', '$location', 'UserAdsResource', 'identity', 'notifier', 'pageSize',
-    function UserAdsCtrl($scope, $location, UserAdsResource, identity, notifier, pageSize) {
+onlineExchange.controller('UserAdsCtrl', ['$scope', '$location', '$route', 'UserAdsResource', 'identity', 'notifier', 'pageSize',
+    function UserAdsCtrl($scope, $location, $route, UserAdsResource, identity, notifier, pageSize) {
         $scope.request = {pageSize: pageSize, startPage: 1};
         $scope.identity = identity;
 
@@ -20,7 +20,7 @@ onlineExchange.controller('UserAdsCtrl', ['$scope', '$location', 'UserAdsResourc
                 .$promise
                 .then(function (result) {
                     notifier.success('Advertisement is now deactivate.');
-                    $location.path("/");
+                    $route.reload();
                 });
         };
         $scope.publishAgain = function (adDataId) {
@@ -28,7 +28,7 @@ onlineExchange.controller('UserAdsCtrl', ['$scope', '$location', 'UserAdsResourc
                 .$promise
                 .then(function (result) {
                     notifier.success('Advertisement submitted for publish again. Once approved, it will be published.');
-                    $location.path("/");
+                    $route.reload();
                 });
         };
 

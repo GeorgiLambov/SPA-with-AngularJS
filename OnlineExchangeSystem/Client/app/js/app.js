@@ -71,7 +71,7 @@ var onlineExchange = angular.module('onlineExchange', ['ngRoute', 'ngResource', 
                 resolve: routeUserChecks.authenticatedAdmin
             })
             .when('/admin/ads/edit/:id', {
-                templateUrl: 'views/partials/admin/delete-ad.html',
+                templateUrl: 'views/partials/admin/edit-ad.html',
                 controller: 'AdminEditAdsCtrl',
                 resolve: routeUserChecks.authenticatedAdmin
             })
@@ -88,14 +88,15 @@ var onlineExchange = angular.module('onlineExchange', ['ngRoute', 'ngResource', 
             .otherwise({redirectTo: '/'});
     }])
     .run(function ($rootScope, $location) {
-        $rootScope.$on('$routeChangeError', function (ev, current, previous, rejection) {
+        $rootScope.$on('$routeChangeError', function (ev, current, previous, rejection, userAccountService) {
+            if (userAccountService.isAdministrator()) {
+                $location.path('/admin/ads');
+            }
             if (rejection === 'not authorized') {
                 $location.path('/');
             }
         })
     })
     .value('toastr', toastr)
-    .constant('baseServiceUrl', 'http://softuni-ads.azurewebsites.net')
+    .constant('baseServiceUrl', 'http://localhost:1337')   //http://softuni-ads.azurewebsites.net
     .constant('pageSize', 3);
-
-//nstant('baseServiceUrl', 'http://localhost:1337');

@@ -4,7 +4,10 @@
 <form class="form-box">
     <h1>Confirm Deleting Ad?</h1>
     <img ng-src="{{adData.imageDataUrl}}" alt="No Image"/>
-    <span>{{ad.date | date: 'dd-MM-yyyy'}}</span>
+
+    <p>
+        <span>{{adData.date | date: 'dd-MM-yyyy'}}</span>
+    </p>
 
     <p>
         <label for="title">Title:</label>
@@ -17,18 +20,8 @@
     </p>
 
     <p>
-        <label for="category">Category:</label>
-        <input type="category" placeholder="{{adData.categoryName}}" disabled>
-    </p>
-
-    <p>
-        <label for="town">Town:</label>
-        <input type="town" placeholder="{{adData.townName}}" disabled>
-    </p>
-
-    <p>
         <label for="userName">Username:</label>
-        <input type="text" id='userName' value="{{adData.userName}}" disabled="disabled"/>
+        <input type="text" id='userName' value="{{adData.ownerUsername}}" disabled="disabled"/>
     </p>
 
     <p>
@@ -46,9 +39,18 @@
         <input type="text" id="phoneNumber" value="{{adData.ownerPhone}}" disabled="disabled"/>
     </p>
 
+    <p>
+        <label for="category">Category:</label>
+        <input type="category" placeholder="{{adData.categoryName}}" disabled>
+    </p>
+
+    <p>
+        <label for="town">Town:</label>
+        <input type="town" placeholder="{{adData.townName}}" disabled>
+    </p>
 
     <p>
         <button ng-really-message="Are you sure?" ng-really-click="delete(adData.id)" class="button">Delete</button>
-        <a href="#/user/ads" class="link">Cancel</a>
+        <a href="#/admin/ads" class="link">Cancel</a>
     <p>
 </form>

@@ -1,6 +1,6 @@
 'use strict';
 
-onlineExchange.directive('admin-ads', [function () {
+onlineExchange.directive('adminads', [function () {
     return {
         restrict: 'A',
         templateUrl: 'views/directives/admin-ads.html',

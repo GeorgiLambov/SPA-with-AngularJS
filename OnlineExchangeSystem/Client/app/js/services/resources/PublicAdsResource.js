@@ -5,7 +5,7 @@ onlineExchange.factory('PublicAdsResource', ['$resource', 'baseServiceUrl',
 
         var PublicAdsResource = $resource(baseServiceUrl + '/api/:id'
             , null, {
-                'getAllAds': {method: 'GET', isArray: false, params: {id: 'ads?'}},
+                'getAllAds': {method: 'GET', isArray: false, params: {id: 'ads'}},
                 'getAllCategories': {method: 'GET', params: {id: 'categories'}, isArray: true},
                 'getAllTowns': {method: 'GET', params: {id: 'towns'}, isArray: true}
             });

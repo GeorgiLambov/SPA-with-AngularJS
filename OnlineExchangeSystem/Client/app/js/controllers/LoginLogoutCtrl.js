@@ -9,7 +9,11 @@ onlineExchange.controller('LoginLogoutCtrl', ['$scope', '$location', 'notifier',
                 userAccountService.login(user).then(function (success) {
                     if (success) {
                         notifier.success('Successful login!');
-                        $location.path('/');
+                        if (identity.isAdmin()) {
+                            $location.path('/admin/ads');
+                        } else {
+                            $location.path('/');
+                        }
                     }
                     else {
                         notifier.error('Username/Password combination is not valid!');
@@ -27,7 +31,6 @@ onlineExchange.controller('LoginLogoutCtrl', ['$scope', '$location', 'notifier',
                 if ($scope.user) {
                     $scope.user = {};
                 }
-
                 //$scope.loginForm.$setPristine();
                 $location.path('/');
             })

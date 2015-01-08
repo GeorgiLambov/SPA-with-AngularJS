@@ -38,11 +38,11 @@ onlineExchange.factory('AdminAdsResource', ['$resource', 'baseServiceUrl', 'auth
             reject: function (id) {
                 return AdminAdsResource.reject({id: id});
             },
-            edit: function (id) {
-                return AdminAdsResource.edit({id: id});
+            edit: function (adData, selectedId) {
+                return AdminAdsResource.edit(adData);
             },
             delete: function (id) {
-                return AdminAdsResource.edit({id: id});
+                return AdminAdsResource.delete({id: id});
             }
         }
     }]);

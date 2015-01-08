@@ -1,7 +1,7 @@
 <div class="left-side-menu">
     <div ng-include="'views/partials/admin/admin-navigation.html'" class="nav"></div>
 </div>
-<form class="form-box">
+<form class="form-box" name="editAdForm">
     <h1>Edit Ad</h1>
 
     <p ng-show="adData.imageDataUrl">
@@ -17,12 +17,12 @@
     </p>
     <p>
         <label for="title">Title:</label>
-        <input type="text" id="title" placeholder="{{adData.title}}" disabled/>
+        <input type="text" id="title" ng-model="adData.title"/>
     </p>
 
     <p>
         <label for="text">Text:</label>
-        <textarea class="text-area" id="text" placeholder="{{adData.text}}"></textarea>
+        <textarea class="text-area" id="text" ng-model="adData.text" placeholder="Text"></textarea>
     </p>
 
     <p>
@@ -42,7 +42,7 @@
 
     <p>
         <label for="userName">Username:</label>
-        <input type="text" id='userName' value="{{adData.userName}}"/>
+        <input type="text" id='userName' value="{{adData.ownerUsername}}"/>
     </p>
 
     <p>
@@ -62,7 +62,8 @@
 
 
     <p>
-        <button ng-really-message="Are you sure?" ng-really-click="delete(adData.id)" class="button">Delete</button>
-        <a href="#/user/ads" class="link">Cancel</a>
+        <button ng-really-message="Are you sure?" ng-really-click="editAd(adData, editAdForm)" class="button">Edit
+        </button>
+        <a href="#/admin/ads" class="link">Cancel</a>
     <p>
 </form>
