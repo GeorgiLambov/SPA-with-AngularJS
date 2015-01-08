@@ -2,7 +2,7 @@
 
 onlineExchange.controller('DeleteAdsCtrl', ['$scope', '$routeParams', '$location', 'PublicAdsResource', 'UserAdsResource',
     'notifier', 'identity',
-    function EditAdsCtrl($scope, $routeParams, $location, PublicAdsResource, UserAdsResource, notifier, identity) {
+    function DeleteAdsCtrl($scope, $routeParams, $location, PublicAdsResource, UserAdsResource, notifier, identity) {
         $scope.adData = {};
         $scope.identity = identity;
         var selectedId = $routeParams.id;

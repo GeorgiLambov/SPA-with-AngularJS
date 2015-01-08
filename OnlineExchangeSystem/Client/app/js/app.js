@@ -5,50 +5,85 @@ var onlineExchange = angular.module('onlineExchange', ['ngRoute', 'ngResource', 
         $httpProvider.interceptors.push('errorHandlerHttpInterceptor');
 
         var routeUserChecks = {
-            authenticated: {
+            authenticatedUser: {
                 authenticate: function (userAccountService) {
                     return userAccountService.isAuthenticated();
+                }
+            },
+            authenticatedAdmin: {
+                authenticate: function (userAccountService) {
+                    return userAccountService.isAdministrator();
                 }
             }
         };
 
         $routeProvider
             .when('/', {
-                templateUrl: 'views/partials/home.html',
+                templateUrl: 'views/partials/user/home.html',
                 controller: 'HomeCtrl'
             })
             .when('/register', {
-                templateUrl: 'views/partials/user-register.html',
+                templateUrl: 'views/partials/user/user-register.html',
                 controller: 'SignUpCtrl'
             })
             .when('/login', {
-                templateUrl: 'views/partials/user-login.html',
+                templateUrl: 'views/partials/user/user-login.html',
                 controller: 'LoginLogoutCtrl'
             })
             .when('/user/ads', {
-                templateUrl: 'views/partials/list-user-ads.html',
+                templateUrl: 'views/partials/user/list-user-ads.html',
                 controller: 'UserAdsCtrl',
-                resolve: routeUserChecks.authenticated
+                resolve: routeUserChecks.authenticatedUser
             })
             .when('/user/ads/publish', {
-                templateUrl: 'views/partials/user-publish-add.html',
+                templateUrl: 'views/partials/user/user-publish-add.html',
                 controller: 'UserPublishCtrl',
-                resolve: routeUserChecks.authenticated
+                resolve: routeUserChecks.authenticatedUser
             })
             .when('/user/profile', {
-                templateUrl: 'views/partials/user-edit-profile.html',
+                templateUrl: 'views/partials/user/user-edit-profile.html',
                 controller: 'EditUserProfileCtrl',
-                resolve: routeUserChecks.authenticated
+                resolve: routeUserChecks.authenticatedUser
             })
             .when('/user/ads/edit/:id', {
-                templateUrl: 'views/partials/edit-ad.html',
+                templateUrl: 'views/partials/user/edit-ad.html',
                 controller: 'EditAdsCtrl',
-                resolve: routeUserChecks.authenticated
+                resolve: routeUserChecks.authenticatedUser
             })
             .when('/user/ads/delete/:id', {
-                templateUrl: 'views/partials/delete-ad.html',
+                templateUrl: 'views/partials/user/delete-ad.html',
                 controller: 'DeleteAdsCtrl',
-                resolve: routeUserChecks.authenticated
+                resolve: routeUserChecks.authenticatedUser
+            })
+            .when('/admin/ads', {
+                templateUrl: 'views/partials/admin/admin-home.html',
+                controller: 'AdminHomeCtrl',
+                resolve: routeUserChecks.authenticatedAdmin
+            })
+            .when('/admin/users/list', {
+                templateUrl: 'views/partials/admin/admin-home.html',
+                controller: 'AdminListUsersCtrl',
+                resolve: routeUserChecks.authenticatedAdmin
+            })
+            .when('/admin/ads/delete/:id', {
+                templateUrl: 'views/partials/admin/delete-ad.html',
+                controller: 'AdminDeleteAdsCtrl',
+                resolve: routeUserChecks.authenticatedAdmin
+            })
+            .when('/admin/ads/edit/:id', {
+                templateUrl: 'views/partials/admin/delete-ad.html',
+                controller: 'AdminEditAdsCtrl',
+                resolve: routeUserChecks.authenticatedAdmin
+            })
+            .when('/admin/users', {
+                templateUrl: 'views/partials/admin/users.html',
+                controller: 'AdminUserCtrl',
+                resolve: routeUserChecks.authenticatedAdmin
+            })
+            .when('/admin/user/edit', {
+                templateUrl: 'views/partials/admin/admin-edit-profile.html',
+                controller: 'AdminEditUserCtrl',
+                resolve: routeUserChecks.authenticatedAdmin
             })
             .otherwise({redirectTo: '/'});
     }])

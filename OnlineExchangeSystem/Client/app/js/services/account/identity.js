@@ -25,6 +25,10 @@ onlineExchange.factory('identity', ['$cookieStore', function ($cookieStore) {
         },
         isAuthenticated: function () {
             return !!this.getCurrentUser();
+        },
+        isAdmin: function () {
+            currentUser = this.getCurrentUser();
+            return (currentUser != undefined) && true;  //(currentUser.isAdmin);
         }
     }
 }]);

@@ -101,6 +101,14 @@ onlineExchange.factory('userAccountService', ['$http', '$q', 'identity', 'author
                 else {
                     return $q.reject('not authorized');
                 }
+            },
+            isAdministrator: function () {
+                if (identity.isAdmin()) {
+                    return true;
+                }
+                else {
+                    return $q.reject('not authorized');
+                }
             }
         }
     }]);

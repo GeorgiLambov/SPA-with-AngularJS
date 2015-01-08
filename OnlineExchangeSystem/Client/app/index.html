@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../css/app.css"/>
 </head>
 <header id="header">Ads</header>
-<div ng-include="'views/partials/user-logout.html'"></div>
+<div ng-include="'views/partials/user/user-logout.html'"></div>
 <hr/>
 
 <body ng-cloak>
@@ -40,9 +40,9 @@
 <script src="js/controllers/EditUserProfileCtrl.js"></script>
 <script src="js/controllers/EditAdsCtrl.js"></script>
 <script src="js/controllers/DeleteAdsCtrl.js"></script>
-
-<script src="js/filters/filterCategoryById.js"></script>
-<script src="js/filters/filterTownById.js"></script>
+<script src="js/controllers/admin/AdminHomeCtrl.js"></script>
+<script src="js/controllers/admin/AdminUserCtrl.js"></script>
+<script src="js/controllers/admin/AdminEditUserCtrl.js"></script>
 
 <script src="js/services/account/userAccountService.js"></script>
 <script src="js/services/account/identity.js"></script>
@@ -50,6 +50,8 @@
 <script src="js/services/interceptors/errorHandlerHttpInterceptor.js"></script>
 <script src="js/services/resources/PublicAdsResource.js"></script>
 <script src="js/services/resources/UserAdsResource.js"></script>
+<script src="js/services/resources/AdminAdsResource.js"></script>
+<script src="js/services/resources/AdminUserResource.js"></script>
 
 <script src="js/services/notifier.js"></script>
 <script src="js/services/errorHandler.js"></script>

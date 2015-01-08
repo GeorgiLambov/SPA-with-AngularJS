@@ -3,8 +3,8 @@
 onlineExchange.controller('EditAdsCtrl', ['$scope', '$routeParams', '$location', 'PublicAdsResource', 'UserAdsResource',
     'notifier', 'identity',
     function EditAdsCtrl($scope, $routeParams, $location, PublicAdsResource, UserAdsResource, notifier, identity) {
-        $scope.adData = {changeImage: false};
         $scope.identity = identity;
+        $scope.adData = {changeImage: false};
         $scope.categories = PublicAdsResource.getAllCategories();
         $scope.towns = PublicAdsResource.getAllTowns();
 

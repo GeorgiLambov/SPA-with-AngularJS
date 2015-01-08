@@ -4,7 +4,8 @@
     <img ng-src="{{ad.imageDataUrl}}" alt="No Image"/>
 
     <p>
-    <div>Price: Date:{{ad.date | date: 'dd-MM-yyyy'}}</div>
+
+    <p>Date: {{ad.date | date: 'dd-MM-yyyy'}}</p>
     <label for="text">Text:</label>
     <textarea class="text-area" id="text" placeholder="{{ad.text}}" disabled="disabled"/>
     </p>
