@@ -1,0 +1,57 @@
+<div ng-if="allAds.ads.length">
+    <div ng-repeat="ad in allAds.ads" class="dialog-box">
+        <h1>{{ad.title}}</h1>
+
+        <img ng-src="{{ad.imageDataUrl}}" alt="No Image"/>
+
+        <p>
+
+        <p>Date: {{ad.date | date: 'dd-MM-yyyy'}}</p>
+        <label for="text">Text:</label>
+        <textarea id="text" class="text-area" placeholder="{{ad.text}}" disabled="disabled"/>
+        </p>
+
+        <p>
+            <label for="userName">Username:</label>
+            <input type="text" id='userName' value="{{ad.userName}}" disabled="disabled"/>
+        </p>
+
+        <p>
+            <label for="personName">Name:</label>
+            <input type="text" id='personName' value="{{ad.ownerName}}" disabled="disabled"/>
+        </p>
+
+        <p>
+            <label for="email">Email:</label>
+            <input type="text" id="email" value="{{ad.ownerEmail}}" disabled="disabled"/>
+        </p>
+
+        <p>
+            <label for="phoneNumber">Tel:</label>
+            <input type="text" id="phoneNumber" value="{{ad.ownerPhone}}" disabled="disabled"/>
+        </p>
+
+        <p>
+            <label for="category">Category:</label>
+            <input type="text" id='category' value="{{ad.categoryName}}" disabled="disabled"/>
+        </p>
+
+        <p>
+            <label for="town">Town:</label>
+            <input type="text" id="town" value="{{ad.townName}}" disabled="disabled"/>
+        </p>
+
+        <p>
+            <label for="Status">Status:</label>
+            <input type="text" id="status" value="{{ad.status}}" disabled="disabled"/>
+        </p>
+
+        <p class="buttons">
+            <button ng-click="approve(ad.id)" class="button">Approve</button>
+            <button ng-click="reject(ad.id)" class="button">Reject</button>
+            <button ng-click="edit(ad.id)" class="button">Edit</button>
+            <button ng-click="delete(ad.id)" class="button">Delete</button>
+        <p>
+    </div>
+</div>
+

@@ -1,0 +1,54 @@
+<div class="left-side-menu">
+    <div ng-include="'views/partials/admin/admin-navigation.html'" class="nav"></div>
+</div>
+<form class="form-box">
+    <h1>Confirm Deleting Ad?</h1>
+    <img ng-src="{{adData.imageDataUrl}}" alt="No Image"/>
+    <span>{{ad.date | date: 'dd-MM-yyyy'}}</span>
+
+    <p>
+        <label for="title">Title:</label>
+        <input type="text" id="title" placeholder="{{adData.title}}" disabled/>
+    </p>
+
+    <p>
+        <label for="text">Text:</label>
+        <textarea class="text-area" id="text" placeholder="{{adData.text}}"></textarea>
+    </p>
+
+    <p>
+        <label for="category">Category:</label>
+        <input type="category" placeholder="{{adData.categoryName}}" disabled>
+    </p>
+
+    <p>
+        <label for="town">Town:</label>
+        <input type="town" placeholder="{{adData.townName}}" disabled>
+    </p>
+
+    <p>
+        <label for="userName">Username:</label>
+        <input type="text" id='userName' value="{{adData.userName}}" disabled="disabled"/>
+    </p>
+
+    <p>
+        <label for="personName">Name:</label>
+        <input type="text" id='personName' value="{{adData.ownerName}}" disabled="disabled"/>
+    </p>
+
+    <p>
+        <label for="email">Email:</label>
+        <input type="text" id="email" value="{{adData.ownerEmail}}" disabled="disabled"/>
+    </p>
+
+    <p>
+        <label for="phoneNumber">Tel:</label>
+        <input type="text" id="phoneNumber" value="{{adData.ownerPhone}}" disabled="disabled"/>
+    </p>
+
+
+    <p>
+        <button ng-really-message="Are you sure?" ng-really-click="delete(adData.id)" class="button">Delete</button>
+        <a href="#/user/ads" class="link">Cancel</a>
+    <p>
+</form>

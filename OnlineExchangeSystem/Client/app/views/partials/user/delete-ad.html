@@ -1,7 +1,7 @@
 <div class="left-side-menu">
-    <div ng-include="'views/partials/user-navigation.html'" class="nav"></div>
+    <div ng-include="'views/partials/user/user-navigation.html'" class="nav"></div>
 </div>
-<form ng-show="identity.isAuthenticated()" class="form-box">
+<form class="form-box">
     <h1>Confirm Deleting Ad?</h1>
     <img ng-src="{{adData.imageDataUrl}}" alt="No Image"/>
     <span>{{ad.date | date: 'dd-MM-yyyy'}}</span>

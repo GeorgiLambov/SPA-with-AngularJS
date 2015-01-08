@@ -1,7 +1,7 @@
 <div class="left-side-menu">
-    <div ng-include="'views/partials/user-navigation.html'" class="nav"></div>
+    <div ng-include="'views/partials/admin/admin-navigation.html'" class="nav"></div>
 </div>
-<form name="editAdForm" ng-show="identity.isAuthenticated()" class="form-box">
+<form class="form-box">
     <h1>Edit Ad</h1>
 
     <p ng-show="adData.imageDataUrl">
@@ -15,15 +15,14 @@
         </button>
         <button ng-click="changeImage()" class="button">Change Image</button>
     </p>
-
     <p>
         <label for="title">Title:</label>
-        <input type="text" id="title" ng-model="adData.title" placeholder="{{adData.title}}" required/>
+        <input type="text" id="title" placeholder="{{adData.title}}" disabled/>
     </p>
 
     <p>
         <label for="text">Text:</label>
-        <textarea class="text-area" id="text" ng-model="adData.text" placeholder="{{adData.text}}" required></textarea>
+        <textarea class="text-area" id="text" placeholder="{{adData.text}}"></textarea>
     </p>
 
     <p>
@@ -40,8 +39,30 @@
             <option ng-repeat="town in towns" value="{{town.id}}">{{town.name}}</option>
         </select>
     </p>
+
     <p>
-        <button ng-click="editAd(adData, editAdForm)" class="button">Edit</button>
+        <label for="userName">Username:</label>
+        <input type="text" id='userName' value="{{adData.userName}}"/>
+    </p>
+
+    <p>
+        <label for="personName">Name:</label>
+        <input type="text" id='personName' value="{{adData.ownerName}}"/>
+    </p>
+
+    <p>
+        <label for="email">Email:</label>
+        <input type="text" id="email" value="{{adData.ownerEmail}}"/>
+    </p>
+
+    <p>
+        <label for="phoneNumber">Tel:</label>
+        <input type="text" id="phoneNumber" value="{{adData.ownerPhone}}"/>
+    </p>
+
+
+    <p>
+        <button ng-really-message="Are you sure?" ng-really-click="delete(adData.id)" class="button">Delete</button>
         <a href="#/user/ads" class="link">Cancel</a>
     <p>
 </form>
