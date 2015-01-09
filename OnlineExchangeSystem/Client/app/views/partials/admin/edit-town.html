@@ -1,0 +1,16 @@
+<div class="left-side-menu">
+    <div ng-include="'views/partials/admin/admin-navigation.html'" class="nav"></div>
+</div>
+<form class="form-box">
+    <h1>Edit Town</h1>
+
+    <p>
+        <label for="town">Town:</label>
+        <input type="text" id="town" ng-model="town.name"/>
+    </p>
+
+    <p>
+        <button ng-really-message="Are you sure?" ng-really-click="edit()" class="button">Edit</button>
+        <a href="#/admin/towns" class="link">Cancel</a>
+    <p>
+</form>

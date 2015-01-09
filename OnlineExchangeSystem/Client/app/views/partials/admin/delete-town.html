@@ -1,0 +1,16 @@
+<div class="left-side-menu">
+    <div ng-include="'views/partials/admin/admin-navigation.html'" class="nav"></div>
+</div>
+<form class="form-box">
+    <h1>Confirm Deleting Town?</h1>
+
+    <p>
+        <label for="town">Town:</label>
+        <input type="text" id="town" value="{{townName}}" disabled="disabled"/>
+    </p>
+
+    <p>
+        <button ng-really-message="Are you sure?" ng-really-click="delete()" class="button">Delete</button>
+        <a href="#/admin/towns" class="link">Cancel</a>
+    <p>
+</form>

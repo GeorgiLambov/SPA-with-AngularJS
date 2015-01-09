@@ -1,0 +1,28 @@
+<div class="left-side-menu">
+    <div ng-include="'views/partials/admin/admin-navigation.html'" class="nav"></div>
+</div>
+<table>
+    <thead>
+    <tr>
+        <th ng-click="sortBy(id)">Id</th>
+        <th ng-click="sortBy(name)">Town</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="town in AllData.towns">
+        <td>{{town.id}}</td>
+        <td>{{town.username}}</td>
+        <td>
+            <a href ng-click="edit(town)" class="link">Edit</a>
+            <a href ng-click="delete(town)" class="link">Delete</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<a href="#/admin/town/create" class="button">Create New Town</a>
+<div ng-if="AllData.towns.length" pager id="pager"></div>
+
+
+
+

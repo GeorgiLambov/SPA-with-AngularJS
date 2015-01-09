@@ -1,0 +1,16 @@
+<div class="left-side-menu">
+    <div ng-include="'views/partials/admin/admin-navigation.html'" class="nav"></div>
+</div>
+<form class="form-box">
+    <h1>Create Town</h1>
+
+    <p>
+        <label for="town">Town:</label>
+        <input type="text" id="town" ng-model="town.name"/>
+    </p>
+
+    <p>
+        <button ng-click="create()" class="button">Create</button>
+        <a href="#/admin/towns" class="link">Cancel</a>
+    <p>
+</form>
