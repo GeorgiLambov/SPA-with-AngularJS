@@ -1,8 +1,7 @@
 'use strict';
 
-onlineExchange.controller('AdminEditAdsCtrl', ['$scope', '$routeParams', '$location', 'PublicAdsResource', 'AdminAdsResource',
-    'notifier', 'identity',
-    function AdminEditAdsCtrl($scope, $routeParams, $location, PublicAdsResource, AdminAdsResource, notifier, identity) {
+onlineExchange.controller('AdminEditAdsCtrl', ['$scope', '$routeParams', '$location', 'AdminAdsResource', 'notifier', 'identity', 'PublicAdsResource',
+    function AdminEditAdsCtrl($scope, $routeParams, $location, AdminAdsResource, notifier, identity, PublicAdsResource) {
         $scope.identity = identity;
         $scope.adData = {changeImage: false};
         $scope.categories = PublicAdsResource.getAllCategories();

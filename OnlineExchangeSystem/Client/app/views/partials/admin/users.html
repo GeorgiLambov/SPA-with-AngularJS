@@ -4,26 +4,27 @@
 <table>
     <thead>
     <tr>
-        <th>Username</th>
+        <th ng-click="sortBy()">Username</th>
         <th>Name</th>
         <th>Email</th>
         <th>Phone</th>
         <th>Action</th>
     </tr>
     </thead>
-    <tbody id="all-books">
-    <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+    <tbody>
+    <tr ng-repeat="user in AllData.users">
+        <td>{{user.username}}</td>
+        <td>{{user.name}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.phoneNumber}}</td>
         <td>
-            <button class="button">DELL</button>
-            <button class="button">Edit</button>
+            <a href ng-click="edit(user)" class="link">Edit</a>
+            <a htef ng-click="delete(user)" class="link">Delete</a>
         </td>
     </tr>
     </tbody>
 </table>
+<div ng-if="AllData.users.length" pager id="pager"></div>
 
 
 

@@ -7,7 +7,7 @@ onlineExchange.factory('AdminAdsResource', ['$resource', 'baseServiceUrl', 'auth
 
         var AdminAdsResource = $resource(baseServiceUrl + '/api/admin/ads' + ':activate/:id'
             , null, {
-                'getAllAds': {method: 'GET', isArray: false, headers: headers},
+                'getAll': {method: 'GET', isArray: false, headers: headers},
                 'getAd': {method: 'GET', params: {id: '@id'}, isArray: false, headers: headers},
                 'approve': {
                     method: 'PUT',
@@ -27,7 +27,7 @@ onlineExchange.factory('AdminAdsResource', ['$resource', 'baseServiceUrl', 'auth
 
         return {
             getAllAds: function (request) {
-                return AdminAdsResource.getAllAds(request);
+                return AdminAdsResource.getAll(request);
             },
             getAd: function (id) {
                 return AdminAdsResource.getAd({id: id});

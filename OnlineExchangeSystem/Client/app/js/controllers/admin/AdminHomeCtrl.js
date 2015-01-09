@@ -6,7 +6,7 @@ onlineExchange.controller('AdminHomeCtrl', ['$scope', '$route', '$location', 'Ad
         $scope.request = {pageSize: 2, startPage: 1, townId: '', categoryId: ''};
         $scope.identity = identity;
 
-        $scope.allAds = AdminAdsResource.getAllAds($scope.request);
+        $scope.AllData = AdminAdsResource.getAllAds($scope.request);
         $scope.allCategory = PublicAdsResource.getAllCategories();
         $scope.alltowns = PublicAdsResource.getAllTowns();
 
@@ -14,7 +14,7 @@ onlineExchange.controller('AdminHomeCtrl', ['$scope', '$route', '$location', 'Ad
             AdminAdsResource.getAllAds(request)
                 .$promise
                 .then(function (result) {
-                    $scope.allAds = result;
+                    $scope.AllData = result;
                 });
         };
 
@@ -23,7 +23,7 @@ onlineExchange.controller('AdminHomeCtrl', ['$scope', '$route', '$location', 'Ad
             AdminAdsResource.getAllAds(request)
                 .$promise
                 .then(function (result) {
-                    $scope.allAds = result;
+                    $scope.AllData = result;
                     notifier.success('Filtered successful!');
                 });
         };
@@ -34,7 +34,7 @@ onlineExchange.controller('AdminHomeCtrl', ['$scope', '$route', '$location', 'Ad
             AdminAdsResource.getAllAds($scope.request)
                 .$promise
                 .then(function (result) {
-                    $scope.allAds = result;
+                    $scope.AllData = result;
                     notifier.success('Filtered successful!');
                 });
         };

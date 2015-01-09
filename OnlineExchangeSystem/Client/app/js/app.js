@@ -60,11 +60,6 @@ var onlineExchange = angular.module('onlineExchange', ['ngRoute', 'ngResource', 
                 controller: 'AdminHomeCtrl',
                 resolve: routeUserChecks.authenticatedAdmin
             })
-            .when('/admin/users/list', {
-                templateUrl: 'views/partials/admin/admin-home.html',
-                controller: 'AdminListUsersCtrl',
-                resolve: routeUserChecks.authenticatedAdmin
-            })
             .when('/admin/ads/delete/:id', {
                 templateUrl: 'views/partials/admin/delete-ad.html',
                 controller: 'AdminDeleteAdsCtrl',
@@ -80,9 +75,54 @@ var onlineExchange = angular.module('onlineExchange', ['ngRoute', 'ngResource', 
                 controller: 'AdminUserCtrl',
                 resolve: routeUserChecks.authenticatedAdmin
             })
-            .when('/admin/user/edit', {
-                templateUrl: 'views/partials/admin/admin-edit-profile.html',
+            .when('/admin/user/edit/:user', {
+                templateUrl: 'views/partials/admin/edit-profile.html',
                 controller: 'AdminEditUserCtrl',
+                resolve: routeUserChecks.authenticatedAdmin
+            })
+            .when('/admin/user/delete/:user', {
+                templateUrl: 'views/partials/admin/delete-profile.html',
+                controller: 'AdminDeleteUserCtrl',
+                resolve: routeUserChecks.authenticatedAdmin
+            })
+            .when('/admin/categories', {
+                templateUrl: 'views/partials/admin/categories.html',
+                controller: 'AdminCategoriesCtrl',
+                resolve: routeUserChecks.authenticatedAdmin
+            })
+            .when('/admin/category/create', {
+                templateUrl: 'views/partials/admin/create-category.html',
+                controller: 'AdminCreateCategoryCtrl',
+                resolve: routeUserChecks.authenticatedAdmin
+            })
+            .when('/admin/category/delete/:id/:name', {
+                templateUrl: 'views/partials/admin/delete-category.html',
+                controller: 'AdminDeleteCategoryCtrl',
+                resolve: routeUserChecks.authenticatedAdmin
+            })
+            .when('/admin/category/edit/:id/:name', {
+                templateUrl: 'views/partials/admin/edit-category.html',
+                controller: 'AdminEditCategoryCtrl',
+                resolve: routeUserChecks.authenticatedAdmin
+            })
+            .when('/admin/towns', {
+                templateUrl: 'views/partials/admin/towns.html',
+                controller: 'AdminTownsCtrl',
+                resolve: routeUserChecks.authenticatedAdmin
+            })
+            .when('/admin/town/create', {
+                templateUrl: 'views/partials/admin/create-town.html',
+                controller: 'AdminCreateTownCtrl',
+                resolve: routeUserChecks.authenticatedAdmin
+            })
+            .when('/admin/town/delete/:id/:name', {
+                templateUrl: 'views/partials/admin/delete-town.html',
+                controller: 'AdminDeleteTownCtrl',
+                resolve: routeUserChecks.authenticatedAdmin
+            })
+            .when('/admin/town/edit/:id/:name', {
+                templateUrl: 'views/partials/admin/edit-town.html',
+                controller: 'AdminEditTownCtrl',
                 resolve: routeUserChecks.authenticatedAdmin
             })
             .otherwise({redirectTo: '/'});
@@ -98,5 +138,5 @@ var onlineExchange = angular.module('onlineExchange', ['ngRoute', 'ngResource', 
         })
     })
     .value('toastr', toastr)
-    .constant('baseServiceUrl', 'http://localhost:1337')   //http://softuni-ads.azurewebsites.net
+    .constant('baseServiceUrl', 'http://softuni-ads.azurewebsites.net')   //http://softuni-ads.azurewebsites.net
     .constant('pageSize', 3);

@@ -16,13 +16,28 @@
         <button ng-click="changeImage()" class="button">Change Image</button>
     </p>
     <p>
+        <label for="date">Date:</label>
+        <input datepicker type="text" id="date" ng-model="adData.date" required/>
+    </p>
+
+    <p>
+        <label for="status">Status:</label>
+        <select id="status" ng-model="adData.status" required>
+            <option value="0">Inactive</option>
+            <option value="1">Waiting Approval</option>
+            <option value="2">Published</option>
+            <option value="3">Rejected</option>
+        </select>
+    </p>
+
+    <p>
         <label for="title">Title:</label>
-        <input type="text" id="title" ng-model="adData.title"/>
+        <input type="text" id="title" ng-model="adData.title" required/>
     </p>
 
     <p>
         <label for="text">Text:</label>
-        <textarea class="text-area" id="text" ng-model="adData.text" placeholder="Text"></textarea>
+        <textarea class="text-area" id="text" ng-model="adData.text" placeholder="Text" required></textarea>
     </p>
 
     <p>
@@ -59,7 +74,6 @@
         <label for="phoneNumber">Tel:</label>
         <input type="text" id="phoneNumber" value="{{adData.ownerPhone}}"/>
     </p>
-
 
     <p>
         <button ng-really-message="Are you sure?" ng-really-click="editAd(adData, editAdForm)" class="button">Edit

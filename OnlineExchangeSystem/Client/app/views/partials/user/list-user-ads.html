@@ -2,8 +2,8 @@
     <div ng-include="'views/partials/user/user-navigation.html'" class="nav" ng-cloak></div>
     <div ng-include="'views/partials/status-filter-ads.html'" ng-cloak></div>
 </div>
-<div ng-if="allAds.ads.length">
-    <div ng-repeat="ad in allAds.ads" class="dialog-box">
+<div ng-if="AllData.ads.length">
+    <div ng-repeat="ad in AllData.ads" class="dialog-box">
         <h1>{{ad.title}}</h1>
 
         <img ng-src="{{ad.imageDataUrl}}" alt="No Image"/>
@@ -41,7 +41,7 @@
         </p>
     </div>
 </div>
-<div ng-if="!allAds.ads.length">
+<div ng-if="!AllData.ads.length">
     <h2>No Ads!</h2>
 </div>
-<div ng-if="allAds.ads.length" pager id="pager"></div>
+<div ng-if="AllData.ads.length" pager id="pager"></div>

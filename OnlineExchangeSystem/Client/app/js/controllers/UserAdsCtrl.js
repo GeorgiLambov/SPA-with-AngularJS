@@ -5,13 +5,13 @@ onlineExchange.controller('UserAdsCtrl', ['$scope', '$location', '$route', 'User
         $scope.request = {pageSize: pageSize, startPage: 1};
         $scope.identity = identity;
 
-        $scope.allAds = UserAdsResource.getUserAds($scope.request);
+        $scope.AllData = UserAdsResource.getUserAds($scope.request);
 
         $scope.pageFilter = function (request) {
             UserAdsResource.getUserAds($scope.request)
                 .$promise
                 .then(function (result) {
-                    $scope.allAds = result;
+                    $scope.AllData = result;
                 });
         };
 
@@ -46,7 +46,7 @@ onlineExchange.controller('UserAdsCtrl', ['$scope', '$location', '$route', 'User
             UserAdsResource.getUserAds($scope.request)
                 .$promise
                 .then(function (result) {
-                    $scope.allAds = result;
+                    $scope.AllData = result;
                     notifier.success('Filtered successful!');
                 });
         };

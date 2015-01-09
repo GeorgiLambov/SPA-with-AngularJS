@@ -1,18 +1,15 @@
 'use strict';
 
-onlineExchange.controller('AdminEditUserCtrl', ['$scope', '$location', 'AdminUserResource', 'userAccountService', 'PublicAdsResource', 'notifier', 'identity', 'pageSize',
-    function AdminEditUserCtrl($scope, $location, AdminUserResource, userAccountService, PublicAdsResource, notifier, identity, pageSize) {
+onlineExchange.controller('AdminEditUserCtrl', ['$scope', '$location', '$routeParams', 'AdminUserResource',
+    'userAccountService', 'PublicAdsResource', 'notifier', 'identity', 'pageSize',
+    function AdminEditUserCtrl($scope, $location, $routeParams, AdminUserResource, userAccountService,
+                               PublicAdsResource, notifier, identity, pageSize) {
         $scope.emailPattern = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         $scope.alltowns = PublicAdsResource.getAllTowns();
         $scope.identity = identity;
+        $scope.user = $routeParams.user;
         $scope.user = {isAdmin: false};
 
-        $scope.userData = (function () {
-            userAccountService.userInfo()
-                .then(function (response) {
-                    $scope.user = response;
-                });
-        }());
 
         $scope.editUserProfile = function (user, editProfileForm) {
             if (editProfileForm.$valid) {

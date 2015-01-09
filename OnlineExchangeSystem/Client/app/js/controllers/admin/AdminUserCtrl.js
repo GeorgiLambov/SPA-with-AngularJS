@@ -1,27 +1,36 @@
 'use strict';
 
-onlineExchange.controller('AdminUserCtrl', ['$scope', '$location', 'AdminUserResource', 'PublicAdsResource',
-    'notifier', 'identity', 'pageSize',
-    function AdminUserCtrl($scope, $location, AdminUserResource, PublicAdsResource, notifier, identity, pageSize) {
+onlineExchange.controller('AdminUserCtrl', ['$scope', '$location', '$route', 'AdminUserResource',
+    'notifier', 'identity',
+    function AdminUserCtrl($scope, $location, $route, AdminUserResource, notifier, identity) {
         $scope.request = {SortBy: 'UserName', pageSize: 5, startPage: 1};
         $scope.identity = identity;
 
-        $scope.allUsers = AdminUserResource.getAllUsers($scope.request);
+        $scope.AllData = AdminUserResource.getAllUsers($scope.request);
 
         $scope.pageFilter = function (request) {
-            PublicAdsResource.getAllAds(request)
+            AdminUserResource.getAllUsers(request)
                 .$promise
                 .then(function (result) {
-                    $scope.allAds = result;
+                    $scope.AllData = result;
                 });
         };
 
-        $scope.delete = function (selectedId) {
-            $location.path("/admin/ads/delete/" + selectedId);
+        $scope.delete = function (user) {
+            $location.path("/admin/user/delete/" + user);
         };
 
-        $scope.edit = function (selectedId) {
-            $location.path("/admin/ads/edit/" + selectedId);
+        $scope.edit = function (user) {
+            $location.path("/admin/user/edit/" + user);
+        };
+
+        $scope.sortBy = function () {
+            if ($scope.request.SortBy == 'UserName') {
+                $scope.request.SortBy = '-UserName';
+            } else {
+                $scope.request.SortBy = 'UserName';
+            }
+            $route.reload();
         };
     }
 ])

@@ -1,5 +1,5 @@
-<div ng-if="allAds.ads.length">
-    <div ng-repeat="ad in allAds.ads" class="dialog-box">
+<div ng-if="AllData.ads.length">
+    <div ng-repeat="ad in AllData.ads" class="dialog-box">
         <h1>{{ad.title}}</h1>
 
         <img ng-src="{{ad.imageDataUrl}}" alt="No Image"/>
@@ -43,7 +43,7 @@
         </p>
 
         <p>
-            <label for="Status">Status:</label>
+            <label for="status">Status:</label>
             <input type="text" id="status" value="{{ad.status}}" disabled="disabled"/>
         </p>
 
