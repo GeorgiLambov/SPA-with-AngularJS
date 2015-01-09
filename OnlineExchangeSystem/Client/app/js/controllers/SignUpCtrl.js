@@ -8,7 +8,7 @@ onlineExchange.controller('SignUpCtrl', ['$scope', '$location', 'userAccountServ
 
         $scope.register = function (user, signUpForm) {
             if (signUpForm.$valid) {
-                userAccountService.signup(user).then(function () {
+                userAccountService.signup(user).then(function (success) {
                     notifier.success('Registration successful!');
                     $location.path('/');
                 });

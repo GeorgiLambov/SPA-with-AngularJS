@@ -75,12 +75,12 @@ var onlineExchange = angular.module('onlineExchange', ['ngRoute', 'ngResource', 
                 controller: 'AdminUserCtrl',
                 resolve: routeUserChecks.authenticatedAdmin
             })
-            .when('/admin/user/edit/:user', {
+            .when('/admin/user/edit/:id', {
                 templateUrl: 'views/partials/admin/edit-profile.html',
                 controller: 'AdminEditUserCtrl',
                 resolve: routeUserChecks.authenticatedAdmin
             })
-            .when('/admin/user/delete/:user', {
+            .when('/admin/user/delete/:id', {
                 templateUrl: 'views/partials/admin/delete-profile.html',
                 controller: 'AdminDeleteUserCtrl',
                 resolve: routeUserChecks.authenticatedAdmin
@@ -138,5 +138,7 @@ var onlineExchange = angular.module('onlineExchange', ['ngRoute', 'ngResource', 
         })
     })
     .value('toastr', toastr)
-    .constant('baseServiceUrl', 'http://softuni-ads.azurewebsites.net')   //http://softuni-ads.azurewebsites.net
+    .constant('baseServiceUrl', 'http://softuni-ads.azurewebsites.net')
     .constant('pageSize', 3);
+// http://localhost:1337
+//http:softuni-ads.azurewebsites.net

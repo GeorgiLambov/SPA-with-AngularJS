@@ -17,6 +17,7 @@ onlineExchange.factory('userAccountService', ['$http', '$q', 'identity', 'author
                         }
                     })
 
+
                 return deferred.promise;
             },
             login: function (user) {

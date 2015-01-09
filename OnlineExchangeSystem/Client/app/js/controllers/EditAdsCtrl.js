@@ -25,7 +25,7 @@ onlineExchange.controller('EditAdsCtrl', ['$scope', '$routeParams', '$location',
             if (editAdForm.$valid) {
                 UserAdsResource.editUserAd(adData, selectedId)
                     .$promise
-                    .then(function (result) {
+                    .then(function () {
                         notifier.success('Advertisement edited successfully.');
                         $location.path("/user/ads");
                     });

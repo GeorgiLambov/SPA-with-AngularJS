@@ -5,22 +5,26 @@ onlineExchange.factory('AdminUserResource', ['$resource', 'baseServiceUrl', 'aut
 
         var headers = authorization.getAuthorizationHeader();
 
-        var AdminUserResource = $resource(baseServiceUrl + '/api/admin/users' + ':activate/:id'
+        var AdminUserResource = $resource(baseServiceUrl + '/api/admin/user' + ':fix/:id'
             , null, {
-                'getAll': {method: 'GET', isArray: false, headers: headers},
-                'edit': {method: 'PUT', isArray: false, headers: headers},
-                'delete': {method: 'PUT', isArray: false, headers: headers}
+                'getAll': {method: 'GET', params: {fix: 's'}, isArray: false, headers: headers},
+                'edit': {method: 'PUT', params: {id: '@userName'}, isArray: false, headers: headers},
+                'delete': {method: 'DELETE', params: {id: '@userName'}, isArray: false, headers: headers},
+                'get': {method: 'GET', params: {fix: 's', id: '@id'}, isArray: false, headers: headers}
             });
 
         return {
             getAllUsers: function (request) {
                 return AdminUserResource.getAll(request);
             },
-            editUser: function (user) {
+            editUser: function (user, userName) {
                 return AdminUserResource.edit(user);
             },
-            deleteUser: function (user) {
+            deleteUser: function (user, userName) {
                 return AdminUserResource.delete(user);
+            },
+            getUser: function (id) {
+                return AdminUserResource.get({id: id});
             }
         }
     }]);

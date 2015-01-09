@@ -16,12 +16,12 @@ onlineExchange.controller('AdminUserCtrl', ['$scope', '$location', '$route', 'Ad
                 });
         };
 
-        $scope.delete = function (user) {
-            $location.path("/admin/user/delete/" + user);
+        $scope.delete = function (id) {
+            $location.path("/admin/user/delete/" + id);
         };
 
-        $scope.edit = function (user) {
-            $location.path("/admin/user/edit/" + user);
+        $scope.edit = function (id) {
+            $location.path("/admin/user/edit/" + id);
         };
 
         $scope.sortBy = function () {

@@ -6,24 +6,23 @@
 
     <p>
         <label for="userName">Username:</label>
-        <input type="text" id='userName' value="probata" disabled="disabled"/>
+        <input type="text" id='userName' ng-model="user.userName" disabled="disabled"/>
     </p>
 
     <p>
         <label for="fullName">Full Name:</label>
-        <input type="text" id="fullName" placeholder="{{user.name}}" ng-model="user.name" required/>
+        <input type="text" id="fullName" placeholder="Name" ng-model="user.name" required/>
     </p>
 
     <p>
         <label for="email">E-mail:</label>
-        <input id="email" type="email" placeholder="{{user.email}}" ng-pattern="emailPattern"
-               ng-model="user.email"
+        <input id="email" type="email" placeholder="Email" ng-pattern="emailPattern" ng-model="user.email"
                required/>
     </p>
 
     <p>
         <label for="phone">Phone:</label>
-        <input type="text" id="phone" placeholder="{{user.phoneNumber}}" ng-model="user.phoneNumber" required/>
+        <input type="text" id="phone" placeholder="Phone" ng-model="user.phoneNumber" required/>
     </p>
 
     <p>
@@ -34,12 +33,13 @@
         </select>
     </p>
     <p>
-        <input type="checkbox" ng-model="user.isAdmin">
+        <label for="check">Is Administrator?</label>
+        <input id="check" type="checkbox" ng-model="user.isAdmin">
     </p>
 
     <p class="buttons">
         <button ng-click="editUserProfile(user, editProfileForm)" class="button">Update</button>
-        <a href="#/user/ads" class="link">Cancel</a>
+        <a href="#/admin/users" class="link">Cancel</a>
     </p>
 </form>
 <form name="changePasswordForm" class="form-box">
@@ -67,6 +67,6 @@
                 ng-disabled="pass.newPassword!=pass.confirmPassword"
                 class="button">Change Password
         </button>
-        <a href="#/user/ads" class="link">Cancel</a>
+        <a href="#/admin/users" class="link">Cancel</a>
     </p>
 </form>
