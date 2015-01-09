@@ -138,5 +138,5 @@ var onlineExchange = angular.module('onlineExchange', ['ngRoute', 'ngResource', 
         })
     })
     .value('toastr', toastr)
-    .constant('baseServiceUrl', 'http://softuni-ads.azurewebsites.net')   //http://softuni-ads.azurewebsites.net
+    .constant('baseServiceUrl', 'http://softuni-ads.azurewebsites.net')   //http://softuni-ads.azurewebsites.net   / http://localhost:1337
     .constant('pageSize', 3);

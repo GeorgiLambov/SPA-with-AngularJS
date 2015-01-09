@@ -27,7 +27,7 @@ h1 {
 }
 
 p {
-    margin: 1em 0;
+    margin: .6em 0;
 }
 
 #header {
@@ -56,24 +56,19 @@ p {
 
 #wrapper {
     width: 100%;
+    min-height: 80%;
     margin: .5em auto;
 }
 
 .left-side-menu {
     width: 10%;
     float: left;
-    background: #A9D18E;
-    padding: 0.5em;
-    margin: 0em 0.5em 0.5em;
-    border-radius: 1em;
-    border: 1px solid #507E32;
-    box-shadow: 1px 1px 3px #507E32;
     display: table;
 }
 
 .menu-filter, .nav {
     background: #A9D18E;
-    margin: 1.5em auto;
+    margin: 0 auto .5em .5em;
     border-radius: 1em;
     border: 1px solid #507E32;
     box-shadow: 1px 1px 3px #507E32;
@@ -154,10 +149,6 @@ img {
     padding: 0.2em 0.8em 2em;
     border: 1px solid #70AD47;
     border-radius: 2px;
-}
-
-.dialog-box p {
-    margin: 0.1em 0;
 }
 
 .dialog-box p.buttons {
@@ -282,4 +273,48 @@ hr {
     height: 5em;
     background: #A9D18E;
     text-align: center;
+}
+
+.admin-box {
+    width: 26em;
+    display: inline-block;
+    margin: 0 0.5em 0.5em;
+    background: #A9D18E;
+    padding: 1em;
+    border-radius: 1em;
+    border: 1px solid #507E32;
+    box-shadow: 1px 1px 3px #507E32;
+}
+
+.admin-box h1 {
+    max-width: 20em;
+    max-height: 5em;
+    margin: 0 0 .9em 0;
+    text-align: center;
+    font-size: 1.3em;
+}
+
+.admin-box h1:after {
+    content: ' ';
+    display: block;
+    border: 1px solid #507E32;
+    margin: 0.5em 0 0.5em 0;
+    box-shadow: 1px 1px 3px #507E32;
+}
+
+.admin-box label {
+    display: inline-block;
+    min-width: 6em;
+}
+
+.admin-box input {
+    font-size: 1em;
+    padding: 0.2em;
+    border: 1px solid #70AD47;
+    border-radius: 2px;
+}
+
+.admin-box input:focus {
+    outline: 0;
+    border: 1px solid #3a6c35;
 }

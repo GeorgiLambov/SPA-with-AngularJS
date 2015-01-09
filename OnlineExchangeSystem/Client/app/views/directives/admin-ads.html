@@ -1,15 +1,13 @@
 <div ng-if="AllData.ads.length">
-    <div ng-repeat="ad in AllData.ads" class="dialog-box">
+    <div ng-repeat="ad in AllData.ads" class="admin-box">
         <h1>{{ad.title}}</h1>
 
-        <img ng-src="{{ad.imageDataUrl}}" alt="No Image"/>
-
         <p>
-
-        <p>Date: {{ad.date | date: 'dd-MM-yyyy'}}</p>
-        <label for="text">Text:</label>
-        <textarea id="text" class="text-area" placeholder="{{ad.text}}" disabled="disabled"/>
+            <img ng-src="{{ad.imageDataUrl}}" alt="No Image"/>
+            <textarea id="text" class="text-area" placeholder="{{ad.text}}" disabled="disabled"/>
         </p>
+
+        <p><label>Date:</label> {{ad.date | date: 'dd-MM-yyyy'}}</p>
 
         <p>
             <label for="userName">Username:</label>
