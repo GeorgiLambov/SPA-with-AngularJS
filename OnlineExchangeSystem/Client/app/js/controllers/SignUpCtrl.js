@@ -8,13 +8,9 @@ onlineExchange.controller('SignUpCtrl', ['$scope', '$location', 'userAccountServ
 
         $scope.register = function (user, signUpForm) {
             if (signUpForm.$valid) {
-                userAccountService.signup(user).then(function (success) {
-                    if (success) {
-                        notifier.success('Registration successful!');
-                        $location.path('/');
-                    } else {
-                        notifier.error('Registration due error!');
-                    }
+                userAccountService.signup(user).then(function () {
+                    notifier.success('Registration successful!');
+                    $location.path('/');
                 });
             } else {
                 notifier.error('Username, Password, Full Name, Email and ConfirmPassword are required fields!')

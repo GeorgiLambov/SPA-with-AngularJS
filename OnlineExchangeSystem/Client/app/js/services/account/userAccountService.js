@@ -13,13 +13,9 @@ onlineExchange.factory('userAccountService', ['$http', '$q', 'identity', 'author
                         if (response['access_token']) {
                             identity.setCurrentUser(response);
                             authorization.setAuthorizationHeader(response['access_token']);
-                            deferred.resolve(true);
-                        }
-                        else {
-                            deferred.resolve(false);
+                            deferred.resolve();
                         }
                     })
-                    .error(errorHandler.processError);
 
                 return deferred.promise;
             },
