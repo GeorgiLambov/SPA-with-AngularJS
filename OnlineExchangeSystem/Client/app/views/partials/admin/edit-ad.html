@@ -22,7 +22,7 @@
 
     <p>
         <label for="status">Status:</label>
-        <select id="status" ng-model="adData.status" required>
+        <select id="status" ng-model="adData.status">
             <option value="0">Inactive</option>
             <option value="1">Waiting Approval</option>
             <option value="2">Published</option>
@@ -68,11 +68,6 @@
     <p>
         <label for="email">Email:</label>
         <input type="text" id="email" value="{{adData.ownerEmail}}"/>
-    </p>
-
-    <p>
-        <label for="phoneNumber">Tel:</label>
-        <input type="text" id="phoneNumber" value="{{adData.ownerPhone}}"/>
     </p>
 
     <p>

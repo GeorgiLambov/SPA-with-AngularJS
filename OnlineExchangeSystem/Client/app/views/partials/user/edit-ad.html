@@ -29,14 +29,14 @@
     <p>
         <label for="category">Category:</label>
         <select id="category" ng-model="adData.categoryId">
-            <option value="">(None)</option>
+            <option value="" selected="selected">(None)</option>
             <option ng-repeat="category in categories" value="{{category.id}}">{{category.name}}</option>
         </select>
     </p>
     <p>
         <label for="town">Town:</label>
         <select id="town" ng-model="adData.townId">
-            <option value="">(None)</option>
+            <option value="" selected="selected">(None)</option>
             <option ng-repeat="town in towns" value="{{town.id}}">{{town.name}}</option>
         </select>
     </p>
