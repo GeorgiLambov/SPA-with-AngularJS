@@ -1,9 +1,9 @@
 'use strict';
 
-onlineExchange.controller('AdminUserCtrl', ['$scope', '$location', '$route', 'AdminUserResource',
+onlineExchange.controller('AdminUserCtrl', ['$scope', '$location', 'AdminUserResource',
     'notifier', 'identity',
-    function AdminUserCtrl($scope, $location, $route, AdminUserResource, notifier, identity) {
-        $scope.request = {SortBy: 'UserName', pageSize: 5, startPage: 1};
+    function AdminUserCtrl($scope, $location, AdminUserResource, notifier, identity) {
+        $scope.request = {pageSize: 10, startPage: 1};
         $scope.identity = identity;
 
         $scope.AllData = AdminUserResource.getAllUsers($scope.request);
@@ -30,7 +30,7 @@ onlineExchange.controller('AdminUserCtrl', ['$scope', '$location', '$route', 'Ad
             } else {
                 $scope.request.SortBy = 'UserName';
             }
-            $route.reload();
+            $scope.AllData = AdminUserResource.getAllUsers($scope.request);
         };
     }
 ])

@@ -3,7 +3,7 @@
 onlineExchange.controller('AdminCategoriesCtrl', ['$scope', '$location', '$route', 'AdminCategoriesResource',
     'notifier', 'identity',
     function AdminCategoriesCtrl($scope, $location, $route, AdminCategoriesResource, notifier, identity) {
-        $scope.request = {SortBy: 'Name', pageSize: 10, startPage: 1};
+        $scope.request = {SortBy: 'Id', pageSize: 10, startPage: 1};
         $scope.identity = identity;
         $scope.AllData = AdminCategoriesResource.getAll($scope.request);
 
@@ -23,14 +23,23 @@ onlineExchange.controller('AdminCategoriesCtrl', ['$scope', '$location', '$route
             $location.path("/admin/category/edit/" + category.id + '/' + category.username);
         };
 
-        $scope.sortBy = function () {
-            if ($scope.request.SortBy == 'UserName') {  //todo
-                $scope.request.SortBy = '-UserName';
+        $scope.sortByName = function () {
+            if ($scope.request.SortBy == 'Name') {
+                $scope.request.SortBy = '-Name';
             } else {
-                $scope.request.SortBy = 'UserName';
+                $scope.request.SortBy = 'Name';
             }
-            $route.reload();
+            $scope.AllData = AdminCategoriesResource.getAll($scope.request);
         };
+
+        $scope.sortById = function () {
+            if ($scope.request.SortBy == 'Id') {
+                $scope.request.SortBy = '-Id';
+            } else {
+                $scope.request.SortBy = 'Id';
+            }
+            $scope.AllData = AdminCategoriesResource.getAll($scope.request);
+        }
     }
 ])
 

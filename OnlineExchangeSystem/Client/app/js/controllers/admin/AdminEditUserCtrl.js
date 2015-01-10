@@ -9,7 +9,7 @@ onlineExchange.controller('AdminEditUserCtrl', ['$scope', '$location', '$routePa
         $scope.identity = identity;
         var selectedId = $routeParams.id;
         $scope.user = AdminUserResource.getUser(selectedId);
-
+        $scope.user.isAdmin = false;
 
         $scope.editUserProfile = function (user, editProfileForm) {
             if (editProfileForm.$valid) {
@@ -27,15 +27,13 @@ onlineExchange.controller('AdminEditUserCtrl', ['$scope', '$location', '$routePa
 
         $scope.changeUserPasswords = function (pass, changePasswordForm) {
             if (changePasswordForm.$valid) {
-                userAccountService.changePassword(pass)
-                    .then(function (success) {
-                        if (success) {
-                            notifier.success('Change passwords successful!');
-                            $scope.changePasswordForm.$setPristine();
-                            $location.path('/user/ads');
-                        } else {
-                            notifier.error('Change password due error!');
-                        }
+                pass.username = $scope.user.userName;
+                AdminUserResource.setPassword(pass)
+                    .$promise
+                    .then(function () {
+                        notifier.success('Change passwords successful!');
+                        $scope.changePasswordForm.$setPristine();
+                        $location.path('/admin/users');
                     })
             } else {
                 notifier.error('All password fields are required!')

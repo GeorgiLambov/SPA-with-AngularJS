@@ -11,12 +11,12 @@
 
     <p>
         <label for="title">Title:</label>
-        <input type="text" id="title" placeholder="{{adData.title}}" disabled/>
+        <input type="text" id="title" placeholder="{{adData.title}}" disabled="disabled"/>
     </p>
 
     <p>
         <label for="text">Text:</label>
-        <textarea class="text-area" id="text" placeholder="{{adData.text}}"></textarea>
+        <textarea class="text-area" id="text" placeholder="{{adData.text}}" disabled="disabled"></textarea>
     </p>
 
     <p>
@@ -41,12 +41,12 @@
 
     <p>
         <label for="category">Category:</label>
-        <input type="category" placeholder="{{adData.categoryName}}" disabled>
+        <input id="category" type="text" value="{{adData.categoryName}}" disabled="disabled">
     </p>
 
     <p>
         <label for="town">Town:</label>
-        <input type="town" placeholder="{{adData.townName}}" disabled>
+        <input id="town" type="text" value="{{adData.townName}}" disabled="disabled">
     </p>
 
     <p>

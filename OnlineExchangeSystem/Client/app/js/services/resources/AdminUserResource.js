@@ -13,6 +13,11 @@ onlineExchange.factory('AdminUserResource', ['$resource', 'baseServiceUrl', 'aut
                 'get': {method: 'GET', params: {fix: 's', id: '@id'}, isArray: false, headers: headers}
             });
 
+        var AdminPasswordResource = $resource(baseServiceUrl + '/api/admin/SetPassword'
+            , null, {
+                'setPassword': {method: 'PUT', isArray: false, headers: headers}
+            });
+
         return {
             getAllUsers: function (request) {
                 return AdminUserResource.getAll(request);
@@ -25,6 +30,9 @@ onlineExchange.factory('AdminUserResource', ['$resource', 'baseServiceUrl', 'aut
             },
             getUser: function (id) {
                 return AdminUserResource.get({id: id});
+            },
+            setPassword: function (datePassword) {
+                return AdminPasswordResource.setPassword(datePassword);
             }
         }
     }]);

@@ -23,9 +23,23 @@ onlineExchange.controller('AdminTownsCtrl', ['$scope', '$location', '$route', 'A
             $location.path("/admin/town/edit/" + town.id + '/' + town.username);
         };
 
-        $scope.sortBy = function () {
-            //todo
+        $scope.sortByName = function () {
+            if ($scope.request.SortBy == 'Name') {
+                $scope.request.SortBy = '-Name';
+            } else {
+                $scope.request.SortBy = 'Name';
+            }
+            $scope.AllData = AdminTownsResource.getAll($scope.request);
         };
+
+        $scope.sortById = function () {
+            if ($scope.request.SortBy == 'Id') {
+                $scope.request.SortBy = '-Id';
+            } else {
+                $scope.request.SortBy = 'Id';
+            }
+            $scope.AllData = AdminTownsResource.getAll($scope.request);
+        }
     }
 ])
 
